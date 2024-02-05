@@ -1,18 +1,10 @@
-// Navbar.js
 import React, { useState } from 'react';
 import { FaSearch, FaUser, FaShoppingBasket } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  Menu,
-  MenuItem,
-  Button,
-  IconButton,
-  Typography,
-  ListItemIcon,
-} from '@mui/material';
+import { Menu, MenuItem, Button, Typography, ListItemIcon } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const Navbar = ({ hasDummyProfile, categories, setSelectedCategory }) => {
+const Navbar = ({ hasDummyProfile, categories }) => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -25,10 +17,11 @@ const Navbar = ({ hasDummyProfile, categories, setSelectedCategory }) => {
   };
 
   const handleCategoryClick = (category) => {
-    // Set the selected category
-    setSelectedCategory(category === 'All' ? null : category);
+    console.log(`Clicked on category: ${category}`);
+    navigate(`/${encodeURIComponent(category.toLowerCase())}`);
     handleMenuClose();
   };
+
 
   const handleAccountClick = () => {
     if (hasDummyProfile) {
@@ -57,7 +50,7 @@ const Navbar = ({ hasDummyProfile, categories, setSelectedCategory }) => {
               onClick={handleMenuOpen}
               startIcon={<ExpandMoreIcon />}
               variant="text"
-              style={{ color: 'white' }}
+              style={{ color: 'white', fontWeight: 'bold' }}
             >
               Categories
             </Button>
@@ -71,21 +64,21 @@ const Navbar = ({ hasDummyProfile, categories, setSelectedCategory }) => {
                   <ListItemIcon>
                     {/* You can add icons for each category if needed */}
                   </ListItemIcon>
-                  <Typography variant="inherit">{category}</Typography>
+                  <Typography variant="inherit" style={{ marginLeft: '8px' }}>{category}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </div>
-          <div style={{ marginRight: '20px' }}>
-            <input type="text" placeholder="Keresés" style={{ padding: '8px', border: 'none', borderRadius: '5px', fontSize: '14px' }} />
+          <div style={{ marginRight: '20px', display: 'flex', alignItems: 'center' }}>
+            <input type="text" placeholder="Keresés" style={{ padding: '8px', border: 'none', borderRadius: '5px', fontSize: '14px', marginRight: '8px' }} />
             <button style={{ fontSize: '1.2rem', backgroundColor: '#555', border: 'none', color: 'white', borderRadius: '5px', padding: '8px', cursor: 'pointer' }}>
               <FaSearch />
             </button>
           </div>
-          <div style={{ marginLeft: '20px', cursor: 'pointer' }} onClick={handleAccountClick}>
+          <div style={{ marginLeft: '20px', cursor: 'pointer', fontWeight: 'bold' }} onClick={handleAccountClick}>
             Fiók <FaUser />
           </div>
-          <div style={{ marginLeft: '20px', cursor: 'pointer' }}>
+          <div style={{ marginLeft: '20px', cursor: 'pointer', fontWeight: 'bold' }}>
             <Link to="/cart" style={{ color: 'white', textDecoration: 'none' }}>
               Kosár <FaShoppingBasket />
             </Link>

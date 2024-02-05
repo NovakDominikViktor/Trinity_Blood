@@ -3,10 +3,10 @@ import { Typography, Container, Box, Link } from '@mui/material';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer style={{ backgroundColor: '#f8f9fa', padding: '20px 0' }}>
       <Container maxWidth="md">
         <Box mt={5}>
-          <Typography variant="h6" align="center" gutterBottom>
+          <Typography variant="h6" align="center" gutterBottom style={{ color: '#007bff' }}>
             Awesome Store
           </Typography>
           <Typography variant="subtitle1" align="center" color="text.secondary">
@@ -14,19 +14,19 @@ const Footer = () => {
           </Typography>
         </Box>
         <Box mt={3} textAlign="center">
-          <Link color="inherit" href="#home">
+          <Link color="inherit" href="#home" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             Home
           </Link>{' '}
           |{' '}
-          <Link color="inherit" href="#products">
+          <Link color="inherit" href="#products" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             Products
           </Link>{' '}
           |{' '}
-          <Link color="inherit" href="#about">
+          <Link color="inherit" href="#about" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             About Us
           </Link>{' '}
           |{' '}
-          <Link color="inherit" href="#contact">
+          <Link color="inherit" href="#contact" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             Contact
           </Link>
         </Box>

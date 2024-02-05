@@ -1,20 +1,20 @@
 import React from 'react';
-import {Button,Card,CardContent,Container,Divider,Grid,List,ListItem,ListItemText,Typography,IconButton,Box,Link,Paper,} from '@mui/material';
+import { Button, Card, CardContent, Container, Divider, Grid, List, ListItem, ListItemText, Typography, IconButton, Box, Link, Paper } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { NavLink } from 'react-router-dom';
 
 const Cart = () => {
 
-  
   // Dummy product data (replace this with your actual data)
   const products = [
-    { id: 1, name: 'Product 1', price: 22.99, quantity: 1 },
+    { id: 1, name: 'Termék 1', price: 22.99, quantity: 1 },
   ];
 
   const removeProduct = (productId) => {
     // Implement your logic to remove the product from the cart
-    console.log(`Remove product with ID: ${productId}`);
+    console.log(`Termék eltávolítva azonosítóval: ${productId}`);
   };
+
   const calculateTotal = () => {
     return products.reduce((total, product) => {
       const productPrice = product.price || 0; // Use 0 if product.price is undefined
@@ -29,7 +29,7 @@ const Cart = () => {
           {products.length > 0 ? (
             <Grid container spacing={2}>
               <Grid item xs={12} md={8}>
-                <Paper elevation={3} style={{ padding: '16px' }}>
+                <Paper style={{ padding: '16px' }}>
                   <List>
                     {products.map((product) => (
                       <React.Fragment key={product.id}>
@@ -49,7 +49,7 @@ const Cart = () => {
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4}>
-                <Paper elevation={3} style={{ padding: '16px' }}>
+                <Paper style={{ padding: '16px' }}>
                   <Box textAlign="right">
                     <Typography variant="h6">Fizetés</Typography>
                     <Typography variant="subtitle1">
@@ -114,8 +114,6 @@ const Cart = () => {
             </Box>
           )}
         </CardContent>
-        {/* Other card content sections remain unchanged */}
-        {/* ... */}
       </Card>
     </Container>
   );

@@ -1,5 +1,8 @@
+// Account.jsx
 import React, { useState } from 'react';
-import {Avatar,Box,Button,Container,CssBaseline,Grid,Paper,Tab,Tabs,TextField,Typography,} from '@mui/material';
+import {
+  Avatar, Box, Button, Container, CssBaseline, Grid, Paper, Tab, Tabs, TextField, Typography
+} from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,27 +16,20 @@ const dummyProfile = {
 const Account = () => {
   const navigate = useNavigate();
   const [currentTab, setCurrentTab] = useState(0);
-
-  const handleChangeTab = (event, newValue) => {
-    setCurrentTab(newValue);
-  };
-
-  const handleDeleteAccount = () => {
-  
-    console.log('Account deleted!');
-  };
-
-  const handleNavigateToSignUp = () => {
-    navigate('/account-sign-up');
-  };
-
-
   const [editedProfile, setEditedProfile] = useState({
     firstName: dummyProfile.firstName,
     lastName: dummyProfile.lastName,
     email: dummyProfile.email,
     profilePic: dummyProfile.profilePic,
   });
+
+  const handleChangeTab = (event, newValue) => setCurrentTab(newValue);
+
+  const handleDeleteAccount = () => {
+    console.log('Profil törölve!');
+  };
+
+  const handleNavigateToSignUp = () => navigate('/account-sign-up');
 
   const handleEditProfileChange = (field, value) => {
     setEditedProfile((prevProfile) => ({
@@ -59,8 +55,7 @@ const Account = () => {
   };
 
   const handleSaveProfileChanges = () => {
-    // Implement logic to save the edited profile information
-    console.log('Profile changes saved:', editedProfile);
+    console.log('Profil változások elmentve:', editedProfile);
   };
 
   return (
@@ -68,33 +63,29 @@ const Account = () => {
       <CssBaseline />
       <Paper elevation={3} square>
         <Box p={3} display="flex" flexDirection="column" alignItems="center">
-          <Avatar src={editedProfile.profilePic} alt="Profile" />
-          <input
-            type="file"
-            accept="image/*"
-            id="profilePicInput"
-            style={{ display: 'none' }}
-            onChange={handleProfilePicChange}
-          />
+          <Avatar src={editedProfile.profilePic} alt="Profil" sx={{ width: 80, height: 80 }} />
+          <input type="file" accept="image/*" id="profilePicInput" style={{ display: 'none' }} onChange={handleProfilePicChange} />
           <label htmlFor="profilePicInput">
-            <Button variant="outlined" component="span">
+            <Button variant="outlined" component="span" sx={{ mt: 2 }}>
               Profilkép beállítása
             </Button>
           </label>
-          <Typography variant="h5">Profilom</Typography>
-          <Tabs value={currentTab} indicatorColor="primary" textColor="primary" onChange={handleChangeTab} variant="fullWidth">
-            <Tab label="My Profile" />
-            <Tab label="Edit Profile" />
-            <Tab label="Delete Account" />
+          <Typography variant="h5" sx={{ mt: 2 }}>
+            Profilom
+          </Typography>
+          <Tabs value={currentTab} indicatorColor="primary" textColor="primary" onChange={handleChangeTab} variant="fullWidth" sx={{ mt: 2 }}>
+            <Tab label="Profilom" />
+            <Tab label="Profil szerkesztése" />
+            <Tab label="Profil törlése" />
           </Tabs>
           {currentTab === 0 && (
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{ mt: 2 }}>
               <Grid item xs={12}>
                 <Typography variant="h6">Személyes információ</Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="body1">
-                  <strong>Kereszt Név:</strong> {editedProfile.firstName}
+                  <strong>Keresztnév:</strong> {editedProfile.firstName}
                 </Typography>
               </Grid>
               <Grid item xs={12}>
@@ -110,14 +101,14 @@ const Account = () => {
             </Grid>
           )}
           {currentTab === 1 && (
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{ mt: 2 }}>
               <Grid item xs={12}>
-                <Typography variant="h6">Edit Profile</Typography>
+                <Typography variant="h6">Profil szerkesztése</Typography>
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="First Name"
+                  label="Keresztnév"
                   value={editedProfile.firstName}
                   onChange={(e) => handleEditProfileChange('firstName', e.target.value)}
                 />
@@ -125,7 +116,7 @@ const Account = () => {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Last Name"
+                  label="Vezetéknév"
                   value={editedProfile.lastName}
                   onChange={(e) => handleEditProfileChange('lastName', e.target.value)}
                 />
@@ -146,7 +137,7 @@ const Account = () => {
             </Grid>
           )}
           {currentTab === 2 && (
-            <Box>
+            <Box sx={{ mt: 2 }}>
               <Typography variant="body1">
                 Biztos törölni akarod a profilodat? Ez végleges meg izé!
               </Typography>
@@ -156,7 +147,7 @@ const Account = () => {
             </Box>
           )}
           {currentTab === 0 && (
-            <Button variant="contained" color="primary" onClick={handleNavigateToSignUp}>
+            <Button variant="contained" color="primary" onClick={handleNavigateToSignUp} sx={{ mt: 2 }}>
               Kijelentkezés
             </Button>
           )}
