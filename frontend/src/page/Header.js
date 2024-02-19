@@ -1,91 +1,73 @@
 import React, { useState } from 'react';
-import { FaSearch, FaUser, FaShoppingBasket } from 'react-icons/fa';
+import { FaSearch, FaShoppingBasket } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, MenuItem, Button, Typography, ListItemIcon } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem } from '@mui/material';
+
 
 const Navbar = ({ hasDummyProfile, categories }) => {
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchAnchorEl, setSearchAnchorEl] = useState(null);
 
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleSearchButtonClick = (event) => {
+    setSearchAnchorEl(event.currentTarget);
+    setSearchOpen(!searchOpen);
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
+  const handleSearchClose = () => {
+    setSearchOpen(false);
   };
 
-  const handleCategoryClick = (category) => {
-    console.log(`Clicked on category: ${category}`);
+  const handleCategorySelect = (category) => {
     navigate(`/${encodeURIComponent(category.toLowerCase())}`);
-    handleMenuClose();
-  };
-
-
-  const handleAccountClick = () => {
-    if (hasDummyProfile) {
-      navigate('/account-sign-up');
-    } else {
-      navigate('/account');
-    }
-    handleMenuClose();
   };
 
   return (
-    <div style={{ backgroundColor: '#333', padding: '15px', color: 'white', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div>
-          <Link to="/">
-            <img
-              src="https://cdn.ebaumsworld.com/mediaFiles/picture/1151541/84693449.png"
-              alt="Logo"
-              style={{ width: '50px', height: '50px', borderRadius: '50%' }}
-            />
-          </Link>
+    <AppBar position="static" style={{ backgroundColor: '#f2f2f2', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>
+      <Toolbar>
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Typography variant="h6" style={{ marginLeft: '20px', fontWeight: 'bold', color: '#333' }}>
+            Logo
+          </Typography>
+        </Link>
+        <div style={{ flexGrow: 1 }}>
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant="text"
+              color="inherit"
+              onClick={() => handleCategorySelect(category)}
+              style={{ color: '#333' }}
+            >
+              {category}
+            </Button>
+          ))}
         </div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ marginLeft: '20px' }}>
-            <Button
-              onClick={handleMenuOpen}
-              startIcon={<ExpandMoreIcon />}
-              variant="text"
-              style={{ color: 'white', fontWeight: 'bold' }}
-            >
-              Categories
-            </Button>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleMenuClose}
-            >
-              {categories.map((category) => (
-                <MenuItem key={category} onClick={() => handleCategoryClick(category)}>
-                  <ListItemIcon>
-                    {/* You can add icons for each category if needed */}
-                  </ListItemIcon>
-                  <Typography variant="inherit" style={{ marginLeft: '8px' }}>{category}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </div>
-          <div style={{ marginRight: '20px', display: 'flex', alignItems: 'center' }}>
-            <input type="text" placeholder="Keresés" style={{ padding: '8px', border: 'none', borderRadius: '5px', fontSize: '14px', marginRight: '8px' }} />
-            <button style={{ fontSize: '1.2rem', backgroundColor: '#555', border: 'none', color: 'white', borderRadius: '5px', padding: '8px', cursor: 'pointer' }}>
-              <FaSearch />
-            </button>
-          </div>
-          <div style={{ marginLeft: '20px', cursor: 'pointer', fontWeight: 'bold' }} onClick={handleAccountClick}>
-            Fiók <FaUser />
-          </div>
-          <div style={{ marginLeft: '20px', cursor: 'pointer', fontWeight: 'bold' }}>
-            <Link to="/cart" style={{ color: 'white', textDecoration: 'none' }}>
-              Kosár <FaShoppingBasket />
-            </Link>
-          </div>
+          <IconButton onClick={handleSearchButtonClick}>
+            <FaSearch />
+          </IconButton>
+          <Menu
+            id="search-menu"
+            anchorEl={searchAnchorEl}
+            open={searchOpen}
+            onClose={handleSearchClose}
+          >
+            <MenuItem>
+              <InputBase
+                placeholder="Search..."
+                style={{ padding: '8px', border: 'none', borderRadius: '5px', fontSize: '14px' }}
+              />
+              <Button style={{ marginLeft: '10px' }}>Search</Button>
+            </MenuItem>
+          </Menu>
+          <IconButton component={Link} to="/cart">
+            <FaShoppingBasket />
+          </IconButton>
         </div>
-      </div>
-    </div>
+       
+      </Toolbar>
+    </AppBar>
   );
 };
 

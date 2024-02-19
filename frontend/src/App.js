@@ -9,6 +9,7 @@ import AccountSigning from './page/AccountSigning';
 import Cart from './page/Cart';
 import ProceedWithPayment from './page/ProceedWithPayment';
 import ProductDetail from './page/ProductSinglePage';
+import AccountMenu from './page/AccountMenu';
 
 function App() {
   const products = [
@@ -29,6 +30,7 @@ function App() {
   return (
     <Router>
       <div>
+        <AccountMenu />
         <Header categories={categories} />
         <Routes>
           <Route path="/" element={<Home products={products} />} />

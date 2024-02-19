@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Container, Typography, Box, Grid, TextField, FormControlLabel, Checkbox, Button, Link } from '@mui/material';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -18,23 +10,16 @@ const SignIn = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Replace the following logic with your actual login check
-    // For simplicity, I'm using a hardcoded check for demo purposes
-    const isLoginSuccessful = email === 'dummy@example.com' && password === 'password';
+    // Itt helyezd el a bejelentkezési logikát
 
-    if (isLoginSuccessful) {
-      // Navigate to the account page upon successful login
-      navigate('/account');
-    } else {
-      // Handle incorrect credentials (e.g., show an error message)
-      console.log('Incorrect credentials');
-    }
+    // Példa:
+    // navigate('/account');
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container maxWidth="xs">
       <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" gutterBottom style={{ color: '#333' }}>
           Belépés
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -65,13 +50,14 @@ const SignIn = () => {
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Emlékezz rám"
+            style={{ color: '#333' }}
           />
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: '#fff' }}>
             Belépés
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link component={RouterLink} to="#" variant="body2" style={{ color: '#333' }}>
                 Elfelejtetted a jelszavad?
               </Link>
             </Grid>
