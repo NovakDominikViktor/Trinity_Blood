@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\novak\\Desktop\\Ikt\\AtuhenticateApi\\Backend\\Backend.csproj": {}
+    "C:\\Users\\novak\\Desktop\\Trinity_Blood\\AtuhenticateApi\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\novak\\Desktop\\Ikt\\AtuhenticateApi\\Backend\\Backend.csproj": {
+    "C:\\Users\\novak\\Desktop\\Trinity_Blood\\AtuhenticateApi\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\novak\\Desktop\\Ikt\\AtuhenticateApi\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\AtuhenticateApi\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\novak\\Desktop\\Ikt\\AtuhenticateApi\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\AtuhenticateApi\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\novak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\novak\\Desktop\\Ikt\\AtuhenticateApi\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\AtuhenticateApi\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -64,7 +64,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

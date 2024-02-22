@@ -4,8 +4,11 @@ using AtuhenticateApi.Models;
 using AtuhenticateApi.Services;
 using AtuhenticateApi.Services.IServices;
 using Grade.Auth.Service.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace AtuhenticateApi
 {
@@ -14,6 +17,8 @@ namespace AtuhenticateApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             {
@@ -26,7 +31,42 @@ namespace AtuhenticateApi
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "auth-api",
+                    ValidAudience = "auth-client",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your-secret-key-here"))
+                };
+            });
+
+            builder.Services.AddAuthorization();
+
             // Add services to the container.
+
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                                      policy =>
+                                      {
+                                          policy.WithOrigins("*")
+                                                                .AllowAnyHeader()
+                                                                .AllowAnyMethod()
+                                                                .AllowAnyOrigin();
+                                      });
+            });
 
             builder.Services.AddControllers();
 
@@ -49,6 +89,8 @@ namespace AtuhenticateApi
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 

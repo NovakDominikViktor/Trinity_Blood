@@ -14,6 +14,20 @@ namespace Backend
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                                      policy =>
+                                      {
+                                          policy.WithOrigins("*")
+                                                                .AllowAnyHeader()
+                                                                .AllowAnyMethod()
+                                                                .AllowAnyOrigin();
+                                      });
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -26,7 +40,7 @@ namespace Backend
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.MapControllers();
 

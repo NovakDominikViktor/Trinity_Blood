@@ -3214,11 +3214,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\novak\\Desktop\\Ikt\\AtuhenticateApi\\AtuhenticateApi\\AtuhenticateApi.csproj",
+      "projectUniqueName": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\AtuhenticateApi\\AtuhenticateApi\\AtuhenticateApi.csproj",
       "projectName": "AtuhenticateApi",
-      "projectPath": "C:\\Users\\novak\\Desktop\\Ikt\\AtuhenticateApi\\AtuhenticateApi\\AtuhenticateApi.csproj",
+      "projectPath": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\AtuhenticateApi\\AtuhenticateApi\\AtuhenticateApi.csproj",
       "packagesPath": "C:\\Users\\novak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\novak\\Desktop\\Ikt\\AtuhenticateApi\\AtuhenticateApi\\obj\\",
+      "outputPath": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\AtuhenticateApi\\AtuhenticateApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
