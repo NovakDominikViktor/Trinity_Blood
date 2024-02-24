@@ -1,5 +1,4 @@
-// App.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './page/Header';
 import Home from './page/Home';
@@ -18,8 +17,7 @@ function App() {
     // Add more products as needed
   ];
 
-
-  
+  const [token, setToken] = useState(localStorage.getItem('token'));
 
   const addToCart = (product) => {
     console.log(`Add to cart: ${product.name}`);
@@ -30,7 +28,7 @@ function App() {
   return (
     <Router>
       <div>
-        <AccountMenu />
+        <AccountMenu token={token} />
         <Header categories={categories} />
         <Routes>
           <Route path="/" element={<Home products={products} />} />
@@ -42,7 +40,7 @@ function App() {
               element={<Category categoryName={category} products={products} />}
             />
           ))}
-          <Route path="/account" element={<Account />} />
+          <Route path="/account" element={<Account token={token} />} />
           <Route path="/account-sign-up" element={<AccountSigning />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/proceed-payment" element={<ProceedWithPayment />} />

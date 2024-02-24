@@ -1,13 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSearch, FaShoppingBasket } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem } from '@mui/material';
+import axios from 'axios';
 
-
-const Navbar = ({ hasDummyProfile, categories }) => {
+const Navbar = () => {
   const navigate = useNavigate();
+  const [categories, setCategories] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchAnchorEl, setSearchAnchorEl] = useState(null);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('http://localhost:5098/api/Category');
+        setCategories(response.data);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   const handleSearchButtonClick = (event) => {
     setSearchAnchorEl(event.currentTarget);
@@ -33,13 +47,13 @@ const Navbar = ({ hasDummyProfile, categories }) => {
         <div style={{ flexGrow: 1 }}>
           {categories.map((category) => (
             <Button
-              key={category}
+              key={category.id}
               variant="text"
               color="inherit"
-              onClick={() => handleCategorySelect(category)}
+              onClick={() => handleCategorySelect(category.name)}
               style={{ color: '#333' }}
             >
-              {category}
+              {category.name}
             </Button>
           ))}
         </div>

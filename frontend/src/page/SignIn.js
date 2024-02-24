@@ -7,13 +7,31 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Itt helyezd el a bejelentkezési logikát
-
-    // Példa:
-    // navigate('/account');
+    try {
+      const response = await fetch('http://localhost:5098/api/Auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('token', data.token); // Token mentése a localStorage-be
+        navigate('/account');
+      } else {
+        console.error('Failed to sign in');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (

@@ -9,7 +9,7 @@ const AuthenticationPage = () => {
     <Box display="flex" flexDirection="row" alignItems="center">
       <SignIn/>
       <Divider orientation="vertical" flexItem />
-      <SignUp />
+      <SignUp/>
     </Box>
   );
 };

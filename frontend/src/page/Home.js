@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid, Typography, Container } from '@mui/material';
 import ProductCard from '../component/ProductCard';
 import Footer from './Footer';
 
 const Home = ({ products, selectedCategory }) => {
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
   // Filter products based on the selected category
-  const filteredProducts = selectedCategory
-    ? products.filter((product) => product.category === selectedCategory)
-    : products;
+  useEffect(() => {
+    if (selectedCategory) {
+      const filtered = products.filter((product) => product.category === selectedCategory);
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts(products);
+    }
+  }, [selectedCategory, products]);
 
   return (
     <Container>

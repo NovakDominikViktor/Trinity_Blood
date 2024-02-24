@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
             transition: 'transform 0.3s ease',
           }}
         >
-          <Button variant="contained"  style={{ width: '100%', borderRadius: 0, backgroundColor: '#000',color: '#fff', padding: '8px 16px', opacity: 0.8 }}>
+          <Button variant="contained" style={{ width: '100%', borderRadius: 0, backgroundColor: '#000', color: '#fff', padding: '8px 16px', opacity: 0.8 }}>
             Add to Cart
           </Button>
         </CardActions>

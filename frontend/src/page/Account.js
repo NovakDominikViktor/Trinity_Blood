@@ -1,33 +1,44 @@
-// Account.jsx
-import React, { useState } from 'react';
-import {
-  Avatar, Box, Button, Container, CssBaseline, Grid, Paper, Tab, Tabs, TextField, Typography
-} from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Avatar, Box, Button, Container, CssBaseline, Grid, Paper, Tab, Tabs, TextField, Typography } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useNavigate } from 'react-router-dom';
-
-const dummyProfile = {
-  firstName: 'John',
-  lastName: 'Doe',
-  email: 'john.doe@example.com',
-  profilePic: 'https://via.placeholder.com/150', // Placeholder image URL
-};
+import { jwtDecode } from 'jwt-decode'; // Importáljuk a jwt_decode függvényt a tokendekódoláshoz
+import DeleteProfile from '../component/DeleteProfile'; // Importáljuk a törlés gomb komponenst
+import PutProfile from '../component/PutProfile'; // Importáljuk a PutProfile komponenst
 
 const Account = () => {
   const navigate = useNavigate();
   const [currentTab, setCurrentTab] = useState(0);
-  const [editedProfile, setEditedProfile] = useState({
-    firstName: dummyProfile.firstName,
-    lastName: dummyProfile.lastName,
-    email: dummyProfile.email,
-    profilePic: dummyProfile.profilePic,
-  });
+  const [editedProfile, setEditedProfile] = useState(null);
+  const jwt_decode = jwtDecode;
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const decodedToken = jwt_decode(token); // Token dekódolása
+        const userId = decodedToken.sub; // Felhasználó azonosítójának meghatározása a dekódolt tokentől
+
+        const response = await fetch(`http://localhost:5098/api/User/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        if (response.ok) {
+          const userData = await response.json();
+          setEditedProfile(userData);
+        } else {
+          console.error('Failed to fetch user data:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleChangeTab = (event, newValue) => setCurrentTab(newValue);
-
-  const handleDeleteAccount = () => {
-    console.log('Profil törölve!');
-  };
 
   const handleNavigateToSignUp = () => navigate('/account-sign-up');
 
@@ -54,16 +65,14 @@ const Account = () => {
     }
   };
 
-  const handleSaveProfileChanges = () => {
-    console.log('Profil változások elmentve:', editedProfile);
-  };
+  
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Paper elevation={3} square>
         <Box p={3} display="flex" flexDirection="column" alignItems="center">
-          <Avatar src={editedProfile.profilePic} alt="Profil" sx={{ width: 80, height: 80 }} />
+          <Avatar src={editedProfile?.profilePic} alt="Profil" sx={{ width: 80, height: 80 }} />
           <input type="file" accept="image/*" id="profilePicInput" style={{ display: 'none' }} onChange={handleProfilePicChange} />
           <label htmlFor="profilePicInput">
             <Button variant="outlined" component="span" sx={{ mt: 2 }}>
@@ -78,7 +87,7 @@ const Account = () => {
             <Tab label="Profil szerkesztése" />
             <Tab label="Profil törlése" />
           </Tabs>
-          {currentTab === 0 && (
+          {currentTab === 0 && editedProfile && (
             <Grid container spacing={2} sx={{ mt: 2 }}>
               <Grid item xs={12}>
                 <Typography variant="h6">Személyes információ</Typography>
@@ -100,7 +109,7 @@ const Account = () => {
               </Grid>
             </Grid>
           )}
-          {currentTab === 1 && (
+          {currentTab === 1 && editedProfile && (
             <Grid container spacing={2} sx={{ mt: 2 }}>
               <Grid item xs={12}>
                 <Typography variant="h6">Profil szerkesztése</Typography>
@@ -130,26 +139,12 @@ const Account = () => {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button variant="contained" color="primary" onClick={handleSaveProfileChanges}>
-                  Változtatások Mentése
-                </Button>
+                <PutProfile userId={editedProfile?.id}  editedProfile={editedProfile}/>
               </Grid>
             </Grid>
           )}
           {currentTab === 2 && (
-            <Box sx={{ mt: 2 }}>
-              <Typography variant="body1">
-                Biztos törölni akarod a profilodat? Ez végleges meg izé!
-              </Typography>
-              <Button variant="contained" color="error" onClick={handleDeleteAccount}>
-                Profil Törlése
-              </Button>
-            </Box>
-          )}
-          {currentTab === 0 && (
-            <Button variant="contained" color="primary" onClick={handleNavigateToSignUp} sx={{ mt: 2 }}>
-              Kijelentkezés
-            </Button>
+            <DeleteProfile userId={editedProfile?.id} />
           )}
         </Box>
       </Paper>
