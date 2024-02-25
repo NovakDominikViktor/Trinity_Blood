@@ -1,20 +1,60 @@
 import React, { useState } from 'react';
 import { Button, Card, CardContent, Container, Divider, Typography, Box, TextField, Grid } from '@mui/material';
 
-const ProceedWithPayment = ({ onPaymentSuccess }) => {
-  const [address, setAddress] = useState('123 Main St');
-  const [city, setCity] = useState('Anytown');
-  const [state, setState] = useState('CA');
-  const [zipCode, setZipCode] = useState('12345');
-  const [phoneNumber, setPhoneNumber] = useState('555-555-5555');
+const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
-  const handlePayment = () => {
-    // Simulate payment processing
-    setTimeout(() => {
-      // Callback to inform the parent component about successful payment
-      onPaymentSuccess();
-    }, 1500);
+  const calculateTotal = () => {
+    return products.reduce((total, product) => {
+      const productPrice = product.price || 0;
+      const productQuantity = product.quantity || 1;
+      return total + productPrice * productQuantity;
+    }, 0);
   };
+
+  const handlePayment = async () => {
+    const orderData = {
+      UserId: userId,
+      User: {},
+      Products: products.map(product => ({
+        ProductId: product.id,
+        Quantity: product.quantity,
+        Product: {}
+      })),
+      TotalPrice: calculateTotal(),
+      OrderStatus: 'pending',
+      Address: address,
+      OrderDate: new Date().toISOString(),
+      City: city,
+      PhoneNumber: phoneNumber,
+      ZipCode: zipCode
+    };
+  
+    console.log('Order data:', orderData);
+  
+    try {
+      const response = await fetch('http://localhost:5098/api/Order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+      });
+  
+      const responseData = await response.json();
+  
+      console.log('Payment response:', responseData);
+  
+      onPaymentSuccess();
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  
+  
 
   return (
     <Container>
@@ -23,7 +63,7 @@ const ProceedWithPayment = ({ onPaymentSuccess }) => {
           <Box textAlign="center" p={3}>
             <Typography variant="h5">Proceed with Payment</Typography>
             <Divider style={{ margin: '12px 0' }} />
-            <Typography variant="subtitle1">Your total amount: $50.99</Typography>
+            <Typography variant="subtitle1">Your total amount: ${calculateTotal().toFixed(2)}</Typography>
             <Divider style={{ margin: '12px 0' }} />
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -46,16 +86,7 @@ const ProceedWithPayment = ({ onPaymentSuccess }) => {
                   onChange={(e) => setCity(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="State"
-                  variant="outlined"
-                  fullWidth
-                  margin="normal"
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
-                />
-              </Grid>
+              
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="ZIP Code"

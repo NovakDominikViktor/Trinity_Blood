@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "lzBYFJxrCPgtjEbwceHnmoj9LdlJUNCIAxsxYRwIpJA=",
-  "Source": "AtuhenticateApi",
-  "BasePath": "_content/AtuhenticateApi",
+  "Hash": "7/yvsnDRTixX0vVer35KSjS1HzfM4rGxA/gc1emwSdw=",
+  "Source": "backend",
+  "BasePath": "_content/backend",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

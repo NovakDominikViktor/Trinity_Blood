@@ -12,7 +12,7 @@ const PutProfile = ({ userId, editedProfile }) => {
           firstName: editedProfile.firstName,
           lastName: editedProfile.lastName,
           email: editedProfile.email,
-          // Ide add hozzá azokat a mezőket, amelyeket változtattál
+          
         }),
         headers: {
           'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, Typography, Button, CardActions } from '@mui/material';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, addToCart }) => {
   const defaultImage = 'defaultImage.jpg';
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -13,6 +13,12 @@ const ProductCard = ({ product }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
+
+  console.log('Product:', product); // Console log hozzáadása
 
   return (
     <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -38,7 +44,7 @@ const ProductCard = ({ product }) => {
             transition: 'transform 0.3s ease',
           }}
         >
-          <Button variant="contained" style={{ width: '100%', borderRadius: 0, backgroundColor: '#000', color: '#fff', padding: '8px 16px', opacity: 0.8 }}>
+          <Button variant="contained" onClick={handleAddToCart} style={{ width: '100%', borderRadius: 0, backgroundColor: '#000', color: '#fff', padding: '8px 16px', opacity: 0.8 }}>
             Add to Cart
           </Button>
         </CardActions>

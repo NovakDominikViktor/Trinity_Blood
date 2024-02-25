@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Typography, Button, Card, CardContent, CardMedia, Container, Grid, TextField } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -24,19 +24,19 @@ const StarRating = ({ rating, onChangeRating }) => {
   );
 };
 
-const ProductDetail = ({ products, addToCart }) => {
+const ProductSinglePage = ({ products, addToCart }) => {
   const { productId } = useParams();
   const product = products.find((p) => p.id === parseInt(productId));
-  const [rating, setRating] = React.useState(3); // Initial rating (you can get it from your product data)
-  const [quantity, setQuantity] = React.useState(1);
+  const [rating, setRating] = useState(3);
+  const [quantity, setQuantity] = useState(1);
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <div>Termék nem található</div>;
   }
 
   const handleAddToCart = () => {
-    addToCart(product, quantity);
-    alert(`${product.name} added to the cart with a rating of ${rating} stars and ${quantity} quantity!`);
+    addToCart(product, quantity); // A `quantity` érték átadása is
+    alert(`${product.name} hozzáadva a kosárhoz: ${quantity} darab, ${rating} csillaggal!`);
   };
 
   const handleRatingChange = (newRating) => {
@@ -57,7 +57,7 @@ const ProductDetail = ({ products, addToCart }) => {
           component="img"
           alt={product.name}
           height="300"
-          image="/path/to/your/image.jpg" // Replace with the actual path to your image
+          image={product.imageUrl || 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
           style={{ objectFit: 'cover', width: '40%' }}
         />
         <CardContent sx={{ width: '60%' }}>
@@ -65,13 +65,13 @@ const ProductDetail = ({ products, addToCart }) => {
             {product.name}
           </Typography>
           <Typography variant="h6" align="center" color="text.secondary">
-            Price: ${product.price.toFixed(2)}
+            Ár: ${product.price.toFixed(2)}
           </Typography>
           <Typography variant="body1" align="center" paragraph>
-            {product.description || 'No description available for this product.'}
+            {product.description || 'Nincs leírás elérhető erre a termékre.'}
           </Typography>
           <TextField
-            label="Quantity"
+            label="Mennyiség"
             type="number"
             value={quantity}
             onChange={handleQuantityChange}
@@ -82,7 +82,7 @@ const ProductDetail = ({ products, addToCart }) => {
           </Grid>
           <Grid container justifyContent="center">
             <Button variant="contained" color="primary" onClick={handleAddToCart} sx={{ mt: 2, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}>
-              Add to Cart
+              Kosárba
             </Button>
           </Grid>
         </CardContent>
@@ -91,4 +91,4 @@ const ProductDetail = ({ products, addToCart }) => {
   );
 };
 
-export default ProductDetail;
+export default ProductSinglePage;

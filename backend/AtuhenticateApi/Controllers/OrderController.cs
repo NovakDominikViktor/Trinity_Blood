@@ -94,16 +94,15 @@ namespace backend.Controllers
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
             var existingUser = await _context.Users.FindAsync(order.UserId);
-            if (existingUser != null)
+            var existingProduct = await _context.Products.FindAsync(order.ProductId);
+
+            if (existingUser == null || existingProduct == null)
             {
-                order.User = existingUser;
+                return BadRequest("The user or product does not exist.");
             }
 
-            var existingProduct = await _context.Products.FindAsync(order.ProductId);
-            if (existingProduct != null)
-            {
-                order.Product = existingProduct;
-            }
+            order.User = existingUser;
+            order.Product = existingProduct;
 
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();

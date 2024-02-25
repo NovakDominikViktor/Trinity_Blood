@@ -28,7 +28,7 @@ namespace backend.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
 
-        public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers([FromHeader(Name = "Authorization")] string token)
+        public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()
         {
             var users = await _context.AppUsers
                 .Select(u => new UserDto

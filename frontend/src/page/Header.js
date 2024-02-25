@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem } from '@mui/material';
 import axios from 'axios';
 
-const Navbar = () => {
+const Navbar = ({ onCategoryClick }) => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -33,9 +33,10 @@ const Navbar = () => {
   };
 
   const handleCategorySelect = (category) => {
-    navigate(`/${encodeURIComponent(category.toLowerCase())}`);
+    onCategoryClick(category.name); // Kategória nevének átadása a szülőnek
+    navigate(`/category/${encodeURIComponent(category.name.toLowerCase())}`); // Kategória nevének átalakítása és navigálás
   };
-
+  
   return (
     <AppBar position="static" style={{ backgroundColor: '#f2f2f2', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>
       <Toolbar>
@@ -50,7 +51,7 @@ const Navbar = () => {
               key={category.id}
               variant="text"
               color="inherit"
-              onClick={() => handleCategorySelect(category.name)}
+              onClick={() => handleCategorySelect(category)}
               style={{ color: '#333' }}
             >
               {category.name}
@@ -79,7 +80,6 @@ const Navbar = () => {
             <FaShoppingBasket />
           </IconButton>
         </div>
-       
       </Toolbar>
     </AppBar>
   );

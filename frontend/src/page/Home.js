@@ -1,43 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Grid, Typography, Container } from '@mui/material';
+import React from 'react';
+import { Grid } from '@mui/material';
 import ProductCard from '../component/ProductCard';
-import Footer from './Footer';
 
-const Home = ({ products, selectedCategory }) => {
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  // Filter products based on the selected category
-  useEffect(() => {
-    if (selectedCategory) {
-      const filtered = products.filter((product) => product.category === selectedCategory);
-      setFilteredProducts(filtered);
-    } else {
-      setFilteredProducts(products);
-    }
-  }, [selectedCategory, products]);
-
+const Home = ({ products }) => {
   return (
-    <Container>
-      <Typography variant="h4" align="center" style={{ margin: '20px 0' }}>
-        Explore Our Products
-      </Typography>
-      <Grid container spacing={3}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-              <ProductCard product={product} />
-            </Grid>
-          ))
-        ) : (
-          <Grid item xs={12}>
-            <Typography variant="h6" align="center">
-              No products found in the selected category.
-            </Typography>
-          </Grid>
-        )}
-      </Grid>
-      <Footer />
-    </Container>
+    <Grid container spacing={3}>
+      {products.map(product => (
+        <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+          <ProductCard product={product} />
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
