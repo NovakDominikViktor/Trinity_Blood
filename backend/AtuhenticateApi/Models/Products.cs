@@ -14,6 +14,10 @@
 
         public int CategoryId { get; set; }
 
+        public string PictureUrl { get; set; }
+
+        public int StrogeStock {  get; set; }
+
         public Category Category { get; set; }
     }
 }
