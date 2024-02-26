@@ -23,7 +23,7 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Comment>>> GetComments()
         {
-            return await _context.Comments.Include(c => c.Product).ToListAsync();
+            return await _context.Comments.ToListAsync();
         }
 
         // GET: api/Comment/5
@@ -35,35 +35,20 @@ namespace backend.Controllers
             if (comment == null)
             {
                 return NotFound();
-                
             }
 
             return comment;
         }
 
-        // POST: api/Comment
         [HttpPost]
         public async Task<ActionResult<Comment>> PostComment(Comment comment)
         {
-            var existingUser = await _context.Users.FindAsync(comment.UserId);
-            if (existingUser != null)
-            {
-                comment.User = existingUser;
-            }
-
-            var existingProduct = await _context.Products.FindAsync(comment.ProductId);
-            if (existingProduct != null)
-            {
-                comment.Product = existingProduct;
-            }
-
             _context.Comments.Add(comment);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetComment), new { id = comment.Id }, comment);
         }
 
-        // PUT: api/Comment/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutComment(int id, Comment comment)
         {
@@ -86,7 +71,8 @@ namespace backend.Controllers
             return NoContent();
         }
 
-        
+
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteComment(int id)
         {
@@ -100,6 +86,13 @@ namespace backend.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        [HttpGet("ByProduct/{productId}")]
+        public async Task<ActionResult<IEnumerable<Comment>>> GetCommentsByProduct(int productId)
+        {
+            var comments = await _context.Comments.Where(c => c.ProductId == productId).ToListAsync();
+            return comments;
         }
     }
 }

@@ -9,8 +9,8 @@
         public string Comments { get; set; }
         public DateTime ReviewDate { get; set; } 
 
-        public ApplicationUser User { get; set; }
-        public Products Product { get; set; }
+        //public ApplicationUser User { get; set; }
+        //public Products Product { get; set; }
     }
 
 }

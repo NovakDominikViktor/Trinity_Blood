@@ -3,6 +3,8 @@ import { Typography, Button, Card, CardContent, CardMedia, Container, Grid, Text
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { useParams } from 'react-router-dom';
+import CommentForm from '../component/Comment';
+import CommentList from '../component/CommentList';
 
 const StarRating = ({ rating, onChangeRating }) => {
   const maxRating = 5;
@@ -51,6 +53,7 @@ const ProductSinglePage = ({ products, addToCart }) => {
   };
 
   return (
+    <div>
     <Container maxWidth="md" sx={{ display: 'flex', alignItems: 'center', mt: 4 }}>
       <Card sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
         <CardMedia
@@ -87,7 +90,18 @@ const ProductSinglePage = ({ products, addToCart }) => {
           </Grid>
         </CardContent>
       </Card>
+      
     </Container>
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        <CommentForm productId={productId} />
+      </div>
+
+      <div style={{ marginTop: '20px' }}>
+        {/* CommentList komponens */}
+        <CommentList productId={productId} />
+      </div>
+    </div>
+    
   );
 };
 
