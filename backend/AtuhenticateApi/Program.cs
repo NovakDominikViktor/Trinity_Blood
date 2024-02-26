@@ -8,12 +8,28 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Net.Mail;
 using System.Text;
 
 namespace backend
 {
     public class Program
     {
+        public static void SendMail(string mailAddressTo, string subject, string body)
+        {
+            MailMessage mail = new MailMessage();
+            SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+            mail.From = new MailAddress("nagysohajok@gmail.com");
+            mail.To.Add(mailAddressTo);
+            mail.Subject = subject;
+            mail.Body = body;
+            //smtpServer.Credentials = new System.Net.NetworkCredential("tesztlevelkuldo@kkszki.hu", "Balazska-1234");
+            smtpServer.Credentials = new System.Net.NetworkCredential("nagysohajok@gmail.com", "gxyqbiwlkighzipx ");
+
+            smtpServer.Port = 587;
+            smtpServer.EnableSsl = true;
+            smtpServer.Send(mail);
+        }
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -64,7 +80,7 @@ namespace backend
                                           policy.WithOrigins("*")
                                                                 .AllowAnyHeader()
                                                                 .AllowAnyMethod()
-                                                                .AllowAnyOrigin();
+                                                                .AllowAnyOrigin().Build();
                                       });
             });
 
@@ -95,7 +111,7 @@ namespace backend
             app.UseAuthorization();
 
             app.MapControllers();
-
+            SendMail("kovacsd3@kkszki.hu", "Matka", "Sanyi");
             app.Run();
         }
     }
