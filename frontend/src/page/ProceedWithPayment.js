@@ -16,43 +16,43 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
   };
 
   const handlePayment = async () => {
-    const orderData = {
-      UserId: userId,
-      User: {},
-      Products: products.map(product => ({
-        ProductId: product.id,
-        Quantity: product.quantity,
-        Product: {}
-      })),
-      TotalPrice: calculateTotal(),
-      OrderStatus: 'pending',
-      Address: address,
-      OrderDate: new Date().toISOString(),
-      City: city,
-      PhoneNumber: phoneNumber,
-      ZipCode: zipCode
-    };
-  
-    console.log('Order data:', orderData);
-  
     try {
-      const response = await fetch('http://localhost:5098/api/Order', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(orderData)
-      });
+      for (const product of products) {
+        const orderData = {
+          UserId: userId,
+          productId: product.id,
+          address: address,
+          quantity: product.quantity,
+          city: city,
+          zipCode: zipCode,
+          phoneNumber: phoneNumber,
+          orderDate: new Date().toISOString(),
+          orderStatus: 'pending',
+          totalPrice: product.price * product.quantity
+        };
   
-      const responseData = await response.json();
+        console.log('Order data:', orderData);
   
-      console.log('Payment response:', responseData);
+        const response = await fetch('http://localhost:5098/api/Order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(orderData)
+        });
+  
+        const responseData = await response.json();
+  
+        console.log('Payment response:', responseData);
+      }
   
       onPaymentSuccess();
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  
+  
   
   
 

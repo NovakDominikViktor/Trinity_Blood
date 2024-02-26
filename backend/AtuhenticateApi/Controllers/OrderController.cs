@@ -29,25 +29,11 @@ namespace backend.Controllers
             {
                 // User részleteinek lekérése
                 var user = await _context.Users.FindAsync(order.UserId);
-                if (user != null)
-                {
-                    order.User = new ApplicationUser
-                    {
-                        FirstName = user.FirstName,
-                        LastName = user.LastName,
-                        Email = user.Email
-                    };
-                }
+                
 
                 // Product részleteinek lekérése
                 var product = await _context.Products.FindAsync(order.ProductId);
-                if (product != null)
-                {
-                    order.Product = new Products
-                    {
-                        Name = product.Name
-                    };
-                }
+               
             }
 
             return orders;
@@ -66,49 +52,42 @@ namespace backend.Controllers
 
             // User részleteinek lekérése
             var user = await _context.Users.FindAsync(order.UserId);
-            if (user != null)
-            {
-                order.User = new ApplicationUser
-                {
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Email = user.Email
-                };
-            }
+           
 
             // Product részleteinek lekérése
             var product = await _context.Products.FindAsync(order.ProductId);
-            if (product != null)
-            {
-                order.Product = new Products
-                {
-                    Name = product.Name
-                };
-            }
+            
 
             return order;
         }
 
-        // POST: api/Order
+
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
-            var existingUser = await _context.Users.FindAsync(order.UserId);
-            var existingProduct = await _context.Products.FindAsync(order.ProductId);
-
-            if (existingUser == null || existingProduct == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest("The user or product does not exist.");
+                return BadRequest(ModelState);
             }
 
-            order.User = existingUser;
-            order.Product = existingProduct;
+            // További ellenőrzések, pl. hogy létezik-e a megadott felhasználó és termék
 
-            _context.Orders.Add(order);
-            await _context.SaveChangesAsync();
+            try
+            {
+                // Rendelés mentése az adatbázisba
+                _context.Orders.Add(order);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
+                return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
+
+
+
 
         // PUT: api/Order/5
         [HttpPut("{id}")]

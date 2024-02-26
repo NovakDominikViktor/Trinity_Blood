@@ -9,7 +9,7 @@ import ProceedWithPayment from './page/ProceedWithPayment';
 import ProductDetail from './page/ProductSinglePage';
 import AccountMenu from './page/AccountMenu';
 import Category from './component/Category'; // Importáljuk a Category komponenst
-
+import Footer from './page/Footer';
 function App() {
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -78,6 +78,7 @@ function App() {
          <Route path="/category/:categoryName" element={<Category products={products} />}/>
 
         </Routes>
+        <Footer/>
       </div>
     </Router>
   );

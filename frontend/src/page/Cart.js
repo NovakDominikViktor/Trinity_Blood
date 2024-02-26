@@ -105,17 +105,21 @@ const Cart = ({ products }) => {
                     </Typography>
                     <Divider />
                     <NavLink
-                      to="/proceed-payment"
-                      style={{ textDecoration: 'none' }}
-                    >
-                      <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                      >
-                        Fizetés
-                      </Button>
-                    </NavLink>
+  to={{
+    pathname: "/proceed-payment",
+    state: { products: filteredProducts } // Átadja a szűrt termékeket a ProceedWithPayment komponensnek
+  }}
+  style={{ textDecoration: 'none' }}
+>
+  <Button
+    type="submit"
+    fullWidth
+    variant="contained"
+  >
+    Fizetés
+  </Button>
+</NavLink>
+
                   </CardContent>
                 </Card>
               </Grid>
