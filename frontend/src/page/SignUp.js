@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Avatar, Button, CssBaseline, TextField, Grid, Box, Typography, Container } from '@mui/material';
 import { LockOutlined as LockOutlinedIcon } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const theme = createTheme();
 
 const SignUp = () => {
+  const [message, setMessage] = useState('');
+
   const handleSubmit = async (event) => {
     event.preventDefault();
   
@@ -13,8 +17,15 @@ const SignUp = () => {
       firstName: event.target.firstName.value,
       lastName: event.target.lastName.value,
       email: event.target.email.value,
-      password: event.target.password.value
+      password: event.target.password.value,
+      confirmPassword: event.target.confirmPassword.value
     };
+  
+    if (formData.password !== formData.confirmPassword) {
+      console.error('A két jelszó nem egyezik');
+      toast.error('A két jelszó nem egyezik');
+      return;
+    }
   
     try {
       const response = await fetch('http://localhost:5098/api/Auth/register', {
@@ -24,17 +35,26 @@ const SignUp = () => {
         },
         body: JSON.stringify(formData)
       });
-  
+    
       if (response.ok) {
         console.log('Registration successful');
-        // Sikeres regisztráció esetén átirányítás a bejelentkezési oldalra vagy egy másik megfelelő oldalra
+        toast.success('Regisztráció sikeres');
       } else {
         console.error('Registration failed:', response.statusText);
+        const responseBody = await response.text(); // Szöveges formátumban kapjuk az üzenetet
+        const errorMessage = responseBody || 'Hiba történt a regisztráció során';
+        console.error(errorMessage);
+        setMessage(errorMessage);
+        toast.error(errorMessage);
       }
     } catch (error) {
       console.error('Error:', error);
+      const errorMessage = 'Hiba történt a regisztráció során';
+      setMessage(errorMessage);
+      toast.error(errorMessage);
     }
   };
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -71,6 +91,9 @@ const SignUp = () => {
           </Box>
         </Box>
       </Container>
+      {message && (
+        <ToastContainer />
+      )}
     </ThemeProvider>
   );
 }
