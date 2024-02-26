@@ -17,6 +17,7 @@ function App() {
   const [addedToCart, setAddedToCart] = useState([]);
   const [userId, setUserId] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -61,9 +62,9 @@ function App() {
     <Router>
       <div>
         <AccountMenu token={token} />
-        <Header onCategoryClick={setSelectedCategory}  />
+        <Header onCategoryClick={setSelectedCategory}  setSearchTerm={setSearchTerm} />
         <Routes>
-          <Route path="/" element={<Home products={products} />} />
+          <Route path="/" element={<Home products={products} searchTerm={searchTerm} />} />
           <Route path="/product/:productId" element={<ProductDetail products={products} addToCart={addToCart} />} />
           <Route path="/account" element={<Account token={token} />} />
           <Route path="/account-sign-up" element={<AccountSigning />} />

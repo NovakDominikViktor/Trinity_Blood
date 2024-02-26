@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem } from '@mui/material';
 import axios from 'axios';
 
-const Navbar = ({ onCategoryClick }) => {
+const Navbar = ({ onCategoryClick, setSearchTerm }) => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -24,7 +24,7 @@ const Navbar = ({ onCategoryClick }) => {
   }, []);
 
   const handleSearchButtonClick = (event) => {
-    setSearchAnchorEl(event.currentTarget);
+    setSearchAnchorEl(event.currentTarget); // Állítsd be az anchorEl-t a kattintott gombra
     setSearchOpen(!searchOpen);
   };
 
@@ -32,11 +32,17 @@ const Navbar = ({ onCategoryClick }) => {
     setSearchOpen(false);
   };
 
-  const handleCategorySelect = (category) => {
-    onCategoryClick(category.name); // Kategória nevének átadása a szülőnek
-    navigate(`/category/${encodeURIComponent(category.name.toLowerCase())}`); // Kategória nevének átalakítása és navigálás
+  const handleSearchChange = (event) => {
+    const searchQuery = event.target.value.toLowerCase();
+    setSearchTerm(searchQuery); // Teljes keresőszó átadása
   };
   
+
+  const handleCategorySelect = (category) => {
+    onCategoryClick(category.name);
+    navigate(`/category/${encodeURIComponent(category.name.toLowerCase())}`);
+  };
+
   return (
     <AppBar position="static" style={{ backgroundColor: '#f2f2f2', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>
       <Toolbar>
@@ -72,8 +78,9 @@ const Navbar = ({ onCategoryClick }) => {
               <InputBase
                 placeholder="Search..."
                 style={{ padding: '8px', border: 'none', borderRadius: '5px', fontSize: '14px' }}
+                onChange={handleSearchChange}
               />
-              <Button style={{ marginLeft: '10px' }}>Search</Button>
+              <Button style={{ marginLeft: '10px' }} onClick={handleSearchClose}>Search</Button>
             </MenuItem>
           </Menu>
           <IconButton component={Link} to="/cart">
