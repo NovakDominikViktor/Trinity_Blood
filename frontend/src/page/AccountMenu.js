@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Button, Menu, MenuItem } from '@mui/material';
 import { FaUser } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import {jwtDecode} from 'jwt-decode';
 
-const AccountMenu = ({ userProfile }) => {
+const AccountMenu = ({ onLogout }) => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
+  const token = localStorage.getItem('token');
+  const userProfile = token ? jwtDecode(token).name : null;
 
   const handleAccountClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -21,15 +24,22 @@ const AccountMenu = ({ userProfile }) => {
     handleAccountClose();
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/', { replace: true });
+    onLogout();
+    handleAccountClose();
+  };
+
   return (
-    <>
+    <div>
       <Button
         onClick={handleAccountClick}
         startIcon={<FaUser />}
         variant="text"
         color="inherit"
       >
-        My Account
+        {userProfile || 'My Account'}
       </Button>
       <Menu
         id="account-menu"
@@ -37,11 +47,18 @@ const AccountMenu = ({ userProfile }) => {
         open={Boolean(anchorEl)}
         onClose={handleAccountClose}
       >
-        <MenuItem onClick={handleAccountSelect}>
-          {userProfile ? 'Sign In' : 'Sign Up'}
-        </MenuItem>
+        {[ 
+          userProfile ? (
+            <>
+              <MenuItem onClick={handleAccountSelect}>Edit Profile</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            </>
+          ) : (
+            <MenuItem onClick={handleAccountSelect}>Sign Up</MenuItem>
+          )
+        ]}
       </Menu>
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
+import { Box, Typography, TextareaAutosize, Button, Rating, Modal } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 
@@ -8,6 +9,7 @@ const CommentForm = ({ productId }) => {
   const [commentText, setCommentText] = useState('');
   const [userId, setUserId] = useState('');
   const [rating, setRating] = useState(0);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -26,6 +28,11 @@ const CommentForm = ({ productId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if (!userId) {
+        // Ha nincs bejelentkezve, megjelenítjük a bejelentkezési ablakot
+        setShowLoginModal(true);
+        return;
+      }
       // Elküldjük a kommentet a szerverre
       const commentData = {
         productId: productId,
@@ -46,33 +53,49 @@ const CommentForm = ({ productId }) => {
     }
   };
 
-  // Csillagok megjelenítése
-  const stars = Array.from({ length: 5 }, (_, index) => (
-    <span key={index} onClick={() => handleStarClick(index + 1)} style={{ cursor: 'pointer' }}>
-      {index < rating ? <StarIcon fontSize="large" style={{ color: '#ff9800' }} /> : <StarBorderIcon fontSize="large" style={{ color: '#ff9800' }} />}
-    </span>
-  ));
+  const handleLoginModalClose = () => {
+    setShowLoginModal(false);
+  };
 
   return (
-    <div>
-      <h3>Add a Comment</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Rating: {stars}</label>
-        </div>
-        <br />
-        <textarea
-          value={commentText}
-          onChange={(e) => setCommentText(e.target.value)}
-          placeholder="Write your comment here..."
-          rows="4"
-          cols="50"
-          required
+    <Box>
+      <Typography variant="h6" gutterBottom>
+        Add a Comment
+      </Typography>
+      <Box display="flex" alignItems="center" mb={2}>
+        <Typography component="legend">Rating:</Typography>
+        <Rating
+          name="rating"
+          value={rating}
+          onChange={(event, newValue) => setRating(newValue)}
+          icon={<StarIcon fontSize="inherit" />}
+          emptyIcon={<StarBorderIcon fontSize="inherit" />}
         />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+      </Box>
+      <TextareaAutosize
+        value={commentText}
+        onChange={(e) => setCommentText(e.target.value)}
+        placeholder="Write your comment here..."
+        rowsMin={4}
+        style={{ width: '100%', marginBottom: '1rem' }}
+        required
+      />
+      <Button variant="contained" color="primary" onClick={handleSubmit}>
+        Submit
+      </Button>
+      <Modal open={showLoginModal} onClose={handleLoginModalClose}>
+        <Box sx={{ width: 300, bgcolor: 'background.paper', border: '2px solid #000', p: 2, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Please Log In
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            You need to log in to submit a comment.
+          </Typography>
+          
+          
+        </Box>
+      </Modal>
+    </Box>
   );
 };
 

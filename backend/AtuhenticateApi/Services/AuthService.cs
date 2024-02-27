@@ -70,7 +70,7 @@ public class AuthService : IAuth
     {
         if (string.IsNullOrEmpty(registerRequestDto.FirstName))
         {
-            return "First name is required."; 
+            return "First name is required.";
         }
 
         var user = new ApplicationUser
@@ -87,6 +87,15 @@ public class AuthService : IAuth
 
         if (result.Succeeded)
         {
+            // Add default role to the user
+            var defaultRole = "USER"; // Define your default role here
+            if (!await _roleManager.RoleExistsAsync(defaultRole))
+            {
+                await _roleManager.CreateAsync(new IdentityRole(defaultRole));
+            }
+
+            await _userManager.AddToRoleAsync(user, defaultRole);
+
             return "";
         }
         else
@@ -94,6 +103,7 @@ public class AuthService : IAuth
             return result.Errors.FirstOrDefault()?.Description ?? "Error Encountered!";
         }
     }
+
 
 
 }

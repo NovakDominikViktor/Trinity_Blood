@@ -61,7 +61,8 @@ function App() {
   return (
     <Router>
       <div>
-        <AccountMenu token={token} />
+      <AccountMenu userProfile={token} onLogout={() => setToken(null)} />
+
         <Header onCategoryClick={setSelectedCategory}  setSearchTerm={setSearchTerm} />
         <Routes>
           <Route path="/" element={<Home products={products} searchTerm={searchTerm} />} />
@@ -76,6 +77,7 @@ function App() {
             path="/proceed-payment"
             element={<ProceedWithPayment userId={userId} products={cartItems.filter(item => addedToCart.includes(item.id))} onPaymentSuccess={() => console.log('Payment successful')} />}
           />
+          
          <Route path="/category/:categoryName" element={<Category products={products} />}/>
 
         </Routes>

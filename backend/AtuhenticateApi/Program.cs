@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
 using System.Net.Mail;
 using System.Text;
 
@@ -34,8 +36,6 @@ namespace backend
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
-
             builder.Services.AddDbContext<AppDbContext>(option =>
             {
                 var connectionString = builder.Configuration.GetConnectionString("MySql");
@@ -54,21 +54,24 @@ namespace backend
             })
             .AddJwtBearer(options =>
             {
+                var settingsSection = builder.Configuration.GetSection("AuthSettings:JwtOptions");
+                var token = settingsSection.GetValue<string>("Secret");
+                var issuer = settingsSection.GetValue<string>("Issuer");
+                var audience = settingsSection.GetValue<string>("Audience");
+                var key = Encoding.ASCII.GetBytes(token);
+
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "auth-api",
-                    ValidAudience = "auth-client",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your-secret-key-here"))
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = true,
+                    ValidIssuer = issuer,
+                    ValidAudience = audience,
+                    ValidateAudience = true
                 };
             });
 
             builder.Services.AddAuthorization();
-
-            // Add services to the container.
 
             var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -80,7 +83,7 @@ namespace backend
                                           policy.WithOrigins("*")
                                                                 .AllowAnyHeader()
                                                                 .AllowAnyMethod()
-                                                                .AllowAnyOrigin().Build();
+                                                                .AllowAnyOrigin();
                                       });
             });
 
@@ -89,13 +92,20 @@ namespace backend
             builder.Services.AddScoped<IAuth, AuthService>();
             builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey
+                });
+                options.OperationFilter<SecurityRequirementsOperationFilter>();
+            });
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -111,7 +121,7 @@ namespace backend
             app.UseAuthorization();
 
             app.MapControllers();
-            SendMail("kovacsd3@kkszki.hu", "Matka", "Sanyi");
+
             app.Run();
         }
     }

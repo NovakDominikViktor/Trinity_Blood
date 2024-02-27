@@ -26,7 +26,7 @@ namespace backend.Controllers
 
         // GET: api/People
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [Authorize(Roles = "ADMIN")]
 
         public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()
         {

@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 
-const DeleteProfileButton = ({ userId }) => { // Az azonosítót props-ként adjuk át a komponensnek
+const DeleteProfileButton = ({ userId }) => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const handleDeleteProfile = async () => {
     try {
-      // Hívj egy API végpontot a felhasználó profiljának törlésére
-      const response = await fetch(`http://localhost:5098/api/User/${userId}`, { // Az azonosítót beillesztjük az URL-be
+      const response = await fetch(`http://localhost:5098/api/User/${userId}`, {
         method: 'DELETE',
-        // Egyéb szükséges adatok a törléshez, például a felhasználó azonosítója vagy tokenje
       });
-      
+
       if (response.ok) {
-        // Ha a törlés sikeres, navigálj az "account-sign-up" oldalra
         navigate('/account-sign-up');
       } else {
         console.error('Failed to delete profile');
@@ -23,8 +22,37 @@ const DeleteProfileButton = ({ userId }) => { // Az azonosítót props-ként adj
     }
   };
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleConfirmDelete = () => {
+    handleDeleteProfile();
+    handleClose();
+  };
+
   return (
-    <button onClick={handleDeleteProfile}>Profil törlése</button>
+    <div>
+      <Button variant="contained" color="error" onClick={handleClickOpen}>
+        Profil törlése
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Biztosan törölni szeretnéd a profilt?</DialogTitle>
+        <DialogContent>
+          A profil törlésével minden kapcsolódó adat véglegesen elveszik.
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Mégse</Button>
+          <Button onClick={handleConfirmDelete} autoFocus>
+            Törlés
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
   );
 };
 
