@@ -91,7 +91,7 @@ const ProductSinglePage = ({ products, addToCart }) => {
             component="img"
             alt={product && product.name} // Ellenőrizzük, hogy a product létezik-e
             height="300"
-            image={product ? product.PictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
+            image={product.pictureUrl ? product.pictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
             style={{ objectFit: 'cover', width: '40%' }}
           />
           <CardContent sx={{ width: '60%' }}>
