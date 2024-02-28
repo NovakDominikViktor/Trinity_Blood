@@ -34,8 +34,16 @@ const AccountMenu = ({ userProfile, setToken, setUserId }) => {
   };
 
   const handleAccountSelect = () => {
-    // Átirányítás a regisztrációs oldalra (/account-sign-up)
+    // Átirányítás az "Account" oldalra (/account)
     navigate('/account');
+  
+    // Menü bezárása
+    handleAccountClose();
+  };
+
+  const handleSignUp = () => {
+    // Átirányítás az "Account Signing" oldalra (/account-signing)
+    navigate('/account-sign-up');
   
     // Menü bezárása
     handleAccountClose();
@@ -43,10 +51,12 @@ const AccountMenu = ({ userProfile, setToken, setUserId }) => {
 
   // Decode the userProfile token
   let decodedToken = null;
-  try {
-    decodedToken = jwtDecode(userProfile);
-  } catch (error) {
-    console.error('Invalid token:', error);
+  if (userProfile) {
+    try {
+      decodedToken = jwtDecode(userProfile);
+    } catch (error) {
+      console.error('Invalid token:', error);
+    }
   }
 
   // Button szövegének beállítása a felhasználó nevére, ha van userProfile
@@ -70,7 +80,7 @@ const AccountMenu = ({ userProfile, setToken, setUserId }) => {
       >
         {decodedToken && <MenuItem onClick={handleAccountSelect}>Account</MenuItem>}
         {decodedToken && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
-        {!decodedToken && <MenuItem onClick={handleAccountSelect}>Sign Up</MenuItem>}
+        {!decodedToken && <MenuItem onClick={handleSignUp}>Sign Up</MenuItem>}
       </Menu>
     </>
   );

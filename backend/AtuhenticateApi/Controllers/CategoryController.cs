@@ -1,5 +1,6 @@
 ﻿using backend.Datas;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +28,7 @@ namespace backend.Controllers
             return await _context.Categories.ToListAsync();
         }
 
- 
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Category>> GetCategory(int id)
         {
@@ -40,8 +41,9 @@ namespace backend.Controllers
 
             return category;
         }
-
+        
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<Category>> CreateCategory(Category category)
         {
             _context.Categories.Add(category);
@@ -52,6 +54,7 @@ namespace backend.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> UpdateCategory(int id, Category category)
         {
             if (id != category.Id)
@@ -75,6 +78,7 @@ namespace backend.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var category = await _context.Categories.FindAsync(id);

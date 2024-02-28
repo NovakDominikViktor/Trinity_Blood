@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Card, CardContent, Container, Divider, Typography, Box, TextField, Grid } from '@mui/material';
+import { Button, Card, CardContent, Container, Divider, Typography, Box, TextField, Grid, Modal } from '@mui/material';
 
 const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [zipCode, setZipCode] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [showLoginModal, setShowLoginModal] = useState(false); // Állapot a bejelentkezési modális ablak megjelenítéséhez
 
   const calculateTotal = () => {
     return products.reduce((total, product) => {
@@ -17,6 +18,12 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
 
   const handlePayment = async () => {
     try {
+      if (!userId) {
+        // Ha nincs token, megjelenítjük a bejelentkezési modális ablakot
+        setShowLoginModal(true);
+        return;
+      }
+
       for (const product of products) {
         const orderData = {
           UserId: userId,
@@ -51,10 +58,11 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
       console.error('Error:', error);
     }
   };
-  
-  
-  
-  
+
+  // Bejelentkezési ablak bezárása
+  const handleCloseLoginModal = () => {
+    setShowLoginModal(false);
+  };
 
   return (
     <Container>
@@ -115,6 +123,18 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
           </Box>
         </CardContent>
       </Card>
+      {/* Bejelentkezési modális ablak */}
+      <Modal open={showLoginModal} onClose={handleCloseLoginModal}>
+        <Box sx={{ width: 300, bgcolor: 'background.paper', border: '2px solid #000', p: 2, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Please Log In
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            You need to log in to proceed with the payment.
+          </Typography>
+          <Button onClick={handleCloseLoginModal}>Close</Button>
+        </Box>
+      </Modal>
     </Container>
   );
 };

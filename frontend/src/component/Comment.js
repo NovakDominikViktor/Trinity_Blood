@@ -10,13 +10,15 @@ const CommentForm = ({ productId }) => {
   const [userId, setUserId] = useState('');
   const [rating, setRating] = useState(0);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [token, setToken] = useState(''); // Token állapot létrehozása
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const decodedToken = jwtDecode(token);
+    const tokenFromLocalStorage = localStorage.getItem('token');
+    if (tokenFromLocalStorage) {
+      const decodedToken = jwtDecode(tokenFromLocalStorage);
       if (decodedToken) {
         setUserId(decodedToken.sub); // Felhasználó azonosítója (userId) a tokenből
+        setToken(tokenFromLocalStorage); // Token állapot beállítása
       }
     }
   }, []);
@@ -42,7 +44,15 @@ const CommentForm = ({ productId }) => {
         reviewDate: new Date().toISOString(),
       };
       console.log('Comment data:', commentData); // Logoljuk az elküldött adatokat a konzolra
-      await axios.post('http://localhost:5098/api/Comment', commentData);
+  
+      // Hozzáadjuk a Bearer tokent a kérés fejlécéhez
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+  
+      await axios.post('http://localhost:5098/api/Comment', commentData, config);
       // Állapotok alaphelyzetbe állítása a komment elküldése után
       setCommentText('');
       setRating(0);
@@ -52,6 +62,7 @@ const CommentForm = ({ productId }) => {
       alert('Failed to send comment.');
     }
   };
+  
 
   const handleLoginModalClose = () => {
     setShowLoginModal(false);
@@ -76,7 +87,7 @@ const CommentForm = ({ productId }) => {
         value={commentText}
         onChange={(e) => setCommentText(e.target.value)}
         placeholder="Write your comment here..."
-        rowsMin={4}
+        rowsmin={4} // Módosítottam itt
         style={{ width: '100%', marginBottom: '1rem' }}
         required
       />

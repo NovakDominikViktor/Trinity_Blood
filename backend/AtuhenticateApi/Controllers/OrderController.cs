@@ -1,5 +1,6 @@
 ﻿using backend.Datas;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -63,6 +64,7 @@ namespace backend.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "USER")]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
             if (!ModelState.IsValid)
@@ -91,6 +93,7 @@ namespace backend.Controllers
 
         // PUT: api/Order/5
         [HttpPut("{id}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> PutOrder(int id, Order order)
         {
             if (id != order.Id)
@@ -121,6 +124,7 @@ namespace backend.Controllers
 
         // DELETE: api/Order/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
             var order = await _context.Orders.FindAsync(id);

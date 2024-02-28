@@ -1,5 +1,6 @@
 ﻿using backend.Datas;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -42,6 +43,7 @@ namespace backend.Controllers
 
         
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ActionResult<Products>> CreateProduct(Products product)
         {
             
@@ -73,6 +75,7 @@ namespace backend.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> UpdateProduct(int id, Products product)
         {
             if (id != product.Id)
@@ -102,6 +105,7 @@ namespace backend.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var product = await _context.Products.FindAsync(id);

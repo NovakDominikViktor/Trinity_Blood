@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import Header from './page/Header';
 import Home from './page/Home';
@@ -14,10 +14,10 @@ import Footer from './page/Footer';
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('token') || null); // Token beállítása a localStorage-ból
   const [cartItems, setCartItems] = useState([]);
   const [addedToCart, setAddedToCart] = useState([]);
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -74,7 +74,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home products={products} searchTerm={searchTerm} />} />
           <Route path="/product/:productId" element={<ProductDetail products={products} addToCart={addToCart} />} />
-          <Route path="/account" element={<Account token={token} setToken={setToken} />} />
+          <Route path="/account" element={token ? <Account token={token} setToken={setToken} /> : <Navigate to="/account-sign-up" />} />
           <Route path="/account-sign-up" element={<AccountSigning setToken={setToken} />} />
           <Route
             path="/cart"

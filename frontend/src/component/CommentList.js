@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Typography, List, ListItem, ListItemText, Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@mui/material';
 import { Rating } from '@mui/material';
 import { jwtDecode } from 'jwt-decode';
+import CommentForm from './Comment';
 
 const CommentList = ({ productId }) => {
   const [comments, setComments] = useState([]);
@@ -12,6 +13,8 @@ const CommentList = ({ productId }) => {
   const [deleteCommentId, setDeleteCommentId] = useState(null);
   const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
   const [ratings, setRatings] = useState(0); // A felhasználó által kiválasztott csillagok értéke
+  const [currentPage, setCurrentPage] = useState(1);
+  const commentsPerPage = 3; // A lapozáshoz megjelenítendő kommentek száma
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -31,6 +34,12 @@ const CommentList = ({ productId }) => {
       const decodedToken = jwtDecode(token);
       setCurrentUser(decodedToken);
     }
+
+    // Frissítsük a kommenteket minden 5 másodpercben
+    const interval = setInterval(fetchComments, 5000);
+
+    // Tisztítsuk meg az intervallumot a komponens elhagyásakor
+    return () => clearInterval(interval);
   }, [productId]);
 
   const handleEdit = (commentId, commentText) => {
@@ -48,7 +57,16 @@ const CommentList = ({ productId }) => {
         ratings: ratings, // A felhasználó által kiválasztott csillagok értéke
         reviewDate: new Date().toISOString() // Az aktuális dátum/idő
       };
-      await axios.put(`http://localhost:5098/api/Comment/${editCommentId}`, updatedComment); // PUT kérés az azonosítóval
+      console.log('Updated comment:', updatedComment);
+  
+      // Hozzáadjuk a Bearer tokent a kérés fejlécéhez
+      const config = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      };
+  
+      await axios.put(`http://localhost:5098/api/Comment/${editCommentId}`, updatedComment, config); // PUT kérés az azonosítóval
       const updatedComments = comments.map(comment => {
         if (comment.id === editCommentId) {
           return { ...comment, comments: editCommentText };
@@ -65,7 +83,14 @@ const CommentList = ({ productId }) => {
   
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5098/api/Comment/${deleteCommentId}`);
+      // Hozzáadjuk a Bearer tokent a kérés fejlécéhez
+      const config = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      };
+  
+      await axios.delete(`http://localhost:5098/api/Comment/${deleteCommentId}`, config);
       setComments(comments.filter(comment => comment.id !== deleteCommentId));
       setDeleteCommentId(null);
       setDeleteConfirmationOpen(false);
@@ -84,13 +109,24 @@ const CommentList = ({ productId }) => {
     setDeleteConfirmationOpen(false);
   };
 
+  // Az aktuális oldal kommentjeinek számítása
+  const indexOfLastComment = currentPage * commentsPerPage;
+  const indexOfFirstComment = indexOfLastComment - commentsPerPage;
+  const currentComments = comments.slice(indexOfFirstComment, indexOfLastComment);
+
+  // Oldalváltás kezelése
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div>
       <Typography variant="h5" gutterBottom>
         Comments
       </Typography>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        <CommentForm productId={productId} />
+      </div>
       <List>
-        {comments.map(comment => (
+        {currentComments.map(comment => (
           <ListItem key={comment.id}>
             <ListItemText primary={comment.comments} secondary={`Rating: ${comment.ratings}`} />
             {currentUser && currentUser.sub === comment.userId && (
@@ -102,6 +138,18 @@ const CommentList = ({ productId }) => {
           </ListItem>
         ))}
       </List>
+      {/* Oldalváltó gombok */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        {comments.length > commentsPerPage && (
+          <div>
+            {[...Array(Math.ceil(comments.length / commentsPerPage)).keys()].map(number => (
+              <button key={number + 1} onClick={() => paginate(number + 1)}>
+                {number + 1}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
       <Dialog open={editCommentId !== null} onClose={() => setEditCommentId(null)}>
         <DialogTitle>Edit Comment</DialogTitle>
         <DialogContent>

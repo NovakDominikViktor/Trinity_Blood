@@ -91,9 +91,7 @@ const SignUp = () => {
           </Box>
         </Box>
       </Container>
-      {message && (
-        <ToastContainer />
-      )}
+      <ToastContainer /> {/* Ez most közvetlenül a gyökér komponens alatt van */}
     </ThemeProvider>
   );
 }

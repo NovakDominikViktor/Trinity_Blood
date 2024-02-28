@@ -1,5 +1,6 @@
 ﻿using backend.Datas;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace backend.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "USER")]
         public async Task<ActionResult<Comment>> PostComment(Comment comment)
         {
             _context.Comments.Add(comment);
@@ -50,6 +52,7 @@ namespace backend.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "USER")]
         public async Task<IActionResult> PutComment(int id, Comment comment)
         {
             if (id != comment.Id)
@@ -74,6 +77,7 @@ namespace backend.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "USER")]
         public async Task<IActionResult> DeleteComment(int id)
         {
             var comment = await _context.Comments.FindAsync(id);
