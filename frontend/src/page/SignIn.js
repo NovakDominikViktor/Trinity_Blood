@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { Container, Typography, Box, Grid, TextField, FormControlLabel, Checkbox, Button, Link } from '@mui/material';
 
-const SignIn = () => {
+const SignIn = ({ setToken }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       const response = await fetch('http://localhost:5098/api/Auth/login', {
         method: 'POST',
@@ -21,11 +21,13 @@ const SignIn = () => {
           password: password
         })
       });
-      
+  
       if (response.ok) {
         const data = await response.json();
+        console.log('Server response:', data); // Console log a szerver válaszával
         localStorage.setItem('token', data.token); // Token mentése a localStorage-be
-        navigate('/account');
+        setToken(data.token); // Token állapot frissítése
+        navigate('/');
       } else {
         console.error('Failed to sign in');
       }
@@ -33,6 +35,7 @@ const SignIn = () => {
       console.error('Error:', error);
     }
   };
+  
 
   return (
     <Container maxWidth="xs">

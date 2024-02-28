@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { Button, Menu, MenuItem } from '@mui/material';
 import { FaUser } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
-const AccountMenu = ({ onLogout }) => {
+const AccountMenu = ({ userProfile, setToken, setUserId }) => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
-  const token = localStorage.getItem('token');
-  const userProfile = token ? jwtDecode(token).name : null;
 
   const handleAccountClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -18,28 +16,51 @@ const AccountMenu = ({ onLogout }) => {
     setAnchorEl(null);
   };
 
-  const handleAccountSelect = () => {
-    const accountRoute = userProfile ? '/account' : '/account-sign-up';
-    navigate(accountRoute);
+  const handleLogout = () => {
+    // Token null-ra állítása
+    setToken(null);
+    if (setUserId) {
+      setUserId(null);
+    }
+  
+    // Törlés a localStorage-ból
+    localStorage.removeItem('token');
+  
+    // Átirányítás a főoldalra (/)
+    navigate('/');
+  
+    // Menü bezárása
     handleAccountClose();
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/', { replace: true });
-    onLogout();
+  const handleAccountSelect = () => {
+    // Átirányítás a regisztrációs oldalra (/account-sign-up)
+    navigate('/account');
+  
+    // Menü bezárása
     handleAccountClose();
   };
+
+  // Decode the userProfile token
+  let decodedToken = null;
+  try {
+    decodedToken = jwtDecode(userProfile);
+  } catch (error) {
+    console.error('Invalid token:', error);
+  }
+
+  // Button szövegének beállítása a felhasználó nevére, ha van userProfile
+  const buttonContent = decodedToken ? decodedToken.name : 'My Account';
 
   return (
-    <div>
+    <>
       <Button
         onClick={handleAccountClick}
         startIcon={<FaUser />}
         variant="text"
         color="inherit"
       >
-        {userProfile || 'My Account'}
+        {buttonContent}
       </Button>
       <Menu
         id="account-menu"
@@ -47,18 +68,11 @@ const AccountMenu = ({ onLogout }) => {
         open={Boolean(anchorEl)}
         onClose={handleAccountClose}
       >
-        {[ 
-          userProfile ? (
-            <>
-              <MenuItem onClick={handleAccountSelect}>Edit Profile</MenuItem>
-              <MenuItem onClick={handleLogout}>Logout</MenuItem>
-            </>
-          ) : (
-            <MenuItem onClick={handleAccountSelect}>Sign Up</MenuItem>
-          )
-        ]}
+        {decodedToken && <MenuItem onClick={handleAccountSelect}>Account</MenuItem>}
+        {decodedToken && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
+        {!decodedToken && <MenuItem onClick={handleAccountSelect}>Sign Up</MenuItem>}
       </Menu>
-    </div>
+    </>
   );
 };
 

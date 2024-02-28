@@ -40,7 +40,7 @@ const Account = () => {
 
   const handleChangeTab = (event, newValue) => setCurrentTab(newValue);
 
-  const handleNavigateToSignUp = () => navigate('/account-sign-up');
+ 
 
   const handleEditProfileChange = (field, value) => {
     setEditedProfile((prevProfile) => ({
