@@ -20,7 +20,16 @@ const CommentList = ({ productId }) => {
     const fetchComments = async () => {
       try {
         const response = await axios.get(`http://localhost:5098/api/Comment/ByProduct/${productId}`);
-        setComments(response.data);
+        const commentsWithUserData = await Promise.all(response.data.map(async (comment) => {
+          try {
+            const userResponse = await axios.get(`http://localhost:5098/api/User/${comment.userId}`);
+            return { ...comment, userData: userResponse.data };
+          } catch (error) {
+            console.error('Error fetching user data for comment:', comment.id, error);
+            return comment;
+          }
+        }));
+        setComments(commentsWithUserData);
       } catch (error) {
         console.error('Error fetching comments:', error);
       }
@@ -117,6 +126,31 @@ const CommentList = ({ productId }) => {
   // Oldalváltás kezelése
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const timeAgo = (date) => {
+    const seconds = Math.floor((new Date() - date) / 1000);
+    let interval = Math.floor(seconds / 31536000);
+    if (interval >= 1) {
+      return interval + " year(s) ago";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval >= 1) {
+      return interval + " month(s) ago";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval >= 1) {
+      return interval + " day(s) ago";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval >= 1) {
+      return interval + " hour(s) ago";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval >= 1) {
+      return interval + " minute(s) ago";
+    }
+    return Math.floor(seconds) + " second(s) ago";
+  };
+
   return (
     <div>
       <Typography variant="h5" gutterBottom>
@@ -126,17 +160,34 @@ const CommentList = ({ productId }) => {
         <CommentForm productId={productId} />
       </div>
       <List>
-        {currentComments.map(comment => (
-          <ListItem key={comment.id}>
-            <ListItemText primary={comment.comments} secondary={`Rating: ${comment.ratings}`} />
-            {currentUser && currentUser.sub === comment.userId && (
-              <div>
-                <Button onClick={() => handleEdit(comment.id, comment.comments)}>Edit</Button>
-                <Button onClick={() => openDeleteConfirmation(comment.id)}>Delete</Button>
-              </div>
-            )}
-          </ListItem>
-        ))}
+      {currentComments.map(comment => (
+      <ListItem key={comment.id}>
+        <ListItemText 
+          primary={
+            <React.Fragment>
+              {comment.userData && (
+                <Typography variant="subtitle2">{`${comment.userData.firstName} ${comment.userData.lastName}`}</Typography>
+              )}
+              {!currentUser && !comment.userData && (
+                <Typography variant="subtitle2">Anonymous</Typography>
+              )}
+              <Typography style={{ color: 'black' }}>{comment.comments}</Typography>
+            </React.Fragment>
+          }
+          
+          secondary={`Date: ${timeAgo(new Date(comment.reviewDate))}`} 
+          style={{ color: 'black' }}
+        />
+        {currentUser && currentUser.sub === comment.userId && (
+          <div>
+            <Button onClick={() => handleEdit(comment.id, comment.comments)}>Edit</Button>
+            <Button onClick={() => openDeleteConfirmation(comment.id)}>Delete</Button>
+          </div>
+        )}
+      </ListItem>
+    ))}
+
+
       </List>
       {/* Oldalváltó gombok */}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>

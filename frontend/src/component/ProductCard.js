@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, Typography, Button, CardActions } from '@mui/material';
 
 const ProductCard = ({ product, addToCart }) => {
-  const defaultImage = 'defaultImage.jpg';
+ 
   const [isHovered, setIsHovered] = React.useState(false);
 
   const handleMouseEnter = () => {
@@ -28,7 +28,7 @@ const ProductCard = ({ product, addToCart }) => {
         onMouseLeave={handleMouseLeave}
       >
         <img
-          src={product.imageUrl || 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
+          src={product.pictureUrl? product.pictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
           alt={product.name}
           style={{ width: '100%', height: '200px', objectFit: 'cover' }}
         />

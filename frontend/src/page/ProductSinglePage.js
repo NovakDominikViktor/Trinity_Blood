@@ -87,13 +87,13 @@ const ProductSinglePage = ({ products, addToCart }) => {
     <div>
       <Container maxWidth="md" sx={{ display: 'flex', alignItems: 'center', mt: 4 }}>
         <Card sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
-          <CardMedia
-            component="img"
-            alt={product && product.name} // Ellenőrizzük, hogy a product létezik-e
-            height="300"
-            image={product.pictureUrl ? product.pictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
-            style={{ objectFit: 'cover', width: '40%' }}
-          />
+        <CardMedia
+          component="img"
+          alt={product && product.name}
+          height="300"
+          image={product && product.pictureUrl ? product.pictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
+          style={{ objectFit: 'cover', width: '40%' }}
+        />
           <CardContent sx={{ width: '60%' }}>
             <Typography variant="h4" align="center" gutterBottom>
               {product && product.name} {/* Ellenőrizzük, hogy a product létezik-e */}
