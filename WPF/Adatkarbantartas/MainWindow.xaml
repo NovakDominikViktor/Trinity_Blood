@@ -7,12 +7,7 @@
         mc:Ignorable="d"
         Title="Data Management" Height="450" Width="800" Background="DarkCyan">
     <Border Background="DarkSlateGray" CornerRadius="20" Margin="20">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="9*"/>
-                <ColumnDefinition Width="91*"/>
-            </Grid.ColumnDefinitions>
+        <DataGrid Name="DBGrid" />
 
-        </Grid>
     </Border>
 </Window>

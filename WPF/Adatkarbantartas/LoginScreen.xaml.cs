@@ -31,10 +31,11 @@ namespace Adatkarbantartas
             if(txtEmail.Text == "admin123@gmail.com" && txtPassword.Password == "password")
             {
                 MainWindow objWindow = new MainWindow();
+                MessageBox.Show("Successfully logged in!");
                 objWindow.Show();
                 this.Close();
             }
-            else if(txtEmail.Text == "" || txtPassword.Password == "" || (txtEmail.Text == "" && txtPassword.Password == "")) 
+            else if(txtEmail.Text == "" || txtPassword.Password == "") 
             {
                 MessageBox.Show("Missing login credentials!");
             }
