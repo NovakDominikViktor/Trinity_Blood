@@ -216,7 +216,7 @@ const CommentList = ({ productId }) => {
           <Rating
             name="ratings"
             value={ratings}
-            precision={1}
+            precision={0.5}
             onChange={(event, newValue) => {
               setRatings(newValue);
             }}

@@ -9,6 +9,7 @@ const Navbar = ({ onCategoryClick, setSearchTerm, cartItemCount }) => {
   const [categories, setCategories] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchAnchorEl, setSearchAnchorEl] = useState(null);
+  const [currentCartItemCount, setCurrentCartItemCount] = useState(cartItemCount);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -23,8 +24,12 @@ const Navbar = ({ onCategoryClick, setSearchTerm, cartItemCount }) => {
     fetchCategories();
   }, []);
 
+  useEffect(() => {
+    setCurrentCartItemCount(cartItemCount);
+  }, [cartItemCount]);
+
   const handleSearchButtonClick = (event) => {
-    setSearchAnchorEl(event.currentTarget); // Állítsd be az anchorEl-t a kattintott gombra
+    setSearchAnchorEl(event.currentTarget);
     setSearchOpen(!searchOpen);
   };
 
@@ -34,9 +39,8 @@ const Navbar = ({ onCategoryClick, setSearchTerm, cartItemCount }) => {
 
   const handleSearchChange = (event) => {
     const searchQuery = event.target.value.toLowerCase();
-    setSearchTerm(searchQuery); // Teljes keresőszó átadása
+    setSearchTerm(searchQuery);
   };
-  
 
   const handleCategorySelect = (category) => {
     onCategoryClick(category.name);
@@ -85,9 +89,8 @@ const Navbar = ({ onCategoryClick, setSearchTerm, cartItemCount }) => {
           </Menu>
           <IconButton component={Link} to="/cart">
             <FaShoppingBasket />
-            <Typography variant="body2">{cartItemCount}</Typography>
+            {currentCartItemCount > 0 && <Typography variant="body2">{currentCartItemCount}</Typography>}
           </IconButton>
-
         </div>
       </Toolbar>
     </AppBar>

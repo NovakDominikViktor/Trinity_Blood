@@ -2,30 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Typography, Button, Card, CardContent, CardMedia, Container, Grid, TextField } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import CommentForm from '../component/Comment';
 import CommentList from '../component/CommentList';
-
-const StarRating = ({ rating, onChangeRating }) => {
-  const maxRating = 5;
-
-  const handleStarClick = (clickedRating) => {
-    onChangeRating(clickedRating);
-  };
-
-  const stars = Array.from({ length: maxRating }, (_, index) => (
-    <span key={index} onClick={() => handleStarClick(index + 1)} style={{ cursor: 'pointer' }}>
-      {index < rating ? <StarIcon fontSize="large" style={{ color: '#ff9800' }} /> : <StarBorderIcon fontSize="large" style={{ color: '#ff9800' }} />}
-    </span>
-  ));
-
-  return (
-    <div style={{ textAlign: 'center', marginTop: '8px' }}>
-      {stars}
-    </div>
-  );
-};
 
 const ProductSinglePage = ({ products, addToCart }) => {
   const { productId } = useParams();
@@ -44,7 +24,7 @@ const ProductSinglePage = ({ products, addToCart }) => {
         if (comments.length > 0) {
           const totalRating = comments.reduce((sum, comment) => sum + comment.ratings, 0);
           const average = totalRating / comments.length;
-          setAverageRating(Math.round(average));
+          setAverageRating(average); // Ne kerekítsük az átlagos értékelést
           setTotalRatings(comments.length);
         }
       } catch (error) {
@@ -52,7 +32,10 @@ const ProductSinglePage = ({ products, addToCart }) => {
       }
     };
 
-    fetchComments();
+    const interval = setInterval(fetchComments, 5000); // Frissítés 5 másodpercenként
+
+    return () => clearInterval(interval); // Tisztítjuk az intervallumot a komponens megszűnésekor
+
   }, [productId]);
 
   const handleAddToCart = () => {
@@ -79,7 +62,7 @@ const ProductSinglePage = ({ products, addToCart }) => {
 
   const stars = Array.from({ length: maxRating }, (_, index) => (
     <span key={index} onClick={() => handleStarClick(index + 1)} style={{ cursor: 'pointer' }}>
-      {index < Math.ceil(averageRating) ? <StarIcon fontSize="large" style={{ color: '#ff9800' }} /> : <StarBorderIcon fontSize="large" style={{ color: '#ff9800' }} />}
+      {index < averageRating && index + 1 > averageRating ? <StarHalfIcon fontSize="large" style={{ color: '#ff9800' }} /> : index < averageRating ? <StarIcon fontSize="large" style={{ color: '#ff9800' }} /> : <StarBorderIcon fontSize="large" style={{ color: '#ff9800' }} />}
     </span>
   ));
 
@@ -96,13 +79,13 @@ const ProductSinglePage = ({ products, addToCart }) => {
         />
           <CardContent sx={{ width: '60%' }}>
             <Typography variant="h4" align="center" gutterBottom>
-              {product && product.name} {/* Ellenőrizzük, hogy a product létezik-e */}
+              {product && product.name}
             </Typography>
             <Typography variant="h6" align="center" color="text.secondary">
-              Ár: ${product ? product.price.toFixed(2) : '0.00'} {/* Ellenőrizzük, hogy a product létezik-e */}
+              Ár: ${product ? product.price.toFixed(2) : '0.00'}
             </Typography>
             <Typography variant="body1" align="center" paragraph>
-              {product ? product.description || 'Nincs leírás elérhető erre a termékre.' : 'Termék nem található'} {/* Ellenőrizzük, hogy a product létezik-e */}
+              {product ? product.description || 'Nincs leírás elérhető erre a termékre.' : 'Termék nem található'}
             </Typography>
             <TextField
               label="Mennyiség"
@@ -122,15 +105,13 @@ const ProductSinglePage = ({ products, addToCart }) => {
               </Button>
             </Grid>
             <Grid container justifyContent="center" mt={2}>
-              <Typography variant="subtitle1">Átlagos értékelés: {averageRating} ({totalRatings} értékelés)</Typography>
+              <Typography variant="subtitle1">Átlagos értékelés: {averageRating.toFixed(1)} ({totalRatings} értékelés)</Typography>
             </Grid>
           </CardContent>
         </Card>
       </Container>
      
-
       <div style={{ marginTop: '20px' }}>
-        {/* CommentList komponens */}
         <CommentList productId={productId} />
       </div>
     </div>

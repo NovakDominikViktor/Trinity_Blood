@@ -11,16 +11,28 @@ import ProductDetail from './page/ProductSinglePage';
 import AccountMenu from './page/AccountMenu';
 import Category from './component/Category';
 import Footer from './page/Footer';
+import SupportModal from './Support/Support'; // Importáljuk a támogatás modális ablak komponenst
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [token, setToken] = useState(localStorage.getItem('token') || null); // Token beállítása a localStorage-ból
+  const [token, setToken] = useState(localStorage.getItem('token') || null);
   const [cartItems, setCartItems] = useState([]);
   const [addedToCart, setAddedToCart] = useState([]);
   const [userId, setUserId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [cartItemCount, setCartItemCount] = useState(0);
+  const [supportOpen, setSupportOpen] = useState(false); // Állapot a támogatás ablak megnyitásához
+
+  // Támogatás ablak megnyitása
+  const openSupportModal = () => {
+    setSupportOpen(true);
+  };
+
+  // Támogatás ablak bezárása
+  const closeSupportModal = () => {
+    setSupportOpen(false);
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -68,6 +80,21 @@ function App() {
     console.log(`Added to cart: ${product.name}`);
   };
 
+  const removeFromCart = (productId) => {
+    const updatedCartItems = cartItems.filter(item => item.id !== productId);
+    setCartItems(updatedCartItems);
+  
+    // Töröljük az eltávolított terméket az addedToCart állapotból is
+    const updatedAddedToCart = addedToCart.filter(id => id !== productId);
+    setAddedToCart(updatedAddedToCart);
+  
+    // Frissítjük a kosárba helyezett termékek számát
+    const removedProduct = cartItems.find(item => item.id === productId);
+    if (removedProduct) {
+      setCartItemCount(prevCount => prevCount - removedProduct.quantity);
+    }
+  };
+
   return (
     
     <Router>
@@ -81,16 +108,22 @@ function App() {
           <Route path="/account-sign-up" element={<AccountSigning setToken={setToken} />} />
           <Route
             path="/cart"
-            element={<Cart products={cartItems.filter(item => addedToCart.includes(item.id))} userId={userId} />}
+            element={<Cart products={cartItems.filter(item => addedToCart.includes(item.id))} userId={userId} removeFromCart={removeFromCart} />}
           />
           <Route
             path="/proceed-payment"
-            element={<ProceedWithPayment userId={userId}  onPaymentSuccess={() => console.log('Payment successful')} />}
+            element={<ProceedWithPayment userId={userId} products={cartItems.filter(item => addedToCart.includes(item.id))} onPaymentSuccess={() => console.log('Payment successful')} />}
           />
          <Route path="/category/:categoryName" element={<Category products={products} />}/>
 
         </Routes>
         <Footer/>
+        {/* Gomb a támogatás ablak megnyitásához */}
+        <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 999 }}>
+          <button onClick={openSupportModal}>Support</button>
+        </div>
+        {/* Támogatás modális ablak */}
+        <SupportModal isOpen={supportOpen} onClose={closeSupportModal} />
       </div>
     </Router>
   );

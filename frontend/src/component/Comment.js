@@ -82,6 +82,8 @@ const CommentForm = ({ productId }) => {
           name="rating"
           value={rating}
           onChange={(event, newValue) => setRating(newValue)}
+          max={5}
+          precision={0.5} // Ezzel lehetővé tesszük a fél csillagok használatát
           icon={<StarIcon fontSize="inherit" />}
           emptyIcon={<StarBorderIcon fontSize="inherit" />}
         />
