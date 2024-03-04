@@ -20,6 +20,7 @@ function App() {
   const [userId, setUserId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [cartItemCount, setCartItemCount] = useState(0);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -61,7 +62,9 @@ function App() {
       setCartItems([...cartItems, { ...product, quantity }]);
     }
   
-    setAddedToCart([...addedToCart, product.id]); 
+    setAddedToCart([...addedToCart, product.id]);
+    // Frissítjük a kosárba helyezett termékek számát
+    setCartItemCount(prevCount => prevCount + quantity);
     console.log(`Added to cart: ${product.name}`);
   };
 
@@ -70,7 +73,7 @@ function App() {
     <Router>
       <div>
         <AccountMenu userProfile={token} setToken={setToken} setUserId={setUserId} />
-        <Header onCategoryClick={setSelectedCategory}  setSearchTerm={setSearchTerm} />
+        <Header onCategoryClick={setSelectedCategory}  setSearchTerm={setSearchTerm} cartItemCount={cartItemCount} />
         <Routes>
           <Route path="/" element={<Home products={products} searchTerm={searchTerm} />} />
           <Route path="/product/:productId" element={<ProductDetail products={products} addToCart={addToCart} />} />
@@ -82,7 +85,7 @@ function App() {
           />
           <Route
             path="/proceed-payment"
-            element={<ProceedWithPayment userId={userId} products={cartItems.filter(item => addedToCart.includes(item.id))} onPaymentSuccess={() => console.log('Payment successful')} />}
+            element={<ProceedWithPayment userId={userId}  onPaymentSuccess={() => console.log('Payment successful')} />}
           />
          <Route path="/category/:categoryName" element={<Category products={products} />}/>
 

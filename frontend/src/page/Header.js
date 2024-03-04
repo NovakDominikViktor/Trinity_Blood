@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem } from '@mui/material';
 import axios from 'axios';
 
-const Navbar = ({ onCategoryClick, setSearchTerm }) => {
+const Navbar = ({ onCategoryClick, setSearchTerm, cartItemCount }) => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -85,7 +85,9 @@ const Navbar = ({ onCategoryClick, setSearchTerm }) => {
           </Menu>
           <IconButton component={Link} to="/cart">
             <FaShoppingBasket />
+            <Typography variant="body2">{cartItemCount}</Typography>
           </IconButton>
+
         </div>
       </Toolbar>
     </AppBar>

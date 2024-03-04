@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Button, Card, CardContent, Container, Divider, Typography, Box, TextField, Grid, Modal } from '@mui/material';
 
-const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
+const ProceedWithPayment = ({ onPaymentSuccess, userId, products}) => {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [zipCode, setZipCode] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [showLoginModal, setShowLoginModal] = useState(false); // Állapot a bejelentkezési modális ablak megjelenítéséhez
+
+  const token = localStorage.getItem('token');
 
   const calculateTotal = () => {
     return products.reduce((total, product) => {
@@ -44,6 +46,7 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Token hozzáadása a kérés fejlécéhez
           },
           body: JSON.stringify(orderData)
         });

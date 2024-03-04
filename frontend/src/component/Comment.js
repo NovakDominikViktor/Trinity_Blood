@@ -36,12 +36,15 @@ const CommentForm = ({ productId }) => {
         return;
       }
       // Elküldjük a kommentet a szerverre
+      const currentDate = new Date();
+      const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}T${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}:${currentDate.getSeconds().toString().padStart(2, '0')}.${currentDate.getMilliseconds().toString().padStart(3, '0')}Z`;
+
       const commentData = {
         productId: productId,
         userId: userId,
         ratings: rating,
         comments: commentText,
-        reviewDate: new Date().toISOString(),
+        reviewDate: formattedDate,
       };
       console.log('Comment data:', commentData); // Logoljuk az elküldött adatokat a konzolra
   
