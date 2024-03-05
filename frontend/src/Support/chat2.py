@@ -16,7 +16,6 @@ max_history_length = 33
 chat_history_ids = None  # Inicializáljuk a beszélgetési előzményeket
 
 @app.route("/generate_response", methods=["POST"])
-@app.route("/generate_response", methods=["POST"])
 def generate_response():
     try:
         data = request.json
@@ -31,7 +30,7 @@ def generate_response():
         
         output = model.generate(
             bot_input_ids,
-            max_length=150,
+            max_length=1000,
             num_beams=1,
             do_sample=True,
             top_p=0.95,
@@ -43,13 +42,11 @@ def generate_response():
         # Az output dekódolása
         decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
 
-        # Ellenőrizzük, hogy a bot válasza megegyezik-e a felhasználó által megadott bemenettel
-        if decoded_output.lower() == user_input.lower():
-            # Ha a bot válasza megegyezik a felhasználó bemenetével, akkor ne küldjük vissza ezt a választ
-            return jsonify({"response": ""})
+        # A válaszban csak azokat a részeket tartjuk meg, amelyek nem egyeznek meg a felhasználó bemenetével
+        trimmed_response = decoded_output.replace(user_input, "").strip()
 
         # Visszatérés a generált válasszal
-        return jsonify({"response": decoded_output})
+        return jsonify({"response": trimmed_response})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500

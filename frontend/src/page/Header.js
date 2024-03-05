@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FaSearch, FaShoppingBasket } from 'react-icons/fa';
+import { FaSearch, FaShoppingBasket, FaQuestionCircle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem } from '@mui/material';
 import axios from 'axios';
 
-const Navbar = ({ onCategoryClick, setSearchTerm, cartItemCount }) => {
+const Navbar = ({ setSearchTerm, cartItemCount }) => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -43,8 +43,14 @@ const Navbar = ({ onCategoryClick, setSearchTerm, cartItemCount }) => {
   };
 
   const handleCategorySelect = (category) => {
-    onCategoryClick(category.name);
+    // Do whatever you want to do when a category is selected
+    // For example, navigate to a category page
     navigate(`/category/${encodeURIComponent(category.name.toLowerCase())}`);
+  };
+
+  const handleSupportClick = () => {
+    // Handle support click action
+    navigate('/support');
   };
 
   return (
@@ -90,6 +96,9 @@ const Navbar = ({ onCategoryClick, setSearchTerm, cartItemCount }) => {
           <IconButton component={Link} to="/cart">
             <FaShoppingBasket />
             {currentCartItemCount > 0 && <Typography variant="body2">{currentCartItemCount}</Typography>}
+          </IconButton>
+          <IconButton onClick={handleSupportClick}>
+            <FaQuestionCircle />
           </IconButton>
         </div>
       </Toolbar>

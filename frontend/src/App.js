@@ -11,7 +11,10 @@ import ProductDetail from './page/ProductSinglePage';
 import AccountMenu from './page/AccountMenu';
 import Category from './component/Category';
 import Footer from './page/Footer';
-import SupportModal from './Support/Support'; // Importáljuk a támogatás modális ablak komponenst
+import  Support  from './Support/Support';
+import AboutUs from './page/AboutUs';
+
+
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -115,15 +118,11 @@ function App() {
             element={<ProceedWithPayment userId={userId} products={cartItems.filter(item => addedToCart.includes(item.id))} onPaymentSuccess={() => console.log('Payment successful')} />}
           />
          <Route path="/category/:categoryName" element={<Category products={products} />}/>
-
+         <Route path="/support" element={<Support/>} />
+         <Route path="/aboutus" element={<AboutUs/>} />
+        
         </Routes>
         <Footer/>
-        {/* Gomb a támogatás ablak megnyitásához */}
-        <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 999 }}>
-          <button onClick={openSupportModal}>Support</button>
-        </div>
-        {/* Támogatás modális ablak */}
-        <SupportModal isOpen={supportOpen} onClose={closeSupportModal} />
       </div>
     </Router>
   );

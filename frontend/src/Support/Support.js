@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { TextField, Button, Grid, Typography, Modal, Paper } from '@mui/material';
+import './SupportChat.css'; // Import CSS file for styling
 
-const SupportModal = ({ isOpen, onClose }) => {
+const SupportChat = () => {
   const [userInput, setUserInput] = useState('');
+  const [chatMessages, setChatMessages] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
   const [botResponse, setBotResponse] = useState('');
+  const chatContentRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to bottom when chatMessages change
+    if (chatContentRef.current) {
+      chatContentRef.current.scrollTop = chatContentRef.current.scrollHeight;
+    }
+  }, [chatMessages]);
 
   const handleUserInput = (e) => {
     setUserInput(e.target.value);
@@ -13,45 +23,63 @@ const SupportModal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:5000/generate_response', { user_input: userInput });
-      // Ne adjuk vissza a saját üzenetet
+      setIsTyping(true);
       if (userInput.trim() !== '') {
-        setBotResponse(response.data.response);
+        const newUserMessage = { type: 'user', content: userInput };
+        setChatMessages(prevMessages => [...prevMessages, newUserMessage]);
       }
+      const response = await axios.post('http://127.0.0.1:5000/generate_response', { user_input: userInput });
+      setBotResponse(response.data.response);
+      const newBotMessage = { type: 'bot', content: response.data.response };
+      setChatMessages(prevMessages => [...prevMessages, newBotMessage]);
       setUserInput('');
     } catch (error) {
       console.error('Error fetching response:', error);
+    } finally {
+      setIsTyping(false);
     }
   };
 
   return (
-    <Modal open={isOpen} onClose={onClose}>
-      <Grid container justifyContent="center" style={{ marginTop: '50px' }}>
-        <Grid item xs={8}>
-          <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
-            <Typography variant="h4" align="center" gutterBottom>Support Chat</Typography>
-            <form onSubmit={handleSubmit}>
-              <TextField
-                fullWidth
-                variant="outlined"
-                label="Type here..."
-                value={userInput}
-                onChange={handleUserInput}
-                style={{ marginBottom: '20px' }}
-              />
-              <Button variant="contained" color="primary" type="submit" fullWidth>Send</Button>
-            </form>
-            {botResponse && (
-              <div style={{ marginTop: '20px' }}>
-                <Typography variant="h6" align="center" gutterBottom>Bot Response:</Typography>
-                <Typography variant="body1" align="center">{botResponse}</Typography>
-              </div>
-            )}
-          </Paper>
-        </Grid>
-      </Grid>
-    </Modal>
+    <div>
+    <div className="chat-header">
+      Írj a szupportnak (dani az)
+    </div>
+    <div className="support-chat-container">
+      <div className="support-chat-content">
+        <div ref={chatContentRef} className="messages" style={{ minHeight: '150px' }}>
+          {chatMessages.map((message, index) => (
+            <div key={index} className={`message ${message.type}`}>
+              {message.type === 'user' ? (
+                <div className="user-message"><span className="user-label">You:</span> {message.content}</div>
+              ) : (
+                <div className="bot-message">
+                  <span className="bot-label">Bot:</span> {message.content}
+                </div>
+              )}
+            </div>
+          ))}
+          {isTyping && (
+            <div className="bot-typing">
+              Bot is typing...
+            </div>
+          )}
+        </div>
+      </div>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="input-field"
+          type="text"
+          placeholder="Type here..."
+          value={userInput}
+          onChange={handleUserInput}
+        />
+        <button className="send-button" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  
   );
 };
 
-export default SupportModal;
+export default SupportChat;

@@ -14,19 +14,19 @@ const Footer = () => {
           </Typography>
         </Box>
         <Box mt={3} textAlign="center">
-          <Link color="inherit" href="#home" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
+          <Link color="inherit" href="/" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             Home
           </Link>{' '}
           |{' '}
-          <Link color="inherit" href="#products" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
+          <Link color="inherit" href="/products" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             Products
           </Link>{' '}
           |{' '}
-          <Link color="inherit" href="#about" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
+          <Link color="inherit" href="/aboutus" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             About Us
           </Link>{' '}
           |{' '}
-          <Link color="inherit" href="#contact" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
+          <Link color="inherit" href="/contact" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             Contact
           </Link>
         </Box>

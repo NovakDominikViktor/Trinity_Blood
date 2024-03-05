@@ -105,7 +105,9 @@ const ProductSinglePage = ({ products, addToCart }) => {
               </Button>
             </Grid>
             <Grid container justifyContent="center" mt={2}>
-              <Typography variant="subtitle1">Átlagos értékelés: {averageRating.toFixed(1)} ({totalRatings} értékelés)</Typography>
+              {totalRatings !== 0 && (
+                <Typography variant="subtitle1">({totalRatings})</Typography>
+              )}
             </Grid>
           </CardContent>
         </Card>
