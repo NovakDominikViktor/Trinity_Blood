@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { FaSearch, FaShoppingBasket, FaQuestionCircle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, MenuItem, Select } from '@mui/material';
 import axios from 'axios';
 
 const Navbar = ({ setSearchTerm, cartItemCount }) => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchAnchorEl, setSearchAnchorEl] = useState(null);
   const [currentCartItemCount, setCurrentCartItemCount] = useState(cartItemCount);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -28,28 +27,18 @@ const Navbar = ({ setSearchTerm, cartItemCount }) => {
     setCurrentCartItemCount(cartItemCount);
   }, [cartItemCount]);
 
-  const handleSearchButtonClick = (event) => {
-    setSearchAnchorEl(event.currentTarget);
-    setSearchOpen(!searchOpen);
-  };
-
-  const handleSearchClose = () => {
-    setSearchOpen(false);
-  };
-
   const handleSearchChange = (event) => {
     const searchQuery = event.target.value.toLowerCase();
     setSearchTerm(searchQuery);
   };
 
-  const handleCategorySelect = (category) => {
-    // Do whatever you want to do when a category is selected
-    // For example, navigate to a category page
-    navigate(`/category/${encodeURIComponent(category.name.toLowerCase())}`);
+  const handleCategoryChange = (event) => {
+    const categoryName = event.target.value;
+    setSelectedCategory(categoryName);
+    navigate(`/category/${encodeURIComponent(categoryName.toLowerCase())}`);
   };
 
   const handleSupportClick = () => {
-    // Handle support click action
     navigate('/support');
   };
 
@@ -61,38 +50,24 @@ const Navbar = ({ setSearchTerm, cartItemCount }) => {
             Logo
           </Typography>
         </Link>
-        <div style={{ flexGrow: 1 }}>
+        <Select
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+          displayEmpty
+          style={{ marginLeft: '20px' }}
+        >
+          <MenuItem value="" disabled>
+            Kategóriák
+          </MenuItem>
           {categories.map((category) => (
-            <Button
-              key={category.id}
-              variant="text"
-              color="inherit"
-              onClick={() => handleCategorySelect(category)}
-              style={{ color: '#333' }}
-            >
-              {category.name}
-            </Button>
+            <MenuItem key={category.id} value={category.name}>{category.name}</MenuItem>
           ))}
-        </div>
+        </Select>
+        <div style={{ flexGrow: 1 }} />
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <IconButton onClick={handleSearchButtonClick}>
+          <IconButton>
             <FaSearch />
           </IconButton>
-          <Menu
-            id="search-menu"
-            anchorEl={searchAnchorEl}
-            open={searchOpen}
-            onClose={handleSearchClose}
-          >
-            <MenuItem>
-              <InputBase
-                placeholder="Search..."
-                style={{ padding: '8px', border: 'none', borderRadius: '5px', fontSize: '14px' }}
-                onChange={handleSearchChange}
-              />
-              <Button style={{ marginLeft: '10px' }} onClick={handleSearchClose}>Search</Button>
-            </MenuItem>
-          </Menu>
           <IconButton component={Link} to="/cart">
             <FaShoppingBasket />
             {currentCartItemCount > 0 && <Typography variant="body2">{currentCartItemCount}</Typography>}

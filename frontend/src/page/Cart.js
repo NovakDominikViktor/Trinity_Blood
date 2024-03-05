@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Card, CardContent, Typography, Divider, Grid, List, ListItem, ListItemText, IconButton, Button, TextField, Box } from '@mui/material';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { NavLink } from 'react-router-dom';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
-const Cart = ({ products, removeFromCart }) => { // Hozzáadtuk a removeFromCart propot
+const Cart = ({ products, removeFromCart }) => {
   const [removedProducts, setRemovedProducts] = useState([]);
   const [promoCode, setPromoCode] = useState('');
   const [invalidPromoCode, setInvalidPromoCode] = useState(false);
-  const [cartItems, setCartItems] = useState([...products]); // Frissítjük a kosár elemeinek állapotát
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    setCartItems(products);
+  }, [products]);
 
   const calculateTotal = () => {
-    return cartItems.reduce((total, product) => { // Módosítottuk a reduce függvényt
+    return cartItems.reduce((total, product) => {
       const productPrice = product.price || 0;
       const productQuantity = product.quantity || 1;
       return total + productPrice * productQuantity;
@@ -21,9 +25,9 @@ const Cart = ({ products, removeFromCart }) => { // Hozzáadtuk a removeFromCart
   const shippingCost = (Math.random() * (10 - 5) + 5).toFixed(2);
 
   const handleRemoveProduct = (productId) => {
-    const updatedCartItems = cartItems.filter(item => item.id !== productId); // Frissítjük a kosár elemeinek állapotát a termék eltávolítása után
+    const updatedCartItems = cartItems.filter(item => item.id !== productId);
     setCartItems(updatedCartItems);
-    removeFromCart(productId); // Hívjuk meg a removeFromCart funkciót a termékazonosítóval
+    removeFromCart(productId);
     const updatedRemovedProducts = [...removedProducts, productId];
     setRemovedProducts(updatedRemovedProducts);
   };
@@ -111,7 +115,7 @@ const Cart = ({ products, removeFromCart }) => { // Hozzáadtuk a removeFromCart
                     <NavLink
                       to={{
                         pathname: "/proceed-payment",
-                        state: { products: filteredProducts } // Átadja a szűrt termékeket a ProceedWithPayment komponensnek
+                        state: { products: filteredProducts }
                       }}
                       style={{ textDecoration: 'none' }}
                     >

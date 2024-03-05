@@ -11,10 +11,8 @@ import ProductDetail from './page/ProductSinglePage';
 import AccountMenu from './page/AccountMenu';
 import Category from './component/Category';
 import Footer from './page/Footer';
-import  Support  from './Support/Support';
+import Support from './Support/Support';
 import AboutUs from './page/AboutUs';
-
-
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -25,17 +23,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [cartItemCount, setCartItemCount] = useState(0);
-  const [supportOpen, setSupportOpen] = useState(false); // Állapot a támogatás ablak megnyitásához
-
-  // Támogatás ablak megnyitása
-  const openSupportModal = () => {
-    setSupportOpen(true);
-  };
-
-  // Támogatás ablak bezárása
-  const closeSupportModal = () => {
-    setSupportOpen(false);
-  };
+  const [supportOpen, setSupportOpen] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -63,8 +51,15 @@ function App() {
   }, [token]);
 
   useEffect(() => {
-    console.log("User ID:", userId);
-  }, [userId]);
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    setCartItems(storedCartItems);
+    
+    const storedAddedToCart = JSON.parse(localStorage.getItem('addedToCart')) || [];
+    setAddedToCart(storedAddedToCart);
+    
+    const itemCount = storedCartItems.reduce((total, item) => total + item.quantity, 0);
+    setCartItemCount(itemCount);
+  }, []);
 
   const addToCart = (product, quantity) => {
     const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
@@ -78,32 +73,30 @@ function App() {
     }
   
     setAddedToCart([...addedToCart, product.id]);
-    // Frissítjük a kosárba helyezett termékek számát
     setCartItemCount(prevCount => prevCount + quantity);
+    localStorage.setItem('cartItems', JSON.stringify([...cartItems, { ...product, quantity }]));
+    localStorage.setItem('addedToCart', JSON.stringify([...addedToCart, product.id]));
     console.log(`Added to cart: ${product.name}`);
   };
 
   const removeFromCart = (productId) => {
     const updatedCartItems = cartItems.filter(item => item.id !== productId);
     setCartItems(updatedCartItems);
-  
-    // Töröljük az eltávolított terméket az addedToCart állapotból is
+    
     const updatedAddedToCart = addedToCart.filter(id => id !== productId);
     setAddedToCart(updatedAddedToCart);
-  
-    // Frissítjük a kosárba helyezett termékek számát
-    const removedProduct = cartItems.find(item => item.id === productId);
-    if (removedProduct) {
-      setCartItemCount(prevCount => prevCount - removedProduct.quantity);
-    }
+    
+    const itemCount = updatedCartItems.reduce((total, item) => total + item.quantity, 0);
+    setCartItemCount(itemCount);
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    localStorage.setItem('addedToCart', JSON.stringify(updatedAddedToCart));
   };
 
   return (
-    
     <Router>
       <div>
         <AccountMenu userProfile={token} setToken={setToken} setUserId={setUserId} />
-        <Header onCategoryClick={setSelectedCategory}  setSearchTerm={setSearchTerm} cartItemCount={cartItemCount} />
+        <Header onCategoryClick={setSelectedCategory} setSearchTerm={setSearchTerm} cartItemCount={cartItemCount} />
         <Routes>
           <Route path="/" element={<Home products={products} searchTerm={searchTerm} />} />
           <Route path="/product/:productId" element={<ProductDetail products={products} addToCart={addToCart} />} />
@@ -117,10 +110,9 @@ function App() {
             path="/proceed-payment"
             element={<ProceedWithPayment userId={userId} products={cartItems.filter(item => addedToCart.includes(item.id))} onPaymentSuccess={() => console.log('Payment successful')} />}
           />
-         <Route path="/category/:categoryName" element={<Category products={products} />}/>
-         <Route path="/support" element={<Support/>} />
-         <Route path="/aboutus" element={<AboutUs/>} />
-        
+         <Route path="/category/:categoryName" element={<Category products={products} />} />
+         <Route path="/support" element={<Support />} />
+         <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
         <Footer/>
       </div>

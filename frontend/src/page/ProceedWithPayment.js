@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Card, CardContent, Container, Divider, Typography, Box, TextField, Grid, Modal } from '@mui/material';
 
-const ProceedWithPayment = ({ onPaymentSuccess, userId, products}) => {
+const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [zipCode, setZipCode] = useState('');
@@ -9,6 +9,8 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products}) => {
   const [showLoginModal, setShowLoginModal] = useState(false); // Állapot a bejelentkezési modális ablak megjelenítéséhez
 
   const token = localStorage.getItem('token');
+  const decodedToken = JSON.parse(atob(token.split('.')[1]));
+  const userEmail = decodedToken.email;
 
   const calculateTotal = () => {
     return products.reduce((total, product) => {
@@ -16,6 +18,21 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products}) => {
       const productQuantity = product.quantity || 1;
       return total + productPrice * productQuantity;
     }, 0);
+  };
+
+  const emailDataObject = {
+    recipientEmail: userEmail,
+    subject: 'Payment Confirmation',
+    products: products.map(product => ({
+      name: product.name,
+      price: product.price,
+      quantity: product.quantity
+    })),
+    address: address,
+    city: city,
+    zipCode: zipCode,
+    phoneNumber: phoneNumber,
+    totalPrice: calculateTotal()
   };
 
   const handlePayment = async () => {
@@ -39,9 +56,9 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products}) => {
           orderStatus: 'pending',
           totalPrice: product.price * product.quantity
         };
-  
+
         console.log('Order data:', orderData);
-  
+
         const response = await fetch('http://localhost:5098/api/Order', {
           method: 'POST',
           headers: {
@@ -50,12 +67,34 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products}) => {
           },
           body: JSON.stringify(orderData)
         });
-  
+
         const responseData = await response.json();
-  
+
         console.log('Payment response:', responseData);
       }
-  
+
+      // Email küldése
+      const emailContent = `Thank you, ${decodedToken.name}, for your purchase!\n\nYour total amount: $${emailDataObject.totalPrice.toFixed(2)}\n\nDate: ${new Date().toLocaleDateString()}\n\nProducts:\n${emailDataObject.products.map(product => `${product.name} - Quantity: ${product.quantity}, Price: $${product.price}`).join('\n')}\n\nAddress: ${emailDataObject.address}\nCity: ${emailDataObject.city}\nZIP Code: ${emailDataObject.zipCode}\nPhone Number: ${emailDataObject.phoneNumber}`;
+
+      const emailData = {
+        recipientEmail: userEmail,
+        subject: 'Payment Confirmation',
+        content: emailContent
+      };
+
+      console.log('Email data:', emailData);
+
+      const emailResponse = await fetch('http://localhost:5098/api/Email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(emailData)
+      });
+
+      console.log('Email response:', emailResponse);
+
       onPaymentSuccess();
     } catch (error) {
       console.error('Error:', error);
@@ -97,7 +136,7 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products}) => {
                   onChange={(e) => setCity(e.target.value)}
                 />
               </Grid>
-              
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="ZIP Code"
