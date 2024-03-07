@@ -65,28 +65,28 @@ const SignUp = () => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5" sx={{ color: '#333', marginBottom: '20px' }}>
-            Regisztráció
+            Registration
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ width: '100%' }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField autoComplete="given-name" name="firstName" required fullWidth id="firstName" label="Keresztnév" autoFocus />
+                <TextField autoComplete="given-name" name="firstName" required fullWidth id="firstName" label="First name" autoFocus />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField required fullWidth id="lastName" label="Vezetéknév" name="lastName" autoComplete="family-name" />
+                <TextField required fullWidth id="lastName" label="Last name" name="lastName" autoComplete="family-name" />
               </Grid>
               <Grid item xs={12}>
-                <TextField required fullWidth id="email" label="E-mail cím" name="email" autoComplete="email" />
+                <TextField required fullWidth id="email" label="E-mail" name="email" autoComplete="email" />
               </Grid>
               <Grid item xs={12}>
-                <TextField required fullWidth name="password" label="Jelszó" type="password" id="password" autoComplete="new-password" />
+                <TextField required fullWidth name="password" label="Password" type="password" id="password" autoComplete="new-password" />
               </Grid>
               <Grid item xs={12}>
-                <TextField required fullWidth name="confirmPassword" label="Jelszó megerősítése" type="password" autoComplete="new-password" />
+                <TextField required fullWidth name="confirmPassword" label="Confirm password" type="password" autoComplete="new-password" />
               </Grid>
             </Grid>
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}>
-              Regisztráció
+              Registration
             </Button>
           </Box>
         </Box>

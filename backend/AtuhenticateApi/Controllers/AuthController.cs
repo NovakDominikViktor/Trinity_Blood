@@ -27,7 +27,7 @@ namespace backend.Controllers
                 return StatusCode(400, errorMessage);
             }
 
-            return StatusCode(201, "Sikeres Regisztráció.");
+            return StatusCode(201, "Registration Succesful.");
         }
 
         [HttpPost("AssignRole")]
@@ -42,7 +42,7 @@ namespace backend.Controllers
             }
 
 
-            return StatusCode(200, "Sikeres szerep létrehozás.");
+            return StatusCode(200, "Role succesful assigned.");
         }
 
         [HttpPost("login")]
@@ -52,7 +52,7 @@ namespace backend.Controllers
 
             if (loginResponse.User == null)
             {
-                return BadRequest("Nem megfelelő email vagy jelszó!");
+                return BadRequest("Invalid email or password!");
             }
 
             return StatusCode(200, loginResponse);

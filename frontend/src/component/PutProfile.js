@@ -31,7 +31,7 @@ const PutProfile = ({ userId, editedProfile }) => {
   };
 
   return (
-    <button onClick={handlePutProfile}>Profil módosítása</button>
+    <button onClick={handlePutProfile}>Update profile</button>
   );
 };
 

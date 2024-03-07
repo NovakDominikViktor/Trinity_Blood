@@ -96,7 +96,7 @@ const CommentForm = ({ productId }) => {
         style={{ width: '100%', marginBottom: '1rem' }}
         required
       />
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
+      <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ mt: 2, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}>
         Submit
       </Button>
       <Modal open={showLoginModal} onClose={handleLoginModalClose}>

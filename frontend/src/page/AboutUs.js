@@ -11,32 +11,28 @@ const AboutUs = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} md={4}>
                 <Paper elevation={3} sx={{ p: 2 }}>
-                  <Avatar sx={{ width: 150, height: 150 }} alt="Johnny Sins" src="johnny_sins.jpg" />
-                  <Typography variant="h6">Dr. Johnny Sins</Typography>
+                  <Avatar sx={{ width: 150, height: 150 }} alt="Kovács Dániel" src="johnny_sins.jpg" />
+                  <Typography variant="h6">Kovács Dániel</Typography>
                   <Typography>
-                    Johnny is our experienced doctor who is committed to taking care of your health needs. With his
-                    expertise and compassionate approach, you can trust that you're in good hands.
+                    Dani is the founder and CEO of Trinity Blood. He brings a unique perspective to our team and is a great emotinal support person.
                   </Typography>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4}>
                 <Paper elevation={3} sx={{ p: 2 }}>
                   <Avatar sx={{ width: 150, height: 150 }} alt="Ryan Reynolds" src="ryan_reynolds.jpg" />
-                  <Typography variant="h6">Ryan Reynolds</Typography>
+                  <Typography variant="h6">Braczkó Tamás</Typography>
                   <Typography>
-                    Ryan is our versatile actor with a knack for bringing characters to life on the screen. He adds
-                    depth and humor to our team, always ready to tackle any challenge that comes our way.
+                    Tamás is...
                   </Typography>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4}>
                 <Paper elevation={3} sx={{ p: 2 }}>
-                  <Avatar sx={{ width: 150, height: 150 }} alt="Korda György" src="korda_gyorgy.jpg" />
-                  <Typography variant="h6">Korda György</Typography>
+                  <Avatar sx={{ width: 150, height: 150 }} alt="Novák Dominik Viktor" src="korda_gyorgy.jpg" />
+                  <Typography variant="h6">Novák Dominik Viktor</Typography>
                   <Typography>
-                    György brings a unique perspective to our team with his "yes" attitude and enthusiasm. He may not
-                    have a specific title like the others, but his positive energy and willingness to contribute make
-                    him an invaluable member.
+                    A random guy. He works.
                   </Typography>
                 </Paper>
               </Grid>
@@ -58,23 +54,23 @@ const AboutUs = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} md={4}>
                 <Paper elevation={3} sx={{ p: 2 }}>
-                  <Typography variant="h6">Dr. Johnny Sins</Typography>
+                  <Typography variant="h6">Kovács Dániel</Typography>
                   <Typography>Tel: (36) 20 696 1223</Typography>
-                  <Typography>Email: johnyph69@gmail.com</Typography>
+                  <Typography>Email: kovacsd@gmail.com</Typography>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4}>
                 <Paper elevation={3} sx={{ p: 2 }}>
-                  <Typography variant="h6">Ryan Reynolds</Typography>
+                  <Typography variant="h6">Braczkó Tamás</Typography>
                   <Typography>Tel: (36) 30 445 2234</Typography>
-                  <Typography>Email: ryanpool2@citromail.hu</Typography>
+                  <Typography>Email: braczkot@citromail.hu</Typography>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4}>
                 <Paper elevation={3} sx={{ p: 2 }}>
-                  <Typography variant="h6">Korda György</Typography>
+                  <Typography variant="h6">Novák D. Viktor</Typography>
                   <Typography>Tel: (36) 70 601 4556</Typography>
-                  <Typography>Email: reptérgyuribaa73@gmail.com</Typography>
+                  <Typography>Email: novakd@gmail.com</Typography>
                 </Paper>
               </Grid>
             </Grid>

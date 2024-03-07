@@ -66,9 +66,9 @@ const Navbar = ({ setSearchTerm, cartItemCount }) => {
           aria-haspopup="true"
           onClick={(event) => setSelectedCategory(event.currentTarget)}
           variant="contained"
-          style={{ marginLeft: '20px' }}  sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: '#fff' }}
+          style={{ marginLeft: '20px' }}  sx={{ mt: 2, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}
         >
-          Kategóriák <FaAngleDown />
+          Categories <FaAngleDown />
         </Button>
         <Menu
           id="category-menu"
@@ -77,7 +77,7 @@ const Navbar = ({ setSearchTerm, cartItemCount }) => {
           onClose={() => setSelectedCategory(null)}
         >
           <MenuItem value="" disabled>
-            Kategóriák
+            Categories
           </MenuItem>
           {categories.map((category) => (
             <MenuItem

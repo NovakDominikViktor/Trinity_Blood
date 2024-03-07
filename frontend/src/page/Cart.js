@@ -51,7 +51,7 @@ const Cart = ({ products, removeFromCart }) => {
               <Grid item xs={12} md={8}>
                 <Card>
                   <CardContent>
-                    <Typography variant="h6">Termékek</Typography>
+                    <Typography variant="h6">Products</Typography>
                     <Divider />
                     <List>
                       {filteredProducts.map((product) => (
@@ -59,7 +59,7 @@ const Cart = ({ products, removeFromCart }) => {
                           <ListItem>
                             <ListItemText
                               primary={product.name}
-                              secondary={`Ár: ${product.price.toFixed(2)} dollár | Mennyiség: ${product.quantity || 1}`}
+                              secondary={`Price: ${product.price.toFixed(2)} dollar | Quantity: ${product.quantity || 1}`}
                             />
                             <IconButton onClick={() => handleRemoveProduct(product.id)} aria-label="remove">
                               <DeleteOutlineIcon />
@@ -75,17 +75,17 @@ const Cart = ({ products, removeFromCart }) => {
               <Grid item xs={12} md={4}>
                 <Card>
                   <CardContent>
-                    <Typography variant="h6">Fizetés</Typography>
+                    <Typography variant="h6">Payment</Typography>
                     <Divider />
-                    <Typography>Összesen ({filteredProducts.length} Tétel)</Typography>
-                    <Typography>{calculateTotal().toFixed(2)} dollár</Typography>
-                    <Typography>Szállítás</Typography>
-                    <Typography>{shippingCost} dollár</Typography>
+                    <Typography>All ({filteredProducts.length} item(s))</Typography>
+                    <Typography>{calculateTotal().toFixed(2)} dollar</Typography>
+                    <Typography>Delivery</Typography>
+                    <Typography>{shippingCost} dollar</Typography>
                     <Divider />
-                    <Typography variant="h6">Várható Összeg</Typography>
-                    <Typography variant="h5">{(parseFloat(calculateTotal()) + parseFloat(shippingCost)).toFixed(2)} dollár</Typography>
+                    <Typography variant="h6">Total Price</Typography>
+                    <Typography variant="h5">{(parseFloat(calculateTotal()) + parseFloat(shippingCost)).toFixed(2)} dollar</Typography>
                     
-                    <Typography variant="h6">Promóciós Kód</Typography>
+                    <Typography variant="h6">Promotion Code</Typography>
                     <Box display="flex">
                       <TextField
                         variant="outlined"
@@ -94,13 +94,13 @@ const Cart = ({ products, removeFromCart }) => {
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
                       />
-                      <Button variant="contained" onClick={applyPromoCode}>Hozzáadás</Button>
+                      <Button variant="contained" onClick={applyPromoCode}>Add</Button>
                     </Box>
                     {invalidPromoCode && (
                       <Box display="flex" alignItems="center" color="error.main">
                         <ErrorOutlineIcon />
                         <Typography variant="body2" ml={1}>
-                          Érvénytelen promo kód
+                          Code is invalid
                         </Typography>
                       </Box>
                     )}
@@ -109,7 +109,7 @@ const Cart = ({ products, removeFromCart }) => {
                     <Typography variant="subtitle1">
                       <b>Take advantage of our exclusive offers:</b>
                       <br />
-                      FRENCHPHARMA - Ingyenes szállítás 49€ felett.
+                      FRENCHPHARMA - free delivery above 49$.
                     </Typography>
                     <Divider />
                     <NavLink
@@ -124,7 +124,7 @@ const Cart = ({ products, removeFromCart }) => {
                         fullWidth
                         variant="contained"
                       >
-                        Fizetés
+                        Pay
                       </Button>
                     </NavLink>
 
@@ -134,7 +134,7 @@ const Cart = ({ products, removeFromCart }) => {
             </Grid>
           ) : (
             <Typography variant="h5" align="center" style={{ marginTop: '20px' }}>
-              A kosarad üres
+              Your cart is empty
             </Typography>
           )}
         </CardContent>

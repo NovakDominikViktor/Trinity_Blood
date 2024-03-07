@@ -41,7 +41,7 @@ const SignIn = ({ setToken }) => {
     <Container maxWidth="xs">
       <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Typography component="h1" variant="h5" gutterBottom style={{ color: '#333' }}>
-          Belépés
+          Sign in
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -61,7 +61,7 @@ const SignIn = ({ setToken }) => {
             required
             fullWidth
             name="password"
-            label="Jelszó"
+            label="Password"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -70,16 +70,16 @@ const SignIn = ({ setToken }) => {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Emlékezz rám"
+            label="Remember me"
             style={{ color: '#333' }}
           />
           <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: '#fff' }}>
-            Belépés
+            Login
           </Button>
           <Grid container>
             <Grid item xs>
               <Link component={RouterLink} to="#" variant="body2" style={{ color: '#333' }}>
-                Elfelejtetted a jelszavad?
+                Forgot password?
               </Link>
             </Grid>
           </Grid>

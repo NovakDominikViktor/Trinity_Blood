@@ -85,7 +85,7 @@ const ProductSinglePage = ({ products, addToCart }) => {
               Ár: ${product ? product.price.toFixed(2) : '0.00'}
             </Typography>
             <Typography variant="body1" align="center" paragraph>
-              {product ? product.description || 'Nincs leírás elérhető erre a termékre.' : 'Termék nem található'}
+              {product ? product.description || 'There is no description for this productd.' : 'Product not found'}
             </Typography>
             <TextField
               label="Mennyiség"
@@ -101,7 +101,7 @@ const ProductSinglePage = ({ products, addToCart }) => {
             </Grid>
             <Grid container justifyContent="center">
               <Button variant="contained" color="primary" onClick={handleAddToCart} sx={{ mt: 2, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}>
-                Kosárba
+                Add to cart
               </Button>
             </Grid>
             <Grid container justifyContent="center" mt={2}>

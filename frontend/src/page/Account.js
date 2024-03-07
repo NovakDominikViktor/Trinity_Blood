@@ -76,30 +76,30 @@ const Account = () => {
           <input type="file" accept="image/*" id="profilePicInput" style={{ display: 'none' }} onChange={handleProfilePicChange} />
           <label htmlFor="profilePicInput">
             <Button variant="outlined" component="span" sx={{ mt: 2 }}>
-              Profilkép beállítása
+              Choose Profile pic
             </Button>
           </label>
           <Typography variant="h5" sx={{ mt: 2 }}>
-            Profilom
+            My profile
           </Typography>
           <Tabs value={currentTab} indicatorColor="primary" textColor="primary" onChange={handleChangeTab} variant="fullWidth" sx={{ mt: 2 }}>
-            <Tab label="Profilom" />
-            <Tab label="Profil szerkesztése" />
-            <Tab label="Profil törlése" />
+            <Tab label="My Profile" />
+            <Tab label="Update Profile" />
+            <Tab label="Delete Profile" />
           </Tabs>
           {currentTab === 0 && editedProfile && (
             <Grid container spacing={2} sx={{ mt: 2 }}>
               <Grid item xs={12}>
-                <Typography variant="h6">Személyes információ</Typography>
+                <Typography variant="h6">Personal Information</Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="body1">
-                  <strong>Keresztnév:</strong> {editedProfile.firstName}
+                  <strong>First Name:</strong> {editedProfile.firstName}
                 </Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="body1">
-                  <strong>Vezetéknév:</strong> {editedProfile.lastName}
+                  <strong>last Name:</strong> {editedProfile.lastName}
                 </Typography>
               </Grid>
               <Grid item xs={12}>
@@ -112,7 +112,7 @@ const Account = () => {
           {currentTab === 1 && editedProfile && (
             <Grid container spacing={2} sx={{ mt: 2 }}>
               <Grid item xs={12}>
-                <Typography variant="h6">Profil szerkesztése</Typography>
+                <Typography variant="h6">Update Profile</Typography>
               </Grid>
               <Grid item xs={12}>
                 <TextField

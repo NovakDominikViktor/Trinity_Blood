@@ -38,17 +38,17 @@ const DeleteProfileButton = ({ userId }) => {
   return (
     <div>
       <Button variant="contained" color="error" onClick={handleClickOpen}>
-        Profil törlése
+        Delete profile
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Biztosan törölni szeretnéd a profilt?</DialogTitle>
+        <DialogTitle>Are you sure you want to delete your Profile?</DialogTitle>
         <DialogContent>
-          A profil törlésével minden kapcsolódó adat véglegesen elveszik.
+          You will not be able to recover your profile once deleted.
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Mégse</Button>
+          <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleConfirmDelete} autoFocus>
-            Törlés
+            Delete
           </Button>
         </DialogActions>
       </Dialog>
