@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card, CardContent, Container, Divider, Typography, Box, TextField, Grid, Modal } from '@mui/material';
+import {jwtDecode} from 'jwt-decode';
 
 const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
   const [address, setAddress] = useState('');
@@ -9,7 +10,7 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
   const [showLoginModal, setShowLoginModal] = useState(false); // Állapot a bejelentkezési modális ablak megjelenítéséhez
 
   const token = localStorage.getItem('token');
-  const decodedToken = JSON.parse(atob(token.split('.')[1]));
+  const decodedToken = jwtDecode(token);
   const userEmail = decodedToken.email;
 
   const calculateTotal = () => {

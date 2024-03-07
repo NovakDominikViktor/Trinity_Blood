@@ -31,6 +31,7 @@ namespace backend.Controllers
             mail.From = new MailAddress("nagysohajok@gmail.com");
             mail.To.Add(mailAddressTo);
             mail.Subject = subject;
+            mail.BodyEncoding = System.Text.Encoding.UTF8;
             mail.Body = body;
             //smtpServer.Credentials = new System.Net.NetworkCredential("tesztlevelkuldo@kkszki.hu", "Balazska-1234");
             smtpServer.Credentials = new System.Net.NetworkCredential("nagysohajok@gmail.com", "gxyqbiwlkighzipx ");

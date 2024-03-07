@@ -17,7 +17,7 @@ namespace backend
 {
     public class Program
     {
-        public static void SendMail(string mailAddressTo, string subject, string body)
+        /*public static void SendMail(string mailAddressTo, string subject, string body)
         {
             MailMessage mail = new MailMessage();
             SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
@@ -31,7 +31,7 @@ namespace backend
             smtpServer.Port = 587;
             smtpServer.EnableSsl = true;
             smtpServer.Send(mail);
-        }
+        }*/
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);

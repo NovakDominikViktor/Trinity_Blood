@@ -110,7 +110,7 @@ function App() {
             path="/proceed-payment"
             element={<ProceedWithPayment userId={userId} products={cartItems.filter(item => addedToCart.includes(item.id))} onPaymentSuccess={() => console.log('Payment successful')} />}
           />
-         <Route path="/category/:categoryName" element={<Category products={products} />} />
+         <Route path="/category/:categoryName" element={<Category products={products} searchTerm={searchTerm} />} />
          <Route path="/support" element={<Support />} />
          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>

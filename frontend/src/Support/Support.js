@@ -41,13 +41,12 @@ const SupportChat = () => {
   };
 
   return (
-    <div>
-    <div className="chat-header">
-      Írj a szupportnak (dani az)
-    </div>
     <div className="support-chat-container">
-      <div className="support-chat-content">
-        <div ref={chatContentRef} className="messages" style={{ minHeight: '150px' }}>
+      <div className="chat-header">
+        Chat with Support
+      </div>
+      <div className="support-chat-content" ref={chatContentRef}>
+        <div className="messages">
           {chatMessages.map((message, index) => (
             <div key={index} className={`message ${message.type}`}>
               {message.type === 'user' ? (
@@ -66,7 +65,7 @@ const SupportChat = () => {
           )}
         </div>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="input-form">
         <input
           className="input-field"
           type="text"
@@ -77,8 +76,6 @@ const SupportChat = () => {
         <button className="send-button" type="submit">Send</button>
       </form>
     </div>
-  </div>
-  
   );
 };
 
