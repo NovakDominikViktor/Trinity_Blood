@@ -11,8 +11,8 @@ using backend.Datas;
 namespace backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240312185225_DecimalToDouble")]
-    partial class DecimalToDouble
+    [Migration("20240313074008_StrogeToStorage")]
+    partial class StrogeToStorage
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -343,7 +343,7 @@ namespace backend.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("double");
 
-                    b.Property<int>("StrogeStock")
+                    b.Property<int>("StorageStock")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
