@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Már 14. 08:28
+-- Létrehozás ideje: 2024. Már 14. 10:36
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.0.30
 
@@ -137,6 +137,17 @@ CREATE TABLE `aspnetusers` (
 INSERT INTO `aspnetusers` (`Id`, `UserName`, `NormalizedUserName`, `Email`, `NormalizedEmail`, `EmailConfirmed`, `PasswordHash`, `SecurityStamp`, `ConcurrencyStamp`, `PhoneNumber`, `PhoneNumberConfirmed`, `TwoFactorEnabled`, `LockoutEnd`, `LockoutEnabled`, `AccessFailedCount`, `FullName`, `FirstName`, `LastName`) VALUES
 ('2c6fc608-71ae-473f-a6e0-5d09d75deab5', 'admin@admin.com', 'ADMIN@ADMIN.COM', 'admin@admin.com', 'ADMIN@ADMIN.COM', 0, 'AQAAAAIAAYagAAAAEBtJdS1IWGiAk13nvzWMpH5HU57iQzR3NUVocHGRrrHq2F8iT5EcBpyoqpeHaZuz3Q==', 'MWMP5LFPHIVO575O2UNCNK2452VPQWOW', 'f5433e7f-6e67-4a1a-84c4-9076544701c1', NULL, 0, 0, NULL, 1, 0, 'Admin Admin', 'Admin', 'Admin');
 
+--
+-- Eseményindítók `aspnetusers`
+--
+DELIMITER $$
+CREATE TRIGGER `DeleteOrderU` AFTER DELETE ON `aspnetusers` FOR EACH ROW BEGIN
+    DELETE FROM Orders
+    WHERE UserId = OLD.Id;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -179,7 +190,7 @@ INSERT INTO `categories` (`Id`, `Name`) VALUES
 
 CREATE TABLE `comments` (
   `Id` int(11) NOT NULL,
-  `UserId` longtext NOT NULL,
+  `UserId` varchar(255) NOT NULL,
   `ProductId` int(11) NOT NULL,
   `Ratings` double NOT NULL,
   `Comments` longtext NOT NULL,
@@ -249,6 +260,17 @@ INSERT INTO `products` (`Id`, `Name`, `Description`, `Price`, `IsItInStock`, `Ca
 (19, 'Savage for Men 3.4 Oz Men\'s Eau De Toilette Spray Refreshing & Warm Masculine Scent for Daily Use Men\'s Casual Cologne Includes NovoGlow Carrying Pouch Smell Fresh All Day A Gift for Any Occasion', 'Provides a refreshing scent', 24.99, 1, 4, 'https://m.media-amazon.com/images/I/91Eqa0ZQCLL._AC_UF1000,1000_QL80_.jpg', 60),
 (20, 'Colgate® Total® Mint Waxed Dental Floss', 'Removes plaque and food particles', 1.99, 1, 4, 'https://www.colgate.com.au/content/dam/cp-sites/oral-care/oral-care-center/en-au/product-detail-pages/specialty-products/colgate-total-mint-waxed.jpg', 200);
 
+--
+-- Eseményindítók `products`
+--
+DELIMITER $$
+CREATE TRIGGER `DeleteOrderP` AFTER DELETE ON `products` FOR EACH ROW BEGIN
+    DELETE FROM Orders
+    WHERE ProductId = OLD.Id;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -275,7 +297,8 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20240304190107_ratingToDouble', '8.0.1'),
 ('20240313071854_DecimalToDouble', '8.0.1'),
 ('20240313074008_StrogeToStorage', '8.0.1'),
-('20240314072051_ConnectOrderToProductAndUser', '8.0.1');
+('20240314072051_ConnectOrderToProductAndUser', '8.0.1'),
+('20240314073832_CommentRemovedFromComment', '8.0.1');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -340,7 +363,9 @@ ALTER TABLE `categories`
 -- A tábla indexei `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IX_Comments_ProductId` (`ProductId`),
+  ADD KEY `IX_Comments_UserId` (`UserId`);
 
 --
 -- A tábla indexei `orders`
@@ -383,25 +408,25 @@ ALTER TABLE `aspnetuserclaims`
 -- AUTO_INCREMENT a táblához `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT a táblához `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT a táblához `products`
 --
 ALTER TABLE `products`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Megkötések a kiírt táblákhoz
@@ -439,11 +464,11 @@ ALTER TABLE `aspnetusertokens`
   ADD CONSTRAINT `FK_AspNetUserTokens_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
 
 --
--- Megkötések a táblához `orders`
+-- Megkötések a táblához `comments`
 --
-ALTER TABLE `orders`
-  ADD CONSTRAINT `FK_Orders_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_Orders_Products_ProductId` FOREIGN KEY (`ProductId`) REFERENCES `products` (`Id`) ON DELETE CASCADE;
+ALTER TABLE `comments`
+  ADD CONSTRAINT `FK_Comments_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_Comments_Products_ProductId` FOREIGN KEY (`ProductId`) REFERENCES `products` (`Id`) ON DELETE CASCADE;
 
 --
 -- Megkötések a táblához `products`
