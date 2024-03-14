@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Már 13. 09:30
+-- Létrehozás ideje: 2024. Már 14. 08:28
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.0.30
 
@@ -179,7 +179,7 @@ INSERT INTO `categories` (`Id`, `Name`) VALUES
 
 CREATE TABLE `comments` (
   `Id` int(11) NOT NULL,
-  `UserId` varchar(255) NOT NULL,
+  `UserId` longtext NOT NULL,
   `ProductId` int(11) NOT NULL,
   `Ratings` double NOT NULL,
   `Comments` longtext NOT NULL,
@@ -194,7 +194,7 @@ CREATE TABLE `comments` (
 
 CREATE TABLE `orders` (
   `Id` int(11) NOT NULL,
-  `UserId` longtext NOT NULL,
+  `UserId` varchar(255) NOT NULL,
   `ProductId` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL,
   `TotalPrice` decimal(65,30) NOT NULL,
@@ -216,11 +216,11 @@ CREATE TABLE `products` (
   `Id` int(11) NOT NULL,
   `Name` longtext NOT NULL,
   `Description` longtext NOT NULL,
-  `Price` double(65,2) NOT NULL,
+  `Price` double NOT NULL,
   `IsItInStock` tinyint(1) NOT NULL,
   `CategoryId` int(11) NOT NULL,
   `PictureUrl` longtext NOT NULL,
-  `StorageStock` int(11) NOT NULL DEFAULT 0
+  `StorageStock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -271,7 +271,11 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20240221190526_tables', '8.0.1'),
 ('20240221192145_order', '8.0.1'),
 ('20240224162413_AffressToAddress', '8.0.1'),
-('20240226115637_ProductKiegeszites', '8.0.1');
+('20240226115637_ProductKiegeszites', '8.0.1'),
+('20240304190107_ratingToDouble', '8.0.1'),
+('20240313071854_DecimalToDouble', '8.0.1'),
+('20240313074008_StrogeToStorage', '8.0.1'),
+('20240314072051_ConnectOrderToProductAndUser', '8.0.1');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -336,15 +340,15 @@ ALTER TABLE `categories`
 -- A tábla indexei `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `IX_Comments_ProductId` (`ProductId`),
-  ADD KEY `IX_Comments_UserId` (`UserId`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- A tábla indexei `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IX_Orders_ProductId` (`ProductId`),
+  ADD KEY `IX_Orders_UserId` (`UserId`);
 
 --
 -- A tábla indexei `products`
@@ -435,11 +439,11 @@ ALTER TABLE `aspnetusertokens`
   ADD CONSTRAINT `FK_AspNetUserTokens_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
 
 --
--- Megkötések a táblához `comments`
+-- Megkötések a táblához `orders`
 --
-ALTER TABLE `comments`
-  ADD CONSTRAINT `FK_Comments_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_Comments_Products_ProductId` FOREIGN KEY (`ProductId`) REFERENCES `products` (`Id`) ON DELETE CASCADE;
+ALTER TABLE `orders`
+  ADD CONSTRAINT `FK_Orders_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_Orders_Products_ProductId` FOREIGN KEY (`ProductId`) REFERENCES `products` (`Id`) ON DELETE CASCADE;
 
 --
 -- Megkötések a táblához `products`
