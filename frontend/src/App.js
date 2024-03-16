@@ -13,6 +13,7 @@ import Category from './component/Category';
 import Footer from './page/Footer';
 import Support from './Support/Support';
 import AboutUs from './page/AboutUs';
+import ContactUs from './page/ContactUs';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -113,6 +114,7 @@ function App() {
          <Route path="/category/:categoryName" element={<Category products={products} searchTerm={searchTerm} />} />
          <Route path="/support" element={<Support />} />
          <Route path="/aboutus" element={<AboutUs />} />
+         <Route path="/contactus" element={<ContactUs />} />
         </Routes>
         <Footer/>
       </div>

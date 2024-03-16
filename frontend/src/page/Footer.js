@@ -26,7 +26,7 @@ const Footer = () => {
             About Us
           </Link>{' '}
           |{' '}
-          <Link color="inherit" href="/contact" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
+          <Link color="inherit" href="/contactus" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             Contact
           </Link>
         </Box>
