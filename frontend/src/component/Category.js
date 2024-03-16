@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Grid } from '@mui/material';
 import ProductCard from './ProductCard';
 
 const Category = ({ products, searchTerm }) => {
@@ -16,12 +17,16 @@ const Category = ({ products, searchTerm }) => {
 
   return (
     <div>
-      <h2>Category: {categoryName}</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <h2 style={{ textAlign: 'center' }}>{categoryName}</h2>
+        </Grid>
         {categoryProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+            <ProductCard key={product.id} product={product} />
+          </Grid>
         ))}
-      </div>
+      </Grid>
     </div>
   );
 };

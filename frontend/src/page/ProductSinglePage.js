@@ -82,7 +82,7 @@ const ProductSinglePage = ({ products, addToCart }) => {
               {product && product.name}
             </Typography>
             <Typography variant="h6" align="center" color="text.secondary">
-              Ár: ${product ? product.price.toFixed(2) : '0.00'}
+              Price: ${product ? product.price.toFixed(2) : '0.00'}
             </Typography>
             <Typography variant="body1" align="center" paragraph>
               {product ? product.description || 'There is no description for this productd.' : 'Product not found'}

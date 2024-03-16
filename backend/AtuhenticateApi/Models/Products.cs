@@ -16,7 +16,7 @@
 
         public string PictureUrl { get; set; }
 
-        public int StrogeStock {  get; set; }
+        public int StorageStock {  get; set; }
 
         public Category Category { get; set; }
     }

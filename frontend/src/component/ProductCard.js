@@ -20,6 +20,8 @@ const ProductCard = ({ product, addToCart }) => {
 
   console.log('Product:', product); // Console log hozzáadása
 
+  const trimmedName = product.name.length > 20 ? `${product.name.slice(0, 20)}...` : product.name;
+
   return (
     <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
       <Card
@@ -50,7 +52,7 @@ const ProductCard = ({ product, addToCart }) => {
         </CardActions>
         <CardContent style={{ padding: '16px' }}>
           <Typography variant="h5" component="div" style={{ marginBottom: '8px', color: 'inherit', transition: 'color 0.3s ease' }}>
-            {product.name}
+            {trimmedName}
           </Typography>
           <Typography variant="body2" color="text.secondary" style={{ fontWeight: 'bold' }}>
             ${product.price.toFixed(2)}

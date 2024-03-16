@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Datas;
 
@@ -10,9 +11,11 @@ using backend.Datas;
 namespace backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240313071854_DecimalToDouble")]
+    partial class DecimalToDouble
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -340,7 +343,7 @@ namespace backend.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("double");
 
-                    b.Property<int>("StorageStock")
+                    b.Property<int>("StrogeStock")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

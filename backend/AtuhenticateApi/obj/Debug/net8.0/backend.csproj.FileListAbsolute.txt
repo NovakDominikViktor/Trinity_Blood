@@ -221,7 +221,6 @@ C:\Users\ndominikviktor\Desktop\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\
 C:\Users\ndominikviktor\Desktop\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\backend.csproj.CoreCompileInputs.cache
 C:\Users\ndominikviktor\Desktop\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ndominikviktor\Desktop\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\ndominikviktor\Desktop\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\backend.sourcelink.json
 C:\Users\ndominikviktor\Desktop\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ndominikviktor\Desktop\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ndominikviktor\Desktop\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\staticwebassets\msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props
