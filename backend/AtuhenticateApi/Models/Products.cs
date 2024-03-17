@@ -19,5 +19,7 @@
         public int StorageStock {  get; set; }
 
         public Category Category { get; set; }
+
+        public DateTime PostedTime { get; set; }
     }
 }

@@ -7,7 +7,7 @@ const Footer = () => {
       <Container maxWidth="md">
         <Box mt={5}>
           <Typography variant="h6" align="center" gutterBottom style={{ color: '#007bff' }}>
-            Awesome Store
+            ScriptSyncShop
           </Typography>
           <Typography variant="subtitle1" align="center" color="text.secondary">
             Your one-stop destination for quality products.
@@ -18,7 +18,7 @@ const Footer = () => {
             Home
           </Link>{' '}
           |{' '}
-          <Link color="inherit" href="/products" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
+          <Link color="inherit" href="/allproducts" style={{ margin: '0 10px', textDecoration: 'none', color: '#343a40' }}>
             Products
           </Link>{' '}
           |{' '}

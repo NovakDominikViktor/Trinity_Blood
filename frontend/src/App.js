@@ -14,6 +14,8 @@ import Footer from './page/Footer';
 import Support from './Support/Support';
 import AboutUs from './page/AboutUs';
 import ContactUs from './page/ContactUs';
+import AllProducts from './page/AllProducts';
+
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -94,6 +96,7 @@ function App() {
   };
 
   return (
+
     <Router>
       <div>
         <AccountMenu userProfile={token} setToken={setToken} setUserId={setUserId} />
@@ -115,10 +118,12 @@ function App() {
          <Route path="/support" element={<Support />} />
          <Route path="/aboutus" element={<AboutUs />} />
          <Route path="/contactus" element={<ContactUs />} />
+         <Route path="/allproducts" element={<AllProducts products={products} searchTerm={searchTerm} />} />
         </Routes>
         <Footer/>
       </div>
     </Router>
+   
   );
 }
 

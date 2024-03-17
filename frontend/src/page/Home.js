@@ -1,22 +1,37 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; // importáljuk a useNavigate hook-ot
 import ProductCard from '../component/ProductCard';
 
 const Home = ({ products, searchTerm }) => {
-  const filteredProducts = products.filter(product => 
-    product.name.toLowerCase().startsWith(searchTerm.toLowerCase())
-  );
+  // Rendezés időbélyeg alapján csökkenő sorrendben
+  const sortedProducts = products.sort((a, b) => new Date(b.postedTime) - new Date(a.postedTime));
+  
+  // A legújabb 8 termék kiválasztása és szűrése a keresési kifejezés alapján
+  const newestFilteredProducts = sortedProducts
+    .filter(product => product.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
+    .slice(0, 8); // Csak az első 8 elem
+
+  const navigate = useNavigate(); // useNavigate hook
+
+  const handleViewAllProducts = () => {
+    navigate('/allproducts'); // navigálás az összes terméket megjelenítő oldalra
+  };
 
   return (
-    <Grid container spacing={3}>
-      {filteredProducts.map(product => (
-        <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-          <ProductCard product={product} />
-        </Grid>
-      ))}
-    </Grid>
+    <div>
+      <Grid container spacing={3}>
+        {newestFilteredProducts.map(product => (
+          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+            <ProductCard product={product} />
+          </Grid>
+        ))}
+      </Grid>
+      <Button variant="contained" onClick={handleViewAllProducts} style={{ marginTop: '20px' }}>
+        További termékek megtekintése
+      </Button>
+    </div>
   );
 };
-
 
 export default Home;
