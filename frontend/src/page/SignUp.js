@@ -22,8 +22,8 @@ const SignUp = () => {
     };
   
     if (formData.password !== formData.confirmPassword) {
-      console.error('A két jelszó nem egyezik');
-      toast.error('A két jelszó nem egyezik');
+      console.error('The two password must match!');
+      toast.error('The two password must match!');
       return;
     }
   
@@ -37,19 +37,20 @@ const SignUp = () => {
       });
     
       if (response.ok) {
-        console.log('Registration successful');
-        toast.success('Regisztráció sikeres');
+        const responseBody = await response.text(); // Get the success message from the backend
+        setMessage(responseBody); // Set the success message received from the backend
+        toast.success(responseBody); // Display the success message using toastify
       } else {
         console.error('Registration failed:', response.statusText);
-        const responseBody = await response.text(); // Szöveges formátumban kapjuk az üzenetet
-        const errorMessage = responseBody || 'Hiba történt a regisztráció során';
+        const responseBody = await response.text(); // Get the error message from the backend
+        const errorMessage = responseBody || 'There was an error during registration';
         console.error(errorMessage);
         setMessage(errorMessage);
         toast.error(errorMessage);
       }
     } catch (error) {
       console.error('Error:', error);
-      const errorMessage = 'Hiba történt a regisztráció során';
+      const errorMessage = 'There was an error during registration';
       setMessage(errorMessage);
       toast.error(errorMessage);
     }
@@ -91,7 +92,7 @@ const SignUp = () => {
           </Box>
         </Box>
       </Container>
-      <ToastContainer /> {/* Ez most közvetlenül a gyökér komponens alatt van */}
+      <ToastContainer /> {/* This is directly under the root component */}
     </ThemeProvider>
   );
 }
