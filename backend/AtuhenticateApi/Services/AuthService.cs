@@ -11,99 +11,102 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-public class AuthService : IAuth
+namespace backend.Services
 {
-    private readonly UserManager<ApplicationUser> _userManager;
-    private readonly RoleManager<IdentityRole> _roleManager;
-    private readonly IJwtTokenGenerator _jwtTokenGenerator;
-
-    public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IJwtTokenGenerator jwtTokenGenerator)
+    public class AuthService : IAuth
     {
-        _userManager = userManager;
-        _roleManager = roleManager;
-        _jwtTokenGenerator = jwtTokenGenerator;
-    }
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
-    public async Task<bool> AssignRole(string email, string roleName)
-    {
-        var user = await _userManager.FindByEmailAsync(email);
-
-        if (user != null)
+        public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IJwtTokenGenerator jwtTokenGenerator)
         {
-            if (!await _roleManager.RoleExistsAsync(roleName))
-            {
-                await _roleManager.CreateAsync(new IdentityRole(roleName));
-            }
-
-            await _userManager.AddToRoleAsync(user, roleName);
-
-            return true;
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _jwtTokenGenerator = jwtTokenGenerator;
         }
 
-        return false;
-    }
-
-    public async Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto)
-    {
-        var user = await _userManager.FindByEmailAsync(loginRequestDto.Email);
-
-        if (user != null && await _userManager.CheckPasswordAsync(user, loginRequestDto.Password))
+        public async Task<bool> AssignRole(string email, string roleName)
         {
-            var roles = await _userManager.GetRolesAsync(user);
-            var token = _jwtTokenGenerator.GenerateToken(user, roles);
+            var user = await _userManager.FindByEmailAsync(email);
 
-            var userDto = new UserDto
+            if (user != null)
             {
-                Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email
+                if (!await _roleManager.RoleExistsAsync(roleName))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+
+                await _userManager.AddToRoleAsync(user, roleName);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto)
+        {
+            var user = await _userManager.FindByEmailAsync(loginRequestDto.Email);
+
+            if (user != null && await _userManager.CheckPasswordAsync(user, loginRequestDto.Password))
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                var token = _jwtTokenGenerator.GenerateToken(user, roles);
+
+                var userDto = new UserDto
+                {
+                    Id = user.Id,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email
+                };
+
+                return new LoginResponseDto { User = userDto, Token = token };
+            }
+
+            return new LoginResponseDto { User = null, Token = "" };
+        }
+
+        public async Task<string> Register(RegisterRequestDto registerRequestDto)
+        {
+            if (string.IsNullOrEmpty(registerRequestDto.FirstName))
+            {
+                return "First name is required.";
+            }
+
+            var user = new ApplicationUser
+            {
+                UserName = registerRequestDto.Email,
+                FirstName = registerRequestDto.FirstName,
+                LastName = registerRequestDto.LastName,
+                Email = registerRequestDto.Email,
+                FullName = $"{registerRequestDto.FirstName} {registerRequestDto.LastName}"
+
             };
 
-            return new LoginResponseDto { User = userDto, Token = token };
-        }
+            var result = await _userManager.CreateAsync(user, registerRequestDto.Password);
 
-        return new LoginResponseDto { User = null, Token = "" };
-    }
-
-    public async Task<string> Register(RegisterRequestDto registerRequestDto)
-    {
-        if (string.IsNullOrEmpty(registerRequestDto.FirstName))
-        {
-            return "First name is required.";
-        }
-
-        var user = new ApplicationUser
-        {
-            UserName = registerRequestDto.Email,
-            FirstName = registerRequestDto.FirstName,
-            LastName = registerRequestDto.LastName,
-            Email = registerRequestDto.Email,
-            FullName = $"{registerRequestDto.FirstName} {registerRequestDto.LastName}"
-
-        };
-
-        var result = await _userManager.CreateAsync(user, registerRequestDto.Password);
-
-        if (result.Succeeded)
-        {
-            // Add default role to the user
-            var defaultRole = "USER"; // Define your default role here
-            if (!await _roleManager.RoleExistsAsync(defaultRole))
+            if (result.Succeeded)
             {
-                await _roleManager.CreateAsync(new IdentityRole(defaultRole));
+                // Add default role to the user
+                var defaultRole = "USER"; // Define your default role here
+                if (!await _roleManager.RoleExistsAsync(defaultRole))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole(defaultRole));
+                }
+
+                await _userManager.AddToRoleAsync(user, defaultRole);
+
+                return "";
             }
-
-            await _userManager.AddToRoleAsync(user, defaultRole);
-
-            return "";
+            else
+            {
+                return result.Errors.FirstOrDefault()?.Description ?? "Error Encountered!";
+            }
         }
-        else
-        {
-            return result.Errors.FirstOrDefault()?.Description ?? "Error Encountered!";
-        }
+
+
+
     }
-
-
-
 }
