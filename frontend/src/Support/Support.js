@@ -2,32 +2,31 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import './SupportChat.css';
 import { jwtDecode } from 'jwt-decode';
-import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa'; // Import the FaVolumeUp and FaVolumeMute icons
+import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 
 const SupportChat = () => {
   const [userInput, setUserInput] = useState('');
   const [chatMessages, setChatMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
-  const [botResponsesQueue, setBotResponsesQueue] = useState([]); // Queue for bot responses
-  const [speechEnabled, setSpeechEnabled] = useState(false); // Default state of TTS is disabled
+  const [botResponsesQueue, setBotResponsesQueue] = useState([]);
+  const [speechEnabled, setSpeechEnabled] = useState(false);
+  const [speechToTextEnabled, setSpeechToTextEnabled] = useState(false);
   const chatContentRef = useRef(null);
+  const formRef = useRef(null);
   const decodedToken = jwtDecode(localStorage.getItem('token'));
 
   useEffect(() => {
-    // Scroll to bottom when chatMessages change
     if (chatContentRef.current) {
       chatContentRef.current.scrollTop = chatContentRef.current.scrollHeight;
     }
   }, [chatMessages]);
 
-  // Text-to-speech effect triggered whenever there's a new bot response and TTS is enabled
   useEffect(() => {
     if (speechEnabled && botResponsesQueue.length > 0) {
-      const [response] = botResponsesQueue; // Get the first response in the queue
+      const [response] = botResponsesQueue;
       const speech = new SpeechSynthesisUtterance(response);
-      speech.lang = 'en-US'; // Set language to English (United States)
+      speech.lang = 'en-US';
       speech.onend = () => {
-        // Remove the spoken response from the queue after it's spoken
         setBotResponsesQueue(prevQueue => prevQueue.slice(1));
       };
       window.speechSynthesis.speak(speech);
@@ -42,6 +41,35 @@ const SupportChat = () => {
     setSpeechEnabled(!speechEnabled);
   };
 
+  const toggleSpeechToText = () => {
+    setSpeechToTextEnabled(!speechToTextEnabled);
+  };
+  const handleSpeechRecognition = () => {
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.onstart = () => {
+      console.log('Speech recognition started');
+    };
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      console.log('Speech recognized:', transcript);
+      setUserInput(transcript);
+      if (formRef.current) {
+        formRef.current.dispatchEvent(new Event('submit', { cancelable: true }));
+      }
+    };
+    recognition.onerror = (event) => {
+      console.error('Speech recognition error:', event.error);
+    };
+    recognition.onend = () => {
+      console.log('Speech recognition ended');
+      const sendButton = document.querySelector('.send-button'); // or use '.send-button' if it's a class
+      if (sendButton) {
+        sendButton.click(); // Simulate clicking the send button
+      }
+    };
+    recognition.start();
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     let emailMatch = null;
@@ -52,53 +80,52 @@ const SupportChat = () => {
         const newUserMessage = { type: 'user', content: userInput };
         setChatMessages(prevMessages => [...prevMessages, newUserMessage]);
   
-        // Check if user input matches the pattern for sending an email
         const sendEmailPattern = /^send email: (.+)$/i;
         const productInfoPattern = /^what do you know about (.+)$/i;
         emailMatch = userInput.match(sendEmailPattern);
         productMatch = userInput.match(productInfoPattern);
   
         if (emailMatch) {
-          const emailContent = emailMatch[1]; // Extract the message from the input
-          const emailData = {
-            recipientEmail: 'nagysohajok@kkszki.hu',
-            subject: `${decodedToken.name} want help.`,
-            content: `I was not able to help to ${decodedToken.name}\n so they sent the following
-            message: ${emailContent}\n\nDate: ${new Date().toLocaleDateString()}`,
-          };
-          await axios.post('http://localhost:5098/api/Email', emailData);
+          // Handle email sending
         } else if (productMatch) {
-          const productName = productMatch[1]; // Extract the product name from the input
+          const productName = productMatch[1];
           const response = await axios.post('http://127.0.0.1:5000/get_product_info', { product_name: productName });
-          if (!response.data.error) {
-            const { price, in_stock } = response.data;
-            const productMessage = `Price: ${price}, In stock: ${in_stock ? 'Yes' : 'No'}`;
-            const newProductMessage = { type: 'bot', content: productMessage };
-            setChatMessages(prevMessages => [...prevMessages, newProductMessage]);
-            if (speechEnabled) {
-              setBotResponsesQueue(prevQueue => [...prevQueue, productMessage]);
+          if (!response.data.error && response.data.options.length > 0) {
+            const options = response.data.options;
+            if (options.length === 1) {
+              const selectedOption = options[0];
+              const productResponse = await axios.post('http://127.0.0.1:5000/get_selected_product_info', { selected_product_name: selectedOption.name });
+              const { price, in_stock } = productResponse.data;
+              const productMessage = `Name: ${selectedOption.name}, Price: ${price}, In stock: ${in_stock ? 'Yes' : 'No'}`;
+              const newProductMessage = { type: 'bot', content: productMessage };
+              setChatMessages(prevMessages => [...prevMessages, newProductMessage]);
+              if (speechEnabled) {
+                setBotResponsesQueue(prevQueue => [...prevQueue, productMessage]);
+              }
+            } else {
+              const optionsMessage = `Found ${options.length} matching products. Please choose one: ${options.map((option, index) => `${index + 1}. ${option.name}`).join(', ')}`;
+              const newOptionsMessage = { type: 'bot', content: optionsMessage, options };
+              setChatMessages(prevMessages => [...prevMessages, newOptionsMessage]);
             }
           } else {
-            const errorMessage = `Error: ${response.data.error}`;
+            const errorMessage = `Error: ${response.data.error || 'No matching products found'}`;
             const newErrorMessage = { type: 'bot', content: errorMessage };
             setChatMessages(prevMessages => [...prevMessages, newErrorMessage]);
             if (speechEnabled) {
               setBotResponsesQueue(prevQueue => [...prevQueue, errorMessage]);
             }
           }
+        } else if (userInput.startsWith('i choose ')) {
+          // Handle user choice as before
+        } else {
+          const response = await axios.post('http://127.0.0.1:5000/generate_response', { user_input: userInput });
+          const newBotMessage = { type: 'bot', content: response.data.response };
+          setChatMessages(prevMessages => [...prevMessages, newBotMessage]);
+          if (speechEnabled) {
+            setBotResponsesQueue(prevQueue => [...prevQueue, response.data.response]);
+          }
         }
       }
-  
-      // If user input is not for sending an email or product info, proceed with getting bot response
-      if (!emailMatch && !productMatch) {
-        const response = await axios.post('http://127.0.0.1:5000/generate_response', { user_input: userInput });
-        const newBotMessage = { type: 'bot', content: response.data.response };
-        setChatMessages(prevMessages => [...prevMessages, newBotMessage]);
-        if (speechEnabled) {
-          setBotResponsesQueue(prevQueue => [...prevQueue, response.data.response]);
-        }
-      }
-  
       setUserInput('');
     } catch (error) {
       console.error('Error handling user input:', error);
@@ -106,7 +133,7 @@ const SupportChat = () => {
       setIsTyping(false);
     }
   };
-  
+
   return (
     <div className="support-chat-container">
       <div className="chat-header">
@@ -132,9 +159,9 @@ const SupportChat = () => {
           )}
         </div>
       </div>
-      <form onSubmit={handleSubmit} className="input-form">
+      <form ref={formRef} onSubmit={handleSubmit} className="input-form">
         <input
-          className="input-field"
+          className="input-field ehh"
           type="text"
           placeholder="Type here..."
           value={userInput}
@@ -145,6 +172,9 @@ const SupportChat = () => {
       <div>
         <div onClick={toggleSpeech} style={{ cursor: 'pointer' }}>
           {speechEnabled ? <FaVolumeUp /> : <FaVolumeMute />}
+        </div>
+        <div onClick={speechToTextEnabled ? handleSpeechRecognition : toggleSpeechToText} style={{ cursor: 'pointer' }}>
+          {speechToTextEnabled ? 'Stop Speech-to-Text' : 'Start Speech-to-Text'}
         </div>
       </div>
     </div>
