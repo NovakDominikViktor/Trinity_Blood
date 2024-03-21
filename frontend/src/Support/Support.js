@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import './SupportChat.css';
 import { jwtDecode } from 'jwt-decode';
-import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
+import { FaMicrophoneAlt, FaMicrophoneAltSlash, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 
 const SupportChat = () => {
   const [userInput, setUserInput] = useState('');
@@ -13,7 +13,9 @@ const SupportChat = () => {
   const [speechToTextEnabled, setSpeechToTextEnabled] = useState(false);
   const chatContentRef = useRef(null);
   const formRef = useRef(null);
-  const decodedToken = jwtDecode(localStorage.getItem('token'));
+  const recognitionRef = useRef(null);
+
+  const decodedToken = localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')) : null;
 
   useEffect(() => {
     if (chatContentRef.current) {
@@ -42,13 +44,19 @@ const SupportChat = () => {
   };
 
   const toggleSpeechToText = () => {
-    setSpeechToTextEnabled(!speechToTextEnabled);
+    if (speechToTextEnabled) {
+      stopSpeechRecognition();
+    } else {
+      startSpeechRecognition();
+    }
   };
-  const handleSpeechRecognition = () => {
+
+  const startSpeechRecognition = () => {
     const recognition = new window.webkitSpeechRecognition();
     recognition.lang = 'en-US';
     recognition.onstart = () => {
       console.log('Speech recognition started');
+      setSpeechToTextEnabled(true);
     };
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
@@ -60,16 +68,28 @@ const SupportChat = () => {
     };
     recognition.onerror = (event) => {
       console.error('Speech recognition error:', event.error);
+      // Handle error if needed
+      setSpeechToTextEnabled(false); // Reset speechToTextEnabled if there's an error
     };
     recognition.onend = () => {
       console.log('Speech recognition ended');
-      const sendButton = document.querySelector('.send-button'); // or use '.send-button' if it's a class
+      setSpeechToTextEnabled(false); // Reset speechToTextEnabled when recognition ends
+      const sendButton = document.querySelector('.send-button');
       if (sendButton) {
-        sendButton.click(); // Simulate clicking the send button
+        sendButton.click();
       }
     };
     recognition.start();
+    recognitionRef.current = recognition;
   };
+  
+  const stopSpeechRecognition = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.abort();
+      setSpeechToTextEnabled(false); // Reset speechToTextEnabled when recognition is manually stopped
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let emailMatch = null;
@@ -85,44 +105,30 @@ const SupportChat = () => {
         emailMatch = userInput.match(sendEmailPattern);
         productMatch = userInput.match(productInfoPattern);
   
-        if (emailMatch) {
-          // Handle email sending
-        } else if (productMatch) {
-          const productName = productMatch[1];
-          const response = await axios.post('http://127.0.0.1:5000/get_product_info', { product_name: productName });
-          if (!response.data.error && response.data.options.length > 0) {
-            const options = response.data.options;
-            if (options.length === 1) {
-              const selectedOption = options[0];
-              const productResponse = await axios.post('http://127.0.0.1:5000/get_selected_product_info', { selected_product_name: selectedOption.name });
-              const { price, in_stock } = productResponse.data;
-              const productMessage = `Name: ${selectedOption.name}, Price: ${price}, In stock: ${in_stock ? 'Yes' : 'No'}`;
-              const newProductMessage = { type: 'bot', content: productMessage };
-              setChatMessages(prevMessages => [...prevMessages, newProductMessage]);
-              if (speechEnabled) {
-                setBotResponsesQueue(prevQueue => [...prevQueue, productMessage]);
-              }
-            } else {
-              const optionsMessage = `Found ${options.length} matching products. Please choose one: ${options.map((option, index) => `${index + 1}. ${option.name}`).join(', ')}`;
-              const newOptionsMessage = { type: 'bot', content: optionsMessage, options };
-              setChatMessages(prevMessages => [...prevMessages, newOptionsMessage]);
-            }
+        if (decodedToken) {
+          // User is logged in
+          if (emailMatch) {
+            // Handle email sending
+          } else if (productMatch) {
+            // Handle product information
+          } else if (userInput.startsWith('i choose ')) {
+            // Handle user choice as before
           } else {
-            const errorMessage = `Error: ${response.data.error || 'No matching products found'}`;
-            const newErrorMessage = { type: 'bot', content: errorMessage };
-            setChatMessages(prevMessages => [...prevMessages, newErrorMessage]);
+            // Generate bot response
+            const response = await axios.post('http://127.0.0.1:5000/generate_response', { user_input: userInput });
+            const newBotMessage = { type: 'bot', content: response.data.response };
+            setChatMessages(prevMessages => [...prevMessages, newBotMessage]);
             if (speechEnabled) {
-              setBotResponsesQueue(prevQueue => [...prevQueue, errorMessage]);
+              setBotResponsesQueue(prevQueue => [...prevQueue, response.data.response]);
             }
           }
-        } else if (userInput.startsWith('i choose ')) {
-          // Handle user choice as before
         } else {
-          const response = await axios.post('http://127.0.0.1:5000/generate_response', { user_input: userInput });
-          const newBotMessage = { type: 'bot', content: response.data.response };
+          // User is not logged in
+          const notLoggedInMessage = "You're not logged in. Please log in to use this feature.";
+          const newBotMessage = { type: 'bot', content: notLoggedInMessage };
           setChatMessages(prevMessages => [...prevMessages, newBotMessage]);
           if (speechEnabled) {
-            setBotResponsesQueue(prevQueue => [...prevQueue, response.data.response]);
+            setBotResponsesQueue(prevQueue => [...prevQueue, notLoggedInMessage]);
           }
         }
       }
@@ -173,8 +179,8 @@ const SupportChat = () => {
         <div onClick={toggleSpeech} style={{ cursor: 'pointer' }}>
           {speechEnabled ? <FaVolumeUp /> : <FaVolumeMute />}
         </div>
-        <div onClick={speechToTextEnabled ? handleSpeechRecognition : toggleSpeechToText} style={{ cursor: 'pointer' }}>
-          {speechToTextEnabled ? 'Stop Speech-to-Text' : 'Start Speech-to-Text'}
+        <div onClick={toggleSpeechToText} style={{ cursor: 'pointer' }}>
+          {speechToTextEnabled ? <FaMicrophoneAlt /> : <FaMicrophoneAltSlash />}
         </div>
       </div>
     </div>
