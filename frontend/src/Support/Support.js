@@ -108,11 +108,37 @@ const SupportChat = () => {
         if (decodedToken) {
           // User is logged in
           if (emailMatch) {
-            // Handle email sending
+            const emailContent = emailMatch[1]; // Extract the message from the input
+            const emailData = {
+              recipientEmail: 'nagysohajok@kkszki.hu',
+              subject: `${decodedToken.name} want help.`,
+              content: `I was not able to help to ${decodedToken.name}\n so they sent the following
+              message: ${emailContent}\n\nDate: ${new Date().toLocaleDateString()}`,
+          };
+          await axios.post('http://localhost:5098/api/Email', emailData);
           } else if (productMatch) {
-            // Handle product information
+            const productName = productMatch[1];
+          const response = await axios.post('http://127.0.0.1:5000/get_product_info', { product_name: productName });
+          if (!response.data.error && response.data.options.length > 0){
+            const options = response.data.options;
+            const optionsMessage = `Found ${options.length} matching products. Please choose one: ${options.map((option, index) => `${index + 1}. ${option.name}`).join(', ')}`;
+            const newOptionsMessage = { type: 'bot', content: optionsMessage, options };
+            setChatMessages(prevMessages => [...prevMessages, newOptionsMessage]);
+          }else{
+            const errorMessage = `Error: ${response.data.error || 'No matching products found'}`;
+            const newErrorMessage = { type: 'bot', content: errorMessage };
+            setChatMessages(prevMessages => [...prevMessages, newErrorMessage]);
+          }
           } else if (userInput.startsWith('i choose ')) {
-            // Handle user choice as before
+            const optionIndex = parseInt(userInput.substring(9)); // Extract the number after "i choose "
+            if (!isNaN(optionIndex) && optionIndex > 0 && optionIndex <= chatMessages[chatMessages.length - 1].options.length){
+                const selectedOption = chatMessages[chatMessages.length - 1].options[optionIndex - 1];
+                const response = await axios.post('http://127.0.0.1:5000/get_selected_product_info', { selected_product_name: selectedOption.name });
+                const { price, in_stock } = response.data;
+                const productMessage = `Name: ${selectedOption.name}, Price: ${price}, In stock: ${in_stock ? 'Yes' : 'No'}`;
+                const newProductMessage = { type: 'bot', content: productMessage };
+                setChatMessages(prevMessages => [...prevMessages, newProductMessage]);
+            }
           } else {
             // Generate bot response
             const response = await axios.post('http://127.0.0.1:5000/generate_response', { user_input: userInput });
