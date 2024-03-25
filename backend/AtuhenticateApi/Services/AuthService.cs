@@ -104,6 +104,33 @@ public class AuthService : IAuth
         }
     }
 
+    public async Task<ChangePasswordResultDto> ChangePassword(ChangePasswordDto model)
+    {
+        var user = await _userManager.FindByEmailAsync(model.Email);
+
+        if (user == null)
+        {
+            return new ChangePasswordResultDto { Success = false, ErrorMessage = "User not found" };
+        }
+
+        // Check if old password is correct
+        var result = await _userManager.CheckPasswordAsync(user, model.OldPassword);
+        if (!result)
+        {
+            return new ChangePasswordResultDto { Success = false, ErrorMessage = "Old password is incorrect" };
+        }
+
+        // Change password
+        var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+        if (changePasswordResult.Succeeded)
+        {
+            return new ChangePasswordResultDto { Success = true, ErrorMessage = "" };
+        }
+        else
+        {
+            return new ChangePasswordResultDto { Success = false, ErrorMessage = "Failed to change password" };
+        }
+    }
 
 
 }

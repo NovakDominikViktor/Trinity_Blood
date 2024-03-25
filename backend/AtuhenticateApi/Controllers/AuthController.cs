@@ -6,7 +6,6 @@ namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
     public class AuthController : ControllerBase
     {
         private readonly IAuth authService;
@@ -14,8 +13,8 @@ namespace backend.Controllers
         public AuthController(IAuth authService)
         {
             this.authService = authService;
-
         }
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequestDto model)
         {
@@ -23,26 +22,23 @@ namespace backend.Controllers
 
             if (!string.IsNullOrEmpty(errorMessage))
             {
-
                 return StatusCode(400, errorMessage);
             }
 
-            return StatusCode(201, "Registration Succesful.");
+            return StatusCode(201, "Registration Successful.");
         }
 
         [HttpPost("AssignRole")]
         public async Task<ActionResult> AssignRole([FromBody] RoleDto model)
         {
+            var assignRoleSuccessful = await authService.AssignRole(model.Email, model.Role.ToUpper());
 
-            var assignRoleSuccesful = await authService.AssignRole(model.Email, model.Role.ToUpper());
-
-            if (!assignRoleSuccesful)
+            if (!assignRoleSuccessful)
             {
                 return BadRequest();
             }
 
-
-            return StatusCode(200, "Role succesful assigned.");
+            return StatusCode(200, "Role successfully assigned.");
         }
 
         [HttpPost("login")]
@@ -56,7 +52,22 @@ namespace backend.Controllers
             }
 
             return StatusCode(200, loginResponse);
-
         }
+
+        [HttpPost("changepassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto model)
+        {
+            var changePasswordResult = await authService.ChangePassword(model);
+
+            if (changePasswordResult.Success)
+            {
+                return Ok("Password changed successfully");
+            }
+            else
+            {
+                return BadRequest(changePasswordResult.ErrorMessage);
+            }
+        }
+
     }
 }
