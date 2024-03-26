@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Adatkarbantartas
@@ -23,6 +22,16 @@ namespace Adatkarbantartas
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Image_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Products.Source = new BitmapImage(new Uri("Open Box.png", UriKind.Relative));
+        }
+
+        private void Image_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Products.Source = new BitmapImage(new Uri("Box.png", UriKind.Relative));
         }
     }
 }

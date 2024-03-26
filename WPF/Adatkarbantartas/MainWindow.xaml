@@ -3,11 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+
         xmlns:local="clr-namespace:Adatkarbantartas"
         mc:Ignorable="d"
-        Title="Data Management" Height="450" Width="800" Background="DarkCyan">
-    <Border Background="DarkSlateGray" CornerRadius="20" Margin="20">
-        <DataGrid Name="DBGrid" />
+        ResizeMode="CanMinimize"
+        Title="MainWindow" Height="660" Width="1000">
 
-    </Border>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="343*"/>
+            <ColumnDefinition Width="657*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel x:Name="TopPanel"  LastChildFill="False" Height="100" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <DockPanel x:Name="BottomPanel" LastChildFill="False" Height="20" VerticalAlignment="Bottom" Background="#FF23B5E8" Grid.ColumnSpan="2"/>
+        <DockPanel x:Name="MiddlePanel"   LastChildFill="False" Margin="0,105,0,25" Grid.ColumnSpan="2">
+            <DockPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="FontFamily" Value="Century Gothic"/>
+                    <Setter Property="FontSize" Value="10"/>
+                </Style>
+            </DockPanel.Resources>
+        </DockPanel>
+        <Label Content="Inventory Manager System" TextBlock.TextAlignment="Center"  Width="232" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" FontFamily="Century Gothic" FontSize="16" FontWeight="Bold" Margin="10,52,0,0"/>
+        <Label Content="S" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" FontFamily="Goudy Stout" FontWeight="Bold" FontSize="28"/>
+        <Label Content="S" HorizontalAlignment="Left" Margin="69,2,0,0" VerticalAlignment="Top" FontFamily="Goudy Stout" FontWeight="Bold" FontSize="28"/>
+        <Label Content="cript" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20"/>
+        <Label Content="ync" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20"/>
+        <Image x:Name="Products" HorizontalAlignment="Left" Height="50" Margin="276,10,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" Source="/Box.png"/>
+
+
+
+
+
+    </Grid>
 </Window>
