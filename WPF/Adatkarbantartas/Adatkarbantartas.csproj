@@ -106,6 +106,9 @@
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserModule.xaml.cs">
+      <DependentUpon>UserModule.xaml</DependentUpon>
+    </Compile>
     <Page Include="LoginScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserModule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,6 +192,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Add Administrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Role Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Add Role Administrator.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

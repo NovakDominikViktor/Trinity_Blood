@@ -482,3 +482,6 @@ F:\github\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\refint\backend.
 F:\github\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\backend.pdb
 F:\github\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\backend.genruntimeconfig.cache
 F:\github\Trinity_Blood\backend\AtuhenticateApi\obj\Debug\net8.0\ref\backend.dll
+C:\Users\kdániel\Documents\GitHub\Trinity_Blood\backend\AtuhenticateApi\bin\Debug\net8.0\Scrutor.dll
+C:\Users\kdániel\Documents\GitHub\Trinity_Blood\backend\AtuhenticateApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\kdániel\Documents\GitHub\Trinity_Blood\backend\AtuhenticateApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

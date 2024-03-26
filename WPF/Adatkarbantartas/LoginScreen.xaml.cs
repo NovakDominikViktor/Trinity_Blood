@@ -38,11 +38,15 @@ namespace Adatkarbantartas
 
         private void LoginWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.No)
+            if (!successfulLogin)
             {
-                e.Cancel = true;
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
+
         }
 
         private void TogglePasswordVisibility(bool showPassword)
@@ -81,6 +85,7 @@ namespace Adatkarbantartas
             public string Token { get; set; }
         }
 
+        private bool successfulLogin = false;
         private async Task Button_Click_Async(object sender, RoutedEventArgs e)
         {
             HttpClient client = new HttpClient();
@@ -112,7 +117,12 @@ namespace Adatkarbantartas
 
                 if (roleClaims.Contains("ADMIN"))
                 {
+                    successfulLogin = true;
                     MessageBox.Show($"Hello there, {tokenResponse.User.FirstName} {tokenResponse.User.LastName}");
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();                  
+                    this.Close();
+                    
                 }
                 else
                 {
@@ -124,13 +134,16 @@ namespace Adatkarbantartas
                 MessageBox.Show($"The login request was not successful. Status code: {response.StatusCode}. Response body: {await response.Content.ReadAsStringAsync()}");
                 MessageBox.Show("The login request was not successful. Please check your email and/or password.");
             }
-
+            
 
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button_Click_Async(sender, e);
+            await Button_Click_Async(sender, e);
+            
         }
+
+   
     }
 }

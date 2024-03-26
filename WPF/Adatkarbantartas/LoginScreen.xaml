@@ -10,26 +10,29 @@
         WindowStartupLocation="CenterScreen"
         Title="WebshopAdmin" TextBlock.TextAlignment="Center"  Height="508" Width="351">
     <Grid>
-        <DockPanel Margin="0,0,0,10" VerticalAlignment="Top" Height="90" Background="#FF23B5E8">
-
-        </DockPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="347*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel VerticalAlignment="Top" Height="90" Background="#FF23B5E8" Grid.ColumnSpan="3"/>
         <Label Content="ScryptSyncShop Inventory Manager"  Width="262" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Margin="79,27,0,0"/>
         <Image x:Name="MiniLogo"  HorizontalAlignment="Left" Height="63" Margin="10,21,0,0" VerticalAlignment="Top" Width="64" Source="/Logo-transformed.png" RenderTransformOrigin="1,0.5">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="WholeLogo" HorizontalAlignment="Center" Height="129" Margin="0,95,0,0" VerticalAlignment="Top" Width="173" Source="/Logo-transformed.png" RenderTransformOrigin="0.457,0.263" Stretch="UniformToFill"></Image>
-        <Label Content="Please Login First" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Century Gothic" Foreground="#FF22ACDC"/>
+        <Image x:Name="WholeLogo" HorizontalAlignment="Left" Height="129" Margin="89,95,0,0" VerticalAlignment="Top" Width="173" Source="/Logo-transformed.png" RenderTransformOrigin="0.457,0.263" Stretch="UniformToFill"></Image>
+        <Label Content="Please Login First" HorizontalAlignment="Left" Margin="122,220,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Century Gothic" Foreground="#FF22ACDC"/>
         <Label Content="E-mail:" TextBlock.TextAlignment="Justify" HorizontalAlignment="Left" Margin="42,259,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="13"/>
-        <TextBox x:Name="EmailLogin" TextAlignment="Justify" HorizontalAlignment="Center" Margin="0,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="22" FontFamily="Century Gothic" FontSize="13"/>
+        <TextBox x:Name="EmailLogin" TextAlignment="Justify" HorizontalAlignment="Left" Margin="54,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="22" FontFamily="Century Gothic" FontSize="13"/>
         <Label Content="Password:" TextBlock.TextAlignment="Justify" HorizontalAlignment="Left" Margin="43,326,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="13"/>
-        <TextBox x:Name="PasswordLogin" Visibility="Collapsed" TextAlignment="Justify" HorizontalAlignment="Center" Margin="0,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="22" FontFamily="Century Gothic" FontSize="13"/>
+        <TextBox x:Name="PasswordLogin" Visibility="Collapsed" TextAlignment="Justify" HorizontalAlignment="Left" Margin="54,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="22" FontFamily="Century Gothic" FontSize="13"/>
 
-        <Button Content="Login" HorizontalAlignment="Center" Margin="0,406,0,0" VerticalAlignment="Top" Width="242" FontFamily="Century Gothic" FontWeight="Bold" Foreground="White" Background="#FF47B0E4" Height="23" Click="Button_Click"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="54,406,0,0" VerticalAlignment="Top" Width="242" FontFamily="Century Gothic" FontWeight="Bold" Foreground="White" Background="#FF47B0E4" Height="23" Click="Button_Click"/>
         <Label PreviewMouseDown="ClearLabel_PreviewMouseDown" x:Name="ClearLabel" Content="Clear" HorizontalAlignment="Left" Margin="79,434,0,0" VerticalAlignment="Top" Foreground="#FF00ABFF" FontFamily="Century Gothic" FontSize="13" FontWeight="Bold"/>
         <CheckBox x:Name="CheckShowPassword" Content="Show Password" HorizontalAlignment="Left" Margin="186,440,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="PasswordBox" TextBlock.TextAlignment="Justify" Margin="0,358,0,0" VerticalAlignment="Top" Width="242" Height="22" FontFamily="Century Gothic" FontSize="13"/>
+        <PasswordBox x:Name="PasswordBox" TextBlock.TextAlignment="Justify" Margin="54,358,51,0" VerticalAlignment="Top" Width="242" Height="22" FontFamily="Century Gothic" FontSize="13"/>
 
     </Grid>
 </Window>

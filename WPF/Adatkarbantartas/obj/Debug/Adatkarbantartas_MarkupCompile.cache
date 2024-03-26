@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\github\Trinity_Blood\WPF\Adatkarbantartas\obj\Debug\
+C:\Users\kdániel\Documents\GitHub\Trinity_Blood\WPF\Adatkarbantartas\obj\Debug\
 Adatkarbantartas
 none
 false
 DEBUG;TRACE
-F:\github\Trinity_Blood\WPF\Adatkarbantartas\App.xaml
-2-2057667490
+C:\Users\kdániel\Documents\GitHub\Trinity_Blood\WPF\Adatkarbantartas\App.xaml
+4-292524798
 
-61728175160
-31882329668
-LoginScreen.xaml;MainWindow.xaml;
+8-1032987144
+311533997695
+LoginScreen.xaml;MainWindow.xaml;User.xaml;UserModule.xaml;
 
 False
 

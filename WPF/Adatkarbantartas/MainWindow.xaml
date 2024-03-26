@@ -15,9 +15,9 @@
             <ColumnDefinition Width="343*"/>
             <ColumnDefinition Width="657*"/>
         </Grid.ColumnDefinitions>
-        <DockPanel x:Name="TopPanel"  LastChildFill="False" Height="100" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <DockPanel x:Name="TopPanel"  LastChildFill="False" Height="105" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <DockPanel x:Name="BottomPanel" LastChildFill="False" Height="20" VerticalAlignment="Bottom" Background="#FF23B5E8" Grid.ColumnSpan="2"/>
-        <DockPanel x:Name="MiddlePanel"   LastChildFill="False" Margin="0,105,0,25" Grid.ColumnSpan="2">
+        <DockPanel x:Name="MiddlePanel"   LastChildFill="False" Margin="0,105,0,20" Grid.ColumnSpan="2" Background="Gainsboro">
             <DockPanel.Resources>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="FontFamily" Value="Century Gothic"/>
@@ -25,21 +25,21 @@
                 </Style>
             </DockPanel.Resources>
         </DockPanel>
-        <Label Content="Inventory Manager System" TextBlock.TextAlignment="Center"  Width="232" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" FontFamily="Century Gothic" FontSize="16" FontWeight="Bold" Margin="10,52,0,0"/>
-        <Label Content="S" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" FontFamily="Goudy Stout" FontWeight="Bold" FontSize="28"/>
-        <Label Content="S" HorizontalAlignment="Left" Margin="69,2,0,0" VerticalAlignment="Top" FontFamily="Goudy Stout" FontWeight="Bold" FontSize="28"/>
-        <Label Content="cript" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20"/>
-        <Label Content="ync" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20"/>
-        <Image x:Name="Products" HorizontalAlignment="Left" Height="50" Margin="276,10,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Products_MouseEnter" MouseLeave="Products_MouseLeave" Source="/Box.png"/>
-        <Image x:Name="Orders"  HorizontalAlignment="Left" Height="50" Margin="96,10,0,0" VerticalAlignment="Top" Width="50" Grid.Column="1" MouseEnter="Orders_MouseEnter" MouseLeave="Orders_MouseLeave" Source="/Orders.png"/>
-        <Image x:Name="Comments"  HorizontalAlignment="Left" Height="50" Margin="175,12,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Comments_MouseEnter" MouseLeave="Comments_MouseLeave" Source="/Comments.png" Grid.Column="1"/>
-        <Image x:Name="Categories"  HorizontalAlignment="Left" Height="50" Margin="12,12,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Categories_MouseEnter" MouseLeave="Categories_MouseLeave" Source="/Category.png" Grid.Column="1"/>
-        <Image x:Name="Users"  HorizontalAlignment="Left" Height="50" Margin="253,15,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Users_MouseEnter" MouseLeave="Users_MouseLeave" Source="/User.png" Grid.Column="1"/>
-        <Label Content="Products" HorizontalAlignment="Left" Margin="273,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
-        <Label Content="Categories" HorizontalAlignment="Left" Margin="4,62,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
-        <Label Content="Orders" HorizontalAlignment="Left" Margin="100,64,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
-        <Label Content="Comments" HorizontalAlignment="Left" Margin="169,66,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
-        <Label Content="Users" HorizontalAlignment="Left" Margin="259,68,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
+        <Label Content="Inventory Manager System" TextBlock.TextAlignment="Center"  Width="232" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" FontFamily="Century Gothic" FontSize="16" FontWeight="Bold" Margin="7,52,0,0" Foreground="#FF23B5E8"/>
+        <Label Content="S" HorizontalAlignment="Left" Margin="2,5,0,0" VerticalAlignment="Top" FontFamily="Goudy Stout" FontWeight="Bold" FontSize="28" Foreground="#FF23B5E8"/>
+        <Label Content="S" HorizontalAlignment="Left" Margin="69,6,0,0" VerticalAlignment="Top" FontFamily="Goudy Stout" FontWeight="Bold" FontSize="28" Foreground="#FF23B5E8"/>
+        <Label Content="cript" HorizontalAlignment="Left" Margin="25,14,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Foreground="#FF23B5E8"/>
+        <Label Content="ync" HorizontalAlignment="Left" Margin="93,15,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20" Foreground="#FF23B5E8"/>
+        <Image x:Name="Products" HorizontalAlignment="Left" Height="50" Margin="322,15,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Products_MouseEnter" MouseLeave="Products_MouseLeave" Source="/Box.png" Grid.ColumnSpan="2"/>
+        <Image x:Name="Orders"  HorizontalAlignment="Left" Height="50" Margin="171,15,0,0" VerticalAlignment="Top" Width="50" Grid.Column="1" MouseEnter="Orders_MouseEnter" MouseLeave="Orders_MouseLeave" Source="/Orders.png"/>
+        <Image x:Name="Comments"  HorizontalAlignment="Left" Height="50" Margin="279,15,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Comments_MouseEnter" MouseLeave="Comments_MouseLeave" Source="/Comments.png" Grid.Column="1"/>
+        <Image x:Name="Categories"  HorizontalAlignment="Left" Height="50" Margin="77,15,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Categories_MouseEnter" MouseLeave="Categories_MouseLeave" Source="/Category.png" Grid.Column="1"/>
+        <Image x:Name="Users"  HorizontalAlignment="Left" Height="50" Margin="375,15,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Users_MouseEnter" MouseLeave="Users_MouseLeave" Source="/User.png" Grid.Column="1"/>
+        <Label Content="Products" HorizontalAlignment="Left" Margin="314,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8" Grid.ColumnSpan="2"/>
+        <Label Content="Categories" HorizontalAlignment="Left" Margin="60,62,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
+        <Label Content="Orders" HorizontalAlignment="Left" Margin="169,64,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
+        <Label Content="Comments" HorizontalAlignment="Left" Margin="262,62,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
+        <Label Content="Users" HorizontalAlignment="Left" Margin="375,64,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
 
 
 
