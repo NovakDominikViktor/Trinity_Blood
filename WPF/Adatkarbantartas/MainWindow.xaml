@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Adatkarbantartas"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="MainWindow" Height="660" Width="1000">
+        Title="MainWindow" Height="660" Width="1000" FontFamily="Century Gothic" FontSize="9">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -30,7 +30,16 @@
         <Label Content="S" HorizontalAlignment="Left" Margin="69,2,0,0" VerticalAlignment="Top" FontFamily="Goudy Stout" FontWeight="Bold" FontSize="28"/>
         <Label Content="cript" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20"/>
         <Label Content="ync" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="20"/>
-        <Image x:Name="Products" HorizontalAlignment="Left" Height="50" Margin="276,10,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" Source="/Box.png"/>
+        <Image x:Name="Products" HorizontalAlignment="Left" Height="50" Margin="276,10,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Products_MouseEnter" MouseLeave="Products_MouseLeave" Source="/Box.png"/>
+        <Image x:Name="Orders"  HorizontalAlignment="Left" Height="50" Margin="96,10,0,0" VerticalAlignment="Top" Width="50" Grid.Column="1" MouseEnter="Orders_MouseEnter" MouseLeave="Orders_MouseLeave" Source="/Orders.png"/>
+        <Image x:Name="Comments"  HorizontalAlignment="Left" Height="50" Margin="175,12,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Comments_MouseEnter" MouseLeave="Comments_MouseLeave" Source="/Comments.png" Grid.Column="1"/>
+        <Image x:Name="Categories"  HorizontalAlignment="Left" Height="50" Margin="12,12,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Categories_MouseEnter" MouseLeave="Categories_MouseLeave" Source="/Category.png" Grid.Column="1"/>
+        <Image x:Name="Users"  HorizontalAlignment="Left" Height="50" Margin="253,15,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Users_MouseEnter" MouseLeave="Users_MouseLeave" Source="/User.png" Grid.Column="1"/>
+        <Label Content="Products" HorizontalAlignment="Left" Margin="273,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
+        <Label Content="Categories" HorizontalAlignment="Left" Margin="4,62,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
+        <Label Content="Orders" HorizontalAlignment="Left" Margin="100,64,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
+        <Label Content="Comments" HorizontalAlignment="Left" Margin="169,66,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
+        <Label Content="Users" HorizontalAlignment="Left" Margin="259,68,0,0" VerticalAlignment="Top" Grid.Column="1" FontFamily="Century Gothic" FontSize="14" Foreground="#FF23B5E8"/>
 
 
 

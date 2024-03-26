@@ -103,6 +103,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="User.xaml.cs">
+      <DependentUpon>User.xaml</DependentUpon>
+    </Compile>
     <Page Include="LoginScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +118,10 @@
       <DependentUpon>LoginScreen.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,6 +167,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Open Box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Orders.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Comments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Category_active.png" />
+    <Resource Include="Comments_active.png" />
+    <Resource Include="Orders_active.png" />
+    <Resource Include="User_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

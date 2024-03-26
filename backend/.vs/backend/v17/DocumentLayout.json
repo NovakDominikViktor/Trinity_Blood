@@ -178,8 +178,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240226115637_ProductKiegeszites.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:56:37.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:56:37.126Z"
             },
             {
               "$type": "Document",
@@ -191,8 +190,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\Products.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAgwBAAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.679Z"
             },
             {
               "$type": "Document",
@@ -204,8 +202,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Controllers\\CommentController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.679Z"
             },
             {
               "$type": "Document",
@@ -215,7 +212,7 @@
               "RelativeDocumentMoniker": "AtuhenticateApi\\Services\\AuthService.cs",
               "ToolTip": "F:\\github\\Trinity_Blood\\backend\\AtuhenticateApi\\Services\\AuthService.cs",
               "RelativeToolTip": "AtuhenticateApi\\Services\\AuthService.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAABgAAAAFAAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAqwDgAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-26T11:14:07.69Z",
               "EditorCaption": ""
@@ -230,8 +227,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Program.cs",
               "ViewState": "AQIAAGQAAAAAAAAAAIBJwGoAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.69Z"
             },
             {
               "$type": "Document",
@@ -243,8 +239,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\Category.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.703Z"
             },
             {
               "$type": "Document",
@@ -256,8 +251,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Controllers\\CategoryController.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAqwA8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.69Z"
             },
             {
               "$type": "Document",
@@ -269,8 +263,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Controllers\\OrderController.cs",
               "ViewState": "AQIAABkAAAAAAAAAAAAQwI8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.638Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.638Z"
             },
             {
               "$type": "Document",
@@ -282,8 +275,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Controllers\\ProductController.cs",
               "ViewState": "AQIAAEkAAAAAAAAAAIBJwH4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.69Z"
             },
             {
               "$type": "Document",
@@ -295,8 +287,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\Dtos\\UserDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.679Z"
             },
             {
               "$type": "Document",
@@ -308,8 +299,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\ApplicationUser.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAqwA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.679Z"
             },
             {
               "$type": "Document",
@@ -321,8 +311,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\Order.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAowAsAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.679Z"
             },
             {
               "$type": "Document",
@@ -334,8 +323,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Services\\JwtTokenGenerator.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAYwB4AAABbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.677Z"
             },
             {
               "$type": "Document",
@@ -347,8 +335,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Controllers\\AuthController.cs",
               "ViewState": "AQIAACkAAAAAAAAAAAAgwDQAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.69Z"
             },
             {
               "$type": "Document",
@@ -360,8 +347,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Controllers\\UserController.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAuwB4AAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.69Z"
             },
             {
               "$type": "Document",
@@ -373,8 +359,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\JwtOptions.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.69Z"
             },
             {
               "$type": "Document",
@@ -386,8 +371,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\Comment.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.703Z"
             },
             {
               "$type": "Document",
@@ -399,8 +383,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240224162413_AffressToAddress.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.703Z"
             },
             {
               "$type": "Document",
@@ -412,8 +395,7 @@
               "RelativeToolTip": "AtuhenticateApi\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-02-26T11:14:07.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.703Z"
             },
             {
               "$type": "Document",
@@ -425,8 +407,7 @@
               "RelativeToolTip": "AtuhenticateApi\\AtuhenticateApi.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-02-26T11:14:07.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.703Z"
             },
             {
               "$type": "Document",
@@ -438,8 +419,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240221192145_order.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.703Z"
             },
             {
               "$type": "Document",
@@ -451,8 +431,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Services\\IServices\\IAuth.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.716Z"
             },
             {
               "$type": "Document",
@@ -464,8 +443,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Datas\\AppDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAIBZwBUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.716Z"
             },
             {
               "$type": "Document",
@@ -477,8 +455,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Services\\IServices\\IJwtTokenGenerator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.716Z"
             },
             {
               "$type": "Document",
@@ -490,8 +467,7 @@
               "RelativeToolTip": "AtuhenticateApi\\backend.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-02-26T11:14:07.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.716Z"
             },
             {
               "$type": "Document",
@@ -503,8 +479,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\Dtos\\RegisterRequestDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.794Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.794Z"
             },
             {
               "$type": "Document",
@@ -516,8 +491,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\Dtos\\RoleDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.807Z"
             },
             {
               "$type": "Document",
@@ -529,8 +503,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240123114836_IdentityDb.cs",
               "ViewState": "AQIAAIoAAAAAAAAAAAAUwJ0AAABOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.807Z"
             },
             {
               "$type": "Document",
@@ -542,8 +515,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\Dtos\\LoginResponseDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.807Z"
             },
             {
               "$type": "Document",
@@ -555,8 +527,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Models\\Dtos\\LoginRequestDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.82Z"
             },
             {
               "$type": "Document",
@@ -568,8 +539,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240123121419_MyProperties.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.82Z"
             },
             {
               "$type": "Document",
@@ -581,8 +551,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240221190122_extension.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAcAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.82Z"
             },
             {
               "$type": "Document",
@@ -594,8 +563,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240221192145_order.Designer.cs",
               "ViewState": "AQIAAEsAAAAAAAAAAAAUwFcAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.833Z"
             },
             {
               "$type": "Document",
@@ -607,8 +575,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240123114836_IdentityDb.Designer.cs",
               "ViewState": "AQIAAHYAAAAAAAAAAAAwwIQAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.833Z"
             },
             {
               "$type": "Document",
@@ -620,8 +587,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240123121419_MyProperties.Designer.cs",
               "ViewState": "AQIAAEwAAAAAAAAAAAAwwFoAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.833Z"
             },
             {
               "$type": "Document",
@@ -633,8 +599,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240221190122_extension.Designer.cs",
               "ViewState": "AQIAAFQAAAAAAAAAAAAwwGIAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.833Z"
             },
             {
               "$type": "Document",
@@ -646,8 +611,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240221190526_tables.Designer.cs",
               "ViewState": "AQIAADgAAAAAAAAAAAAwwEQAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.833Z"
             },
             {
               "$type": "Document",
@@ -659,8 +623,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\AppDbContextModelSnapshot.cs",
               "ViewState": "AQIAANIAAAAAAAAAAAAwwOEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.846Z"
             },
             {
               "$type": "Document",
@@ -672,8 +635,7 @@
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240221190526_tables.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T11:14:07.846Z"
             }
           ]
         }

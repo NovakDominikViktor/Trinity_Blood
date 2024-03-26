@@ -24,14 +24,55 @@ namespace Adatkarbantartas
             InitializeComponent();
         }
 
-        private void Image_MouseEnter(object sender, MouseEventArgs e)
+        private void Products_MouseEnter(object sender, MouseEventArgs e)
         {
             Products.Source = new BitmapImage(new Uri("Open Box.png", UriKind.Relative));
         }
 
-        private void Image_MouseLeave(object sender, MouseEventArgs e)
+        private void Products_MouseLeave(object sender, MouseEventArgs e)
         {
             Products.Source = new BitmapImage(new Uri("Box.png", UriKind.Relative));
         }
+
+        private void Orders_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Orders.Source = new BitmapImage(new Uri("Orders_active.png", UriKind.Relative));
+        }
+
+        private void Orders_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Orders.Source = new BitmapImage(new Uri("Orders.png", UriKind.Relative));
+        }
+
+        private void Comments_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Comments.Source = new BitmapImage(new Uri("Comments_active.png", UriKind.Relative));
+        }
+
+        private void Comments_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Comments.Source = new BitmapImage(new Uri("Comments.png", UriKind.Relative));
+        }
+
+        private void Categories_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Categories.Source = new BitmapImage(new Uri("Category_active.png", UriKind.Relative));
+        }
+
+        private void Categories_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Categories.Source = new BitmapImage(new Uri("Category.png", UriKind.Relative));
+        }
+
+        private void Users_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Users.Source = new BitmapImage(new Uri("User_active.png", UriKind.Relative));
+        }
+
+        private void Users_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Users.Source = new BitmapImage(new Uri("User.png", UriKind.Relative));
+        }
+
     }
 }

@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("box.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("open%20box.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("user.png")]
 
 
