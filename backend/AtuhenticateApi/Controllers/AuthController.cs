@@ -1,6 +1,7 @@
 ﻿using backend.Models.Dtos;
 using backend.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace backend.Controllers
 {
@@ -54,20 +55,30 @@ namespace backend.Controllers
             return StatusCode(200, loginResponse);
         }
 
-        [HttpPost("changepassword")]
-        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto model)
+        [HttpPost("resetpassword")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto model)
         {
-            var changePasswordResult = await authService.ChangePassword(model);
-
-            if (changePasswordResult.Success)
+            // Validate the reset password request
+            if (!ModelState.IsValid)
             {
-                return Ok("Password changed successfully");
+                return BadRequest("Invalid reset password request.");
+            }
+
+            // Reset the password using the provided token and new password
+            var result = await authService.ResetPassword(model.Email, model.Token, model.NewPassword);
+
+            if (result.Success)
+            {
+                // Password reset successful
+                return Ok("Password reset successfully.");
             }
             else
             {
-                return BadRequest(changePasswordResult.ErrorMessage);
+                // Password reset failed
+                return BadRequest(result.ErrorMessage);
             }
         }
+
 
     }
 }

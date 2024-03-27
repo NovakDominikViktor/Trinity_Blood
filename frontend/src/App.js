@@ -15,6 +15,7 @@ import Support from './Support/Support';
 import AboutUs from './page/AboutUs';
 import ContactUs from './page/ContactUs';
 import AllProducts from './page/AllProducts';
+import ResetPassword from './page/ResetPassword';
 
 
 function App() {
@@ -119,7 +120,9 @@ function App() {
          <Route path="/aboutus" element={<AboutUs />} />
          <Route path="/contactus" element={<ContactUs />} />
          <Route path="/allproducts" element={<AllProducts products={products} searchTerm={searchTerm} />} />
+         <Route path="/resetpassword" element={<ResetPassword/>} />
         </Routes>
+       
         <Footer/>
       </div>
     </Router>

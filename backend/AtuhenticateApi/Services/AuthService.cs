@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IdentityModel.Tokens.Jwt;
+using System.Web;
 
 public class AuthService : IAuth
 {
@@ -104,33 +106,44 @@ public class AuthService : IAuth
         }
     }
 
-    public async Task<ChangePasswordResultDto> ChangePassword(ChangePasswordDto model)
+    public async Task<PasswordResetTokenResultDto> GeneratePasswordResetToken(string email)
+{
+    var user = await _userManager.FindByEmailAsync(email);
+    if (user == null)
     {
-        var user = await _userManager.FindByEmailAsync(model.Email);
+        return null;
+    }
 
+    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+    return new PasswordResetTokenResultDto
+    {
+        Email = email,
+        Token = token
+    };
+}
+
+    public async Task<ChangePasswordResultDto> ResetPassword(string email, string token, string newPassword)
+    {
+        var user = await _userManager.FindByEmailAsync(email);
         if (user == null)
         {
             return new ChangePasswordResultDto { Success = false, ErrorMessage = "User not found" };
         }
 
-        // Check if old password is correct
-        var result = await _userManager.CheckPasswordAsync(user, model.OldPassword);
-        if (!result)
-        {
-            return new ChangePasswordResultDto { Success = false, ErrorMessage = "Old password is incorrect" };
-        }
+        // Reset password using the provided token and new password
+        var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
 
-        // Change password
-        var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
-        if (changePasswordResult.Succeeded)
+        if (result.Succeeded)
         {
             return new ChangePasswordResultDto { Success = true, ErrorMessage = "" };
         }
         else
         {
-            return new ChangePasswordResultDto { Success = false, ErrorMessage = "Failed to change password" };
+            // Extract error message from IdentityResult
+            string errorMessage = string.Join("\n", result.Errors.Select(error => error.Description));
+            return new ChangePasswordResultDto { Success = false, ErrorMessage = errorMessage };
         }
     }
-
 
 }
