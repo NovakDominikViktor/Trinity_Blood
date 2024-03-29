@@ -24,11 +24,10 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [addedToCart, setAddedToCart] = useState([]);
   const [userId, setUserId] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [, setSelectedCategory] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [cartItemCount, setCartItemCount] = useState(0);
-  const [supportOpen, setSupportOpen] = useState(false);
-
+ 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -103,7 +102,7 @@ function App() {
         <AccountMenu userProfile={token} setToken={setToken} setUserId={setUserId} />
         <Header onCategoryClick={setSelectedCategory} setSearchTerm={setSearchTerm} cartItemCount={cartItemCount} />
         <Routes>
-          <Route path="/" element={<Home products={products} searchTerm={searchTerm} />} />
+          <Route path="/" element={<Home products={products} searchTerm={searchTerm}/>} />
           <Route path="/product/:productId" element={<ProductDetail products={products} addToCart={addToCart} />} />
           <Route path="/account" element={token ? <Account token={token} setToken={setToken} /> : <Navigate to="/account-sign-up" />} />
           <Route path="/account-sign-up" element={<AccountSigning setToken={setToken} />} />

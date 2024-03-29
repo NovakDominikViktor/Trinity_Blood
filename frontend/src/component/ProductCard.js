@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardContent, Typography, Button, CardActions } from '@mui/material';
+import { Card, CardContent, Typography, CardActions} from '@mui/material';
 
-const ProductCard = ({ product, addToCart }) => {
- 
+const ProductCard = ({ product }) => {
+  
   const [isHovered, setIsHovered] = React.useState(false);
 
   const handleMouseEnter = () => {
@@ -14,41 +14,40 @@ const ProductCard = ({ product, addToCart }) => {
     setIsHovered(false);
   };
 
-  const handleAddToCart = () => {
-    addToCart(product);
-  };
-
-  console.log('Product:', product); // Console log hozzáadása
-
   const trimmedName = product.name.length > 20 ? `${product.name.slice(0, 20)}...` : product.name;
 
   return (
     <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
       <Card
-        sx={{ position: 'relative', width: '100%', '&:hover': { backgroundColor: 'rgba(255,255,255,0.9)' } }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        style={{
+          position: 'relative',
+          width: '100%',
+          transition: 'transform 0.3s, box-shadow 0.3s',
+          borderRadius: '8px',
+          transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+          boxShadow: isHovered ? '0px 4px 8px rgba(0, 0, 0, 0.1)' : 'none',
+        }}
       >
         <img
-          src={product.pictureUrl? product.pictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
+          src={product.pictureUrl ? product.pictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
           alt={product.name}
           style={{ width: '100%', height: '200px', objectFit: 'cover' }}
         />
         <CardActions
-          sx={{
+          style={{
             position: 'absolute',
             bottom: 0,
+            left: 0,
             width: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'rgba(255,255,255,0.7)',
-            transform: isHovered ? 'translateY(0)' : 'translateY(100%)',
+            padding: '8px',
+            backgroundColor: 'rgba(255, 255, 255, 0.7)',
             transition: 'transform 0.3s ease',
+            transform: isHovered ? 'translateY(0)' : 'translateY(100%)',
           }}
         >
-          <Button variant="contained" onClick={handleAddToCart} style={{ width: '100%', borderRadius: 0, backgroundColor: '#000', color: '#fff', padding: '8px 16px', opacity: 0.8 }}>
-            Add to Cart
-          </Button>
+         
         </CardActions>
         <CardContent style={{ padding: '16px' }}>
           <Typography variant="h5" component="div" style={{ marginBottom: '8px', color: 'inherit', transition: 'color 0.3s ease' }}>
