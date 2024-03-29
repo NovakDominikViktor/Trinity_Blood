@@ -68,17 +68,12 @@ const SignIn = ({ setToken }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-            style={{ color: '#333' }}
-          />
           <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: '#fff' }}>
             Login
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link component={RouterLink} to="#" variant="body2" style={{ color: '#333' }}>
+              <Link component={RouterLink} to="/forgotpassword" variant="body2" style={{ color: '#333' }}>
                 Forgot password?
               </Link>
             </Grid>

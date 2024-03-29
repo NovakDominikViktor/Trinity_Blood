@@ -16,7 +16,7 @@ import AboutUs from './page/AboutUs';
 import ContactUs from './page/ContactUs';
 import AllProducts from './page/AllProducts';
 import ResetPassword from './page/ResetPassword';
-
+import ForgotPassword from './page/ForgotPassword';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -121,6 +121,7 @@ function App() {
          <Route path="/contactus" element={<ContactUs />} />
          <Route path="/allproducts" element={<AllProducts products={products} searchTerm={searchTerm} />} />
          <Route path="/resetpassword" element={<ResetPassword/>} />
+         <Route path="/forgotpassword" element={<ForgotPassword/>} />
         </Routes>
        
         <Footer/>

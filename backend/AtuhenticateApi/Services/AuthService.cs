@@ -131,7 +131,7 @@ public class AuthService : IAuth
             return new ChangePasswordResultDto { Success = false, ErrorMessage = "User not found" };
         }
 
-        // Reset password using the provided token and new password
+       
         var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
 
         if (result.Succeeded)
@@ -140,7 +140,7 @@ public class AuthService : IAuth
         }
         else
         {
-            // Extract error message from IdentityResult
+    
             string errorMessage = string.Join("\n", result.Errors.Select(error => error.Description));
             return new ChangePasswordResultDto { Success = false, ErrorMessage = errorMessage };
         }

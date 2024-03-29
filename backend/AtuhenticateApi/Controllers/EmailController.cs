@@ -46,27 +46,39 @@ namespace backend.Controllers
         {
             try
             {
-                // Generate a password reset token for the user
+              
                 var tokenResult = await authService.GeneratePasswordResetToken(emailData.RecipientEmail);
 
-                // If tokenResult is null, user not found or other error occurred
                 if (tokenResult == null)
                 {
                     return BadRequest("Password reset request failed. User not found or other error occurred.");
                 }
 
-                // Extract email and token from the tokenResult
+         
                 var email = tokenResult.Email;
                 var token = tokenResult.Token;
 
-                // Create the password reset link with token
+               
                 var encodedEmail = Convert.ToBase64String(Encoding.UTF8.GetBytes(email));
                 var resetLink = $"http://localhost:3000/resetpassword?token={token}&email={HttpUtility.UrlEncode(encodedEmail)}";
 
-
-                // Compose email content
+            
                 string subject = "Password Reset";
-                string body = $"Click the link below to reset your password: <br/><a href='{resetLink}'>{resetLink}</a>";
+                string body = $@"
+            <p>Hi there!</p>
+            <p>We noticed you're having trouble accessing your account and need to reset your password. No worries, we're here to help!</p>
+            <p>Just click the button below to reset your password:</p>
+            <table cellspacing='0' cellpadding='0'>
+                <tr>
+                    <td align='center' bgcolor='#007bff' style='border-radius: 4px;'>
+                        <a href='{resetLink}' target='_blank' style='font-family: Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 4px; display: inline-block;'>
+                            Reset Your Password
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <p>If you didn't request this password reset, you can ignore this email. Your account's security is important to us.</p>
+            <p>Thanks,</p>";
 
                 // Send email
                 await SendEmail(email, subject, body);
@@ -79,6 +91,8 @@ namespace backend.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+
 
 
         private async Task SendEmail(string recipientEmail, string subject, string body)
