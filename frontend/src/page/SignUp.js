@@ -86,7 +86,7 @@ const SignUp = () => {
                 <TextField required fullWidth name="confirmPassword" label="Confirm password" type="password" autoComplete="new-password" />
               </Grid>
             </Grid>
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}>
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: '#24b5e9', color: '#fff', '&:hover': { backgroundColor: '#555' } }}>
               Registration
             </Button>
           </Box>

@@ -24,9 +24,9 @@ const SignIn = ({ setToken }) => {
   
       if (response.ok) {
         const data = await response.json();
-        console.log('Server response:', data); // Console log a szerver válaszával
-        localStorage.setItem('token', data.token); // Token mentése a localStorage-be
-        setToken(data.token); // Token állapot frissítése
+        console.log('Server response:', data); 
+        localStorage.setItem('token', data.token); 
+        setToken(data.token); 
         navigate('/');
       } else {
         console.error('Failed to sign in');

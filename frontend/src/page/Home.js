@@ -20,17 +20,19 @@ const Home = ({ products, searchTerm}) => {
 
   return (
     <div>
-      <Grid container spacing={3}>
-        {newestFilteredProducts.map(product => (
-          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-            <ProductCard product={product}/>
-          </Grid>
-        ))}
-      </Grid>
-      <Button variant="contained" onClick={handleViewAllProducts} style={{ marginTop: '20px' }}>
-        További termékek megtekintése
+    <Grid container spacing={3}>
+      {newestFilteredProducts.map(product => (
+        <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+          <ProductCard product={product}/>
+        </Grid>
+      ))}
+    </Grid>
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+      <Button variant="contained" onClick={handleViewAllProducts} style={{ backgroundColor: "#333" }}>
+        All products
       </Button>
     </div>
+  </div>
   );
 };
 

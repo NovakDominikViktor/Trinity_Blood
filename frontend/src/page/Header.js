@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaSearch, FaShoppingBasket, FaQuestionCircle, FaAngleDown } from 'react-icons/fa';
+import { RiTeamFill } from "react-icons/ri";
 import { Link, useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem, Select} from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem} from '@mui/material';
 import axios from 'axios';
 
 const Navbar = ({ setSearchTerm, cartItemCount }) => {
@@ -52,6 +53,9 @@ const Navbar = ({ setSearchTerm, cartItemCount }) => {
   const handleSupportClick = () => {
     navigate('/support');
   };
+  const handleAboutusClick = () => {
+    navigate('/aboutus');
+  };
 
   return (
     <AppBar position="static" style={{ backgroundColor: '#f2f2f2', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>
@@ -62,14 +66,39 @@ const Navbar = ({ setSearchTerm, cartItemCount }) => {
           </Typography>
         </Link>
         <Button
-          aria-controls="category-menu"
-          aria-haspopup="true"
-          onClick={(event) => setSelectedCategory(event.currentTarget)}
-          variant="contained"
-          style={{ marginLeft: '20px' }}  sx={{ mt: 2, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}
-        >
-          Categories <FaAngleDown />
-        </Button>
+  aria-controls="category-menu"
+  variant='text'
+  aria-haspopup="true"
+  onClick={(event) => setSelectedCategory(event.currentTarget)}
+  style={{ 
+    marginLeft: '20px',
+    position: 'relative' // Ensure positioning context for the ::after pseudo-element
+  }}  
+  sx={{ 
+    height:"50px", 
+    mt: 2, 
+    mb: 2, 
+    backgroundColor: '#f2f2f2', 
+    color: '#24b5e9', 
+    textDecoration: 'none', 
+    '&:hover': { 
+      textDecoration: 'none', 
+      '&::after': { 
+        content: "''",
+        position: 'absolute',
+        left: 0,
+        bottom: -2,
+        width: '100%',
+        height: 2,
+        backgroundColor: '#24b5e9',
+        animation: 'underline 0.3s forwards' 
+      }
+    }
+  }}
+>
+  Categories <FaAngleDown />
+</Button>
+
         <Menu
           id="category-menu"
           anchorEl={selectedCategory}
@@ -114,6 +143,9 @@ const Navbar = ({ setSearchTerm, cartItemCount }) => {
           <IconButton component={Link} to="/cart">
             <FaShoppingBasket />
             {currentCartItemCount > 0 && <Typography variant="body2">{currentCartItemCount}</Typography>}
+          </IconButton>
+          <IconButton onClick={handleAboutusClick}>
+            <RiTeamFill />
           </IconButton>
           <IconButton onClick={handleSupportClick}>
             <FaQuestionCircle />
