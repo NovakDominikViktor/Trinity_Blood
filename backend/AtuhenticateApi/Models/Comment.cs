@@ -1,16 +1,23 @@
-﻿namespace backend.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace backend.Models;
+
+public partial class Comment
 {
-    public class Comment
-    {
-        public int Id { get; set; }
-        public string UserId { get; set; }
-        public int ProductId { get; set; }
-        public double Ratings { get; set; }
-        public string Comments { get; set; }
-        public DateTime ReviewDate { get; set; } 
+    public int Id { get; set; }
 
-        //public ApplicationUser User { get; set; }
-        //public Products Product { get; set; }
-    }
+    public string UserId { get; set; } = null!;
 
+    public int ProductId { get; set; }
+
+    public double Ratings { get; set; }
+
+    public string Comments { get; set; } = null!;
+
+    public DateTime ReviewDate { get; set; }
+
+    public virtual Product Product { get; set; } = null!;
+
+    public virtual Aspnetuser User { get; set; } = null!;
 }

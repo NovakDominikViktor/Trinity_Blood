@@ -24,7 +24,7 @@ const ProductSinglePage = ({ products, addToCart }) => {
         if (comments.length > 0) {
           const totalRating = comments.reduce((sum, comment) => sum + comment.ratings, 0);
           const average = totalRating / comments.length;
-          setAverageRating(average); // Ne kerekítsük az átlagos értékelést
+          setAverageRating(average); // Don't round the average rating
           setTotalRatings(comments.length);
         }
       } catch (error) {
@@ -32,15 +32,15 @@ const ProductSinglePage = ({ products, addToCart }) => {
       }
     };
 
-    const interval = setInterval(fetchComments, 5000); // Frissítés 5 másodpercenként
+    const interval = setInterval(fetchComments, 5000); // Refresh every 5 seconds
 
-    return () => clearInterval(interval); // Tisztítjuk az intervallumot a komponens megszűnésekor
+    return () => clearInterval(interval); // Clean up the interval on component unmount
 
   }, [productId]);
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
-    alert(`${product.name} hozzáadva a kosárhoz: ${quantity} darab.`);
+    alert(`${product.name} added to cart: ${quantity} units.`);
   };
 
   const handleRatingChange = (newRating) => {
@@ -48,10 +48,15 @@ const ProductSinglePage = ({ products, addToCart }) => {
   };
 
   const handleQuantityChange = (event) => {
-    const newQuantity = parseInt(event.target.value);
-    if (!isNaN(newQuantity)) {
-      setQuantity(newQuantity);
+    let newQuantity = parseInt(event.target.value);
+    if (isNaN(newQuantity)) {
+      newQuantity = 1; // Default to 1 if the input is not a number
     }
+    // Limit the quantity to the available stock
+    if (product && product.storageStock !== undefined && newQuantity > product.storageStock) {
+      newQuantity = product.storageStock;
+    }
+    setQuantity(newQuantity);
   };
 
   const maxRating = 5;
@@ -70,13 +75,13 @@ const ProductSinglePage = ({ products, addToCart }) => {
     <div>
       <Container maxWidth="md" sx={{ display: 'flex', alignItems: 'center', mt: 4 }}>
         <Card sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
-        <CardMedia
-          component="img"
-          alt={product && product.name}
-          height="300"
-          image={product && product.pictureUrl ? product.pictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
-          style={{ objectFit: 'cover', width: '40%' }}
-        />
+          <CardMedia
+            component="img"
+            alt={product && product.name}
+            height="300"
+            image={product && product.pictureUrl ? product.pictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
+            style={{ objectFit: 'cover', width: '40%' }}
+          />
           <CardContent sx={{ width: '60%' }}>
             <Typography variant="h4" align="center" gutterBottom>
               {product && product.name}
@@ -85,10 +90,10 @@ const ProductSinglePage = ({ products, addToCart }) => {
               Price: ${product ? product.price.toFixed(2) : '0.00'}
             </Typography>
             <Typography variant="body1" align="center" paragraph>
-              {product ? product.description || 'There is no description for this productd.' : 'Product not found'}
+              {product ? product.description || 'There is no description for this product.' : 'Product not found'}
             </Typography>
             <TextField
-              label="Mennyiség"
+              label="Quantity"
               type="number"
               value={quantity}
               onChange={handleQuantityChange}
@@ -100,10 +105,21 @@ const ProductSinglePage = ({ products, addToCart }) => {
               </div>
             </Grid>
             <Grid container justifyContent="center">
-              <Button variant="contained" color="primary" onClick={handleAddToCart} sx={{ mt: 2, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}>
-                Add to cart
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleAddToCart}
+                disabled={!product || !product.isItInStock || product.storageStock === 0}
+                sx={{ mt: 2, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}
+              >
+                Add to Cart
               </Button>
             </Grid>
+            {!product || !product.isItInStock || product.storageStock === 0 ? (
+              <Typography variant="body2" color="error" align="center" mt={2}>
+                This product is currently not available.
+              </Typography>
+            ) : null}
             <Grid container justifyContent="center" mt={2}>
               {totalRatings !== 0 && (
                 <Typography variant="subtitle1">({totalRatings})</Typography>
@@ -112,7 +128,7 @@ const ProductSinglePage = ({ products, addToCart }) => {
           </CardContent>
         </Card>
       </Container>
-     
+
       <div style={{ marginTop: '20px' }}>
         <CommentList productId={productId} />
       </div>

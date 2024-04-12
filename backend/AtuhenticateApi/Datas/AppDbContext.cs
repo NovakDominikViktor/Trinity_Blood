@@ -14,7 +14,7 @@ namespace backend.Datas
 
         public DbSet<Category> Categories { get; set; } = null!;
 
-        public DbSet<Products> Products { get; set; } = null!;
+        public DbSet<Product> Products { get; set; } = null!;
 
         public DbSet<Comment> Comments { get; set; } = null!;
 

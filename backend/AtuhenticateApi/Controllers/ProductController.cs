@@ -1,5 +1,6 @@
 ﻿using backend.Datas;
 using backend.Models;
+using backend.Models.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,14 +23,14 @@ namespace backend.Controllers
 
         
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Products>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return await _context.Products.Include(p => p.Category).ToListAsync();
         }
 
         
         [HttpGet("{id}")]
-        public async Task<ActionResult<Products>> GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
             var product = await _context.Products.Include(p => p.Category).FirstOrDefaultAsync(p => p.Id == id);
 
@@ -44,7 +45,8 @@ namespace backend.Controllers
         
         [HttpPost]
         [Authorize(Roles = "ADMIN")]
-        public async Task<ActionResult<Products>> CreateProduct(Products product)
+       
+        public async Task<ActionResult<Product>> CreateProduct(Product product)
         {
             
             var existingCategory = await _context.Categories.FindAsync(product.CategoryId);
@@ -73,35 +75,37 @@ namespace backend.Controllers
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
 
-
         [HttpPut("{id}")]
-        [Authorize(Roles = "ADMIN")]
-        public async Task<IActionResult> UpdateProduct(int id, Products product)
+        public IActionResult Put(int id, ProductUpdateDto productUpdate)
         {
-            if (id != product.Id)
-            {
-                return BadRequest();
-            }
-
-            var existingProduct = await _context.Products.FindAsync(id);
-            if (existingProduct == null)
-            {
-                return NotFound();
-            }
-
-            _context.Entry(existingProduct).CurrentValues.SetValues(product);
-
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                return NotFound();
-            }
+                using (var context = new AuthContext())
+                {
+                    var productSearch = context.Products.Find(id);
 
-            return NoContent();
+                    if (productSearch == null)
+                    {
+                        return NotFound(); // Return 404 if the product with the given id is not found
+                    }
+
+                    // Update only the allowed properties
+                    productSearch.StorageStock = productUpdate.StorageStock;
+                    productSearch.IsItInStock = productUpdate.IsItInStock;
+
+                    
+                    context.SaveChanges();
+
+                    return StatusCode(203, "Product Changed");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(403, ex.Message);
+            }
         }
+
+
 
 
         [HttpDelete("{id}")]

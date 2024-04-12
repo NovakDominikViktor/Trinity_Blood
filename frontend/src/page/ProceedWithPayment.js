@@ -39,11 +39,11 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
   const handlePayment = async () => {
     try {
       if (!userId) {
-        // Ha nincs token, megjelenítjük a bejelentkezési modális ablakot
+        // Show login modal if the user is not logged in
         setShowLoginModal(true);
         return;
       }
-
+  
       for (const product of products) {
         const orderData = {
           UserId: userId,
@@ -57,21 +57,58 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
           orderStatus: 'pending',
           totalPrice: product.price * product.quantity
         };
-
+  
         console.log('Order data:', orderData);
-
-        const response = await fetch('http://localhost:5098/api/Order', {
-          method: 'POST',
+  
+        // Check available stock before processing the order
+        const response = await fetch(`http://localhost:5098/api/Product/${product.id}`, {
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}` // Token hozzáadása a kérés fejlécéhez
-          },
-          body: JSON.stringify(orderData)
+            'Authorization': `Bearer ${token}`
+          }
         });
-
-        const responseData = await response.json();
-
-        console.log('Payment response:', responseData);
+  
+        const productData = await response.json();
+  
+        // Calculate the updated stock after the order
+        let updatedStock = productData.storageStock - product.quantity;
+  
+        // If updated stock is less than 0, set it to 0 and isItInStock to false
+        const isItInStock = updatedStock > 0;
+        if (!isItInStock) {
+          updatedStock = 0;
+        }
+  
+        // Update the product with the new stock and isItInStock value
+        const stockUpdateResponse = await fetch(`http://localhost:5098/api/Product/${product.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ storageStock: updatedStock, isItInStock: isItInStock })
+        });
+  
+        console.log('Stock update response:', stockUpdateResponse);
+  
+        // Proceed with the order if the stock update is successful
+        if (stockUpdateResponse.ok) {
+          const orderResponse = await fetch('http://localhost:5098/api/Order', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(orderData)
+          });
+  
+          const responseData = await orderResponse.json();
+  
+          console.log('Payment response:', responseData);
+        } else {
+          console.error('Failed to update stock for product:', product.id);
+        }
       }
 
       // Email küldése
@@ -85,7 +122,7 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
 
       console.log('Email data:', emailData);
 
-      const emailResponse = await fetch('http://localhost:5098/api/Email', {
+      const emailResponse = await fetch('http://localhost:5098/api/Email/sendemail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
