@@ -1,5 +1,6 @@
 ﻿using backend.Datas;
 using backend.Models;
+using backend.Models.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -43,12 +44,28 @@ namespace backend.Controllers
 
         [HttpPost]
         [Authorize(Roles = "USER")]
-        public async Task<ActionResult<Comment>> PostComment(Comment comment)
+        public async Task<ActionResult<CommentDto>> PostComment(CommentDto commentDto)
         {
-            _context.Comments.Add(comment);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var comment = new Comment
+                {
+                    UserId = commentDto.UserId,
+                    ProductId = commentDto.ProductId,
+                    Ratings = commentDto.Ratings,
+                    Comments = commentDto.Comments,
+                    ReviewDate = commentDto.ReviewDate
+                };
 
-            return CreatedAtAction(nameof(GetComment), new { id = comment.Id }, comment);
+                _context.Comments.Add(comment);
+                await _context.SaveChangesAsync();
+
+                return Ok(commentDto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut("{id}")]

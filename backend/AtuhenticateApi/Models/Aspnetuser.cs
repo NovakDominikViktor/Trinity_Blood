@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace backend.Models;
 
@@ -44,7 +45,7 @@ public partial class Aspnetuser
     public virtual ICollection<Aspnetuserclaim> Aspnetuserclaims { get; set; } = new List<Aspnetuserclaim>();
 
 
-
+    [JsonIgnore]
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
     public virtual ICollection<Aspnetrole> Roles { get; set; } = new List<Aspnetrole>();
