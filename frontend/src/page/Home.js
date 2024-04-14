@@ -1,39 +1,67 @@
-import React from 'react';
+
+/*import React from 'react';
 import { Grid, Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // importáljuk a useNavigate hook-ot
+import { useNavigate } from 'react-router-dom';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import ProductCard from '../component/ProductCard';
 
-const Home = ({ products, searchTerm}) => {
-  // Rendezés időbélyeg alapján csökkenő sorrendben
+const Home = ({ products, searchTerm }) => {
   const sortedProducts = products.sort((a, b) => new Date(b.postedTime) - new Date(a.postedTime));
-  
-  // A legújabb 8 termék kiválasztása és szűrése a keresési kifejezés alapján
-  const newestFilteredProducts = sortedProducts
-    .filter(product => product.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
-    .slice(0, 8); // Csak az első 8 elem
-
-  const navigate = useNavigate(); // useNavigate hook
+  const navigate = useNavigate();
 
   const handleViewAllProducts = () => {
-    navigate('/allproducts'); // navigálás az összes terméket megjelenítő oldalra
+    navigate('/allproducts');
+  };
+
+  const slideshowProducts = sortedProducts
+    .filter(product => product.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
+    .slice(0, 8);
+
+  // Slider settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000, // 5 seconds
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
     <div>
-    <Grid container spacing={3}>
-      {newestFilteredProducts.map(product => (
-        <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-          <ProductCard product={product}/>
-        </Grid>
-      ))}
-    </Grid>
-    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-      <Button variant="contained" onClick={handleViewAllProducts} style={{ backgroundColor: "#333" }}>
-        All products
-      </Button>
+      <Slider {...settings}>
+        {slideshowProducts.map(product => (
+          <div key={product.id}>
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </Slider>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        <Button variant="contained" onClick={handleViewAllProducts} style={{ backgroundColor: "#333" }}>
+          All products
+        </Button>
+      </div>
     </div>
-  </div>
   );
 };
 
 export default Home;
+*/

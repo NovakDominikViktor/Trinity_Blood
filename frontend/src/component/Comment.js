@@ -45,6 +45,8 @@ const CommentForm = ({ productId }) => {
         ratings: rating,
         comments: commentText,
         reviewDate: formattedDate,
+        
+
       };
       console.log('Comment data:', commentData); // Logoljuk az elküldött adatokat a konzolra
   
