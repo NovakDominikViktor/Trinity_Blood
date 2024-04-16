@@ -18,18 +18,29 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-      <Card
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          position: 'relative',
-          width: '100%',
-          transition: 'transform 0.3s, box-shadow 0.3s',
-          borderRadius: '8px',
-          transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-          boxShadow: isHovered ? '0px 4px 8px rgba(0, 0, 0, 0.1)' : 'none',
-        }}
-      >
+   <Card
+  onMouseEnter={handleMouseEnter}
+  onMouseLeave={handleMouseLeave}
+  style={{
+    position: 'relative',
+    width: '100%',
+    transition: 'transform 0.3s',
+    transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+    boxShadow: isHovered ? '0px 4px 8px rgba(0, 0, 0, 0.1)' : 'none',
+    borderTop: '1px solid rgba(0, 0, 0, 1)', 
+    borderBottom: '1px solid rgba(0, 0, 0, 1)', 
+    borderLeft: '1px solid rgba(0, 0, 0, 1)', 
+    borderRight: isHovered ? 'none' : '1px solid rgba(0, 0, 0, 1)', 
+    borderRadius: '0',
+    marginLeft: isHovered ? '-1px' : '0', 
+    marginRight: '0', 
+  }}
+>
+
+
+
+
+
         <img
           src={product.pictureUrl ? product.pictureUrl : 'https://pbs.twimg.com/profile_images/1032679134932160513/o2g4sp9G_400x400.jpg'}
           alt={product.name}
@@ -50,10 +61,10 @@ const ProductCard = ({ product }) => {
          
         </CardActions>
         <CardContent style={{ padding: '16px' }}>
-          <Typography variant="h5" component="div" style={{ marginBottom: '8px', color: 'inherit', transition: 'color 0.3s ease' }}>
+          <Typography variant="h5" component="div" style={{ textAlign: 'center', marginBottom: '8px', color: 'inherit', transition: 'color 0.3s ease' }}>
             {trimmedName}
           </Typography>
-          <Typography variant="body2" color="text.secondary" style={{ fontWeight: 'bold' }}>
+          <Typography variant="body2" color="text.secondary" style={{ textAlign: 'center', fontWeight: 'bold' }}>
             ${product.price.toFixed(2)}
           </Typography>
         </CardContent>
