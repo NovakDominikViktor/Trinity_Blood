@@ -77,6 +77,7 @@ namespace backend.Controllers
 
             user.FirstName = userDto.FirstName;
             user.LastName = userDto.LastName;
+            user.FullName = userDto.FirstName + " " + userDto.LastName;
             user.Email = userDto.Email;
             user.UserName = userDto.Email;
             user.NormalizedUserName = userDto.Email.ToUpper(); 

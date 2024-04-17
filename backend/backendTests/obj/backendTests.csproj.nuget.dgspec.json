@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\backendTests\\backendTests.csproj": {}
+    "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\backendTests\\backendTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\AtuhenticateApi\\backend.csproj": {
+    "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\AtuhenticateApi\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\AtuhenticateApi\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\AtuhenticateApi\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\AtuhenticateApi\\backend.csproj",
-        "packagesPath": "C:\\Users\\btamás\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\AtuhenticateApi\\obj\\",
+        "projectPath": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\AtuhenticateApi\\backend.csproj",
+        "packagesPath": "C:\\Users\\novak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\AtuhenticateApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\btamás\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\novak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,11 +38,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -106,24 +100,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\backendTests\\backendTests.csproj": {
+    "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\backendTests\\backendTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\backendTests\\backendTests.csproj",
+        "projectUniqueName": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\backendTests\\backendTests.csproj",
         "projectName": "backendTests",
-        "projectPath": "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\backendTests\\backendTests.csproj",
-        "packagesPath": "C:\\Users\\btamás\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\backendTests\\obj\\",
+        "projectPath": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\backendTests\\backendTests.csproj",
+        "packagesPath": "C:\\Users\\novak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\backendTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\btamás\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\novak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -132,15 +126,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\AtuhenticateApi\\backend.csproj": {
-                "projectPath": "C:\\Users\\btamás\\Downloads\\Trinity_Blood-main (6)\\Trinity_Blood-main\\backend\\AtuhenticateApi\\backend.csproj"
+              "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\AtuhenticateApi\\backend.csproj": {
+                "projectPath": "C:\\Users\\novak\\Desktop\\Trinity_Blood\\backend\\AtuhenticateApi\\backend.csproj"
               }
             }
           }
@@ -149,11 +142,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -197,7 +185,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

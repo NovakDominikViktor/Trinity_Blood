@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button} from '@mui/material';
+const PutProfile = ({ userId, editedProfile, setToken, setUserId }) => {
 
-const PutProfile = ({ userId, editedProfile }) => {
+  const navigate = useNavigate();
   const handlePutProfile = async () => {
     try {
       const token = localStorage.getItem('token');
@@ -22,6 +25,18 @@ const PutProfile = ({ userId, editedProfile }) => {
 
       if (response.ok) {
         console.log('Profile updated successfully');
+
+        // Token null-ra állítása
+        setToken(null);
+        
+        // Felhasználói azonosító null-ra állítása
+        setUserId(null);
+        
+        // Törlés a localStorage-ból
+        localStorage.removeItem('token');
+        
+        // Átirányítás a főoldalra (/)
+        navigate('/');
       } else {
         console.error('Failed to update profile');
       }
@@ -31,7 +46,7 @@ const PutProfile = ({ userId, editedProfile }) => {
   };
 
   return (
-    <button onClick={handlePutProfile}>Update profile</button>
+    <Button variant='contained' color='warning' onClick={handlePutProfile}>Update profile</Button>
   );
 };
 

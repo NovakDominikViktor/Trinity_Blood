@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = backendTests
-build_property.ProjectDir = C:\Users\btamás\Downloads\Trinity_Blood-main (6)\Trinity_Blood-main\backend\backendTests\
+build_property.ProjectDir = C:\Users\novak\Desktop\Trinity_Blood\backend\backendTests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

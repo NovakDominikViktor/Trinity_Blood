@@ -6,7 +6,7 @@ import { jwtDecode } from 'jwt-decode'; // Importáljuk a jwt_decode függvényt
 import DeleteProfile from '../component/DeleteProfile'; // Importáljuk a törlés gomb komponenst
 import PutProfile from '../component/PutProfile'; // Importáljuk a PutProfile komponenst
 
-const Account = () => {
+const Account = ({ setToken, setUserId }) => {
   const navigate = useNavigate();
   const [currentTab, setCurrentTab] = useState(0);
   const [editedProfile, setEditedProfile] = useState(null);
@@ -139,12 +139,12 @@ const Account = () => {
                 />
               </Grid>
               <Grid item xs={12}>
-                <PutProfile userId={editedProfile?.id}  editedProfile={editedProfile}/>
+                <PutProfile setToken={setToken} setUserId={setUserId} userId={editedProfile?.id}  editedProfile={editedProfile}/>
               </Grid>
             </Grid>
           )}
           {currentTab === 2 && (
-            <DeleteProfile userId={editedProfile?.id} />
+            <DeleteProfile setToken={setToken} setUserId={setUserId} userId={editedProfile?.id} />
           )}
         </Box>
       </Paper>

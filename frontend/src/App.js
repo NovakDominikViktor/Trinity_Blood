@@ -104,7 +104,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home products={products} searchTerm={searchTerm}/>} />
           <Route path="/product/:productId" element={<ProductDetail products={products} addToCart={addToCart} />} />
-          <Route path="/account" element={token ? <Account token={token} setToken={setToken} /> : <Navigate to="/account-sign-up" />} />
+          <Route path="/account" element={token ? <Account token={token} setToken={setToken} setUserId={setUserId} /> : <Navigate to="/account-sign-up" />} />
           <Route path="/account-sign-up" element={<AccountSigning setToken={setToken} />} />
           <Route
             path="/cart"
