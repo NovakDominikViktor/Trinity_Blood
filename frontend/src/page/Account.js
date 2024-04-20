@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Avatar, Box, Button, Container, CssBaseline, Grid, Paper, Tab, Tabs, TextField, Typography } from '@mui/material';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode'; // Importáljuk a jwt_decode függvényt a tokendekódoláshoz
 import DeleteProfile from '../component/DeleteProfile'; // Importáljuk a törlés gomb komponenst
 import PutProfile from '../component/PutProfile'; // Importáljuk a PutProfile komponenst
 
 const Account = ({ setToken, setUserId }) => {
-  const navigate = useNavigate();
   const [currentTab, setCurrentTab] = useState(0);
   const [editedProfile, setEditedProfile] = useState(null);
   const jwt_decode = jwtDecode;
@@ -36,7 +33,7 @@ const Account = ({ setToken, setUserId }) => {
     };
 
     fetchUserData();
-  }, []);
+  }, [jwt_decode]);
 
   const handleChangeTab = (event, newValue) => setCurrentTab(newValue);
 
@@ -117,7 +114,7 @@ const Account = ({ setToken, setUserId }) => {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Keresztnév"
+                  label="First Name"
                   value={editedProfile.firstName}
                   onChange={(e) => handleEditProfileChange('firstName', e.target.value)}
                 />
@@ -125,7 +122,7 @@ const Account = ({ setToken, setUserId }) => {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Vezetéknév"
+                  label="Last Name"
                   value={editedProfile.lastName}
                   onChange={(e) => handleEditProfileChange('lastName', e.target.value)}
                 />

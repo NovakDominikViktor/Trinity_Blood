@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import { Container, Typography, Box, Grid, TextField, FormControlLabel, Checkbox, Button, Link } from '@mui/material';
+import { Container, Typography, Box, Grid, TextField, Button, Link } from '@mui/material';
 
 const SignIn = ({ setToken }) => {
   const navigate = useNavigate();

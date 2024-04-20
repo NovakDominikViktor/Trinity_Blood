@@ -27,7 +27,7 @@ const ResetPassword = () => {
       setPasswordsMatch(true);
 
       try {
-        const response = await axios.post(
+        await axios.post(
           "http://localhost:5098/api/Auth/resetpassword",
           {
             email: email,

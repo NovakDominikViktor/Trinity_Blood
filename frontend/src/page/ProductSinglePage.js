@@ -10,7 +10,7 @@ import CommentList from '../component/CommentList';
 const ProductSinglePage = ({ products, addToCart }) => {
   const { productId } = useParams();
   const product = products.find((p) => p.id === parseInt(productId));
-  const [rating, setRating] = useState(3);
+  const [, setRating] = useState(3);
   const [quantity, setQuantity] = useState(1);
   const [averageRating, setAverageRating] = useState(0);
   const [totalRatings, setTotalRatings] = useState(0);
@@ -43,9 +43,6 @@ const ProductSinglePage = ({ products, addToCart }) => {
     alert(`${product.name} added to cart: ${quantity} units.`);
   };
 
-  const handleRatingChange = (newRating) => {
-    setRating(newRating);
-  };
 
   const handleQuantityChange = (event) => {
     let newQuantity = parseInt(event.target.value);

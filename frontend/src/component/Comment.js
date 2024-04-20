@@ -23,10 +23,6 @@ const CommentForm = ({ productId }) => {
     }
   }, []);
 
-  const handleStarClick = (clickedRating) => {
-    setRating(clickedRating);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
