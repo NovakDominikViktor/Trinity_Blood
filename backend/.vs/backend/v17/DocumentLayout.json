@@ -7,6 +7,30 @@
       "RelativeMoniker": "D:0:0:{190FDBBC-3CE9-4774-93C9-5222A6BF4452}|CategoryTest\\CategoryTest.csproj|solutionrelative:categorytest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\migrations\\20240221190122_extension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\migrations\\20240221190122_extension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,28 +43,12 @@
       "RelativeMoniker": "D:0:0:{190FDBBC-3CE9-4774-93C9-5222A6BF4452}|CategoryTest\\CategoryTest.csproj|solutionrelative:categorytest\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\models\\email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\models\\email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\migrations\\20240226115637_productkiegeszites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -65,10 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\services\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -143,10 +147,6 @@
       "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\migrations\\20240123121419_myproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\migrations\\20240221190122_extension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\migrations\\20240221190122_extension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\backend\\atuhenticateapi\\migrations\\20240221192145_order.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EF47A475-0B6D-4966-9128-D2CB92D018AB}|AtuhenticateApi\\backend.csproj|solutionrelative:atuhenticateapi\\migrations\\20240221192145_order.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -186,21 +186,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GlobalUsings.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\CategoryTest\\GlobalUsings.cs",
-              "RelativeDocumentMoniker": "CategoryTest\\GlobalUsings.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\CategoryTest\\GlobalUsings.cs",
-              "RelativeToolTip": "CategoryTest\\GlobalUsings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:42:01.62Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -209,59 +196,72 @@
               "RelativeDocumentMoniker": "CategoryTest\\UnitTest1.cs",
               "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\CategoryTest\\UnitTest1.cs",
               "RelativeToolTip": "CategoryTest\\UnitTest1.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAqwE4AAAASAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAuwDIAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-23T10:41:48.753Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "EmailController.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\EmailController.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Controllers\\EmailController.cs",
               "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\EmailController.cs",
               "RelativeToolTip": "AtuhenticateApi\\Controllers\\EmailController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-23T10:07:53.089Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\AuthController.cs",
               "RelativeToolTip": "AtuhenticateApi\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAuwDQAAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-26T11:14:07.69Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "OrderController.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Controllers\\OrderController.cs",
               "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\OrderController.cs",
               "RelativeToolTip": "AtuhenticateApi\\Controllers\\OrderController.cs",
-              "ViewState": "AQIAAHwAAAAAAAAAAAAAAI8AAAAAAAAA",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAAAI8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-26T11:14:07.638Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20240221190122_extension.cs",
+              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240221190122_extension.cs",
+              "RelativeDocumentMoniker": "AtuhenticateApi\\Migrations\\20240221190122_extension.cs",
+              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240221190122_extension.cs",
+              "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240221190122_extension.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAuwBkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T11:14:07.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "AtuhenticateApi\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\UserController.cs",
-              "RelativeToolTip": "AtuhenticateApi\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAgwB4AAABHAAAA",
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "AtuhenticateApi\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Services\\AuthService.cs",
+              "RelativeToolTip": "AtuhenticateApi\\Services\\AuthService.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAEwDcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-26T11:14:07.69Z",
               "EditorCaption": ""
@@ -269,6 +269,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "AtuhenticateApi\\Models\\ApplicationUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T11:14:07.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Controllers\\CategoryController.cs",
@@ -281,7 +294,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "AtuhenticateApi\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\UserController.cs",
+              "RelativeToolTip": "AtuhenticateApi\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAgwB4AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T11:14:07.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\CategoryTest\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "CategoryTest\\GlobalUsings.cs",
+              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\CategoryTest\\GlobalUsings.cs",
+              "RelativeToolTip": "CategoryTest\\GlobalUsings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T10:42:01.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Properties\\launchSettings.json",
@@ -294,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Email.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\Email.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\Email.cs",
@@ -307,20 +346,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "AtuhenticateApi\\Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Services\\AuthService.cs",
-              "RelativeToolTip": "AtuhenticateApi\\Services\\AuthService.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAADgAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.69Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Program.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Program.cs",
@@ -333,7 +359,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "CommentController.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\CommentController.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Controllers\\CommentController.cs",
@@ -357,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "20240226115637_ProductKiegeszites.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240226115637_ProductKiegeszites.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Migrations\\20240226115637_ProductKiegeszites.cs",
@@ -370,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\Category.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\Category.cs",
@@ -383,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Controllers\\ProductController.cs",
@@ -396,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "UserDto.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\Dtos\\UserDto.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\Dtos\\UserDto.cs",
@@ -409,20 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\ApplicationUser.cs",
-              "RelativeToolTip": "AtuhenticateApi\\Models\\ApplicationUser.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAqwA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.679Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Order.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\Order.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\Order.cs",
@@ -435,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "JwtTokenGenerator.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Services\\JwtTokenGenerator.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Services\\JwtTokenGenerator.cs",
@@ -448,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "JwtOptions.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\JwtOptions.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\JwtOptions.cs",
@@ -461,7 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Comment.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\Comment.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\Comment.cs",
@@ -474,7 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "20240224162413_AffressToAddress.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240224162413_AffressToAddress.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Migrations\\20240224162413_AffressToAddress.cs",
@@ -487,7 +500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\appsettings.json",
               "RelativeDocumentMoniker": "AtuhenticateApi\\appsettings.json",
@@ -500,7 +513,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "AtuhenticateApi.http",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\AtuhenticateApi.http",
               "RelativeDocumentMoniker": "AtuhenticateApi\\AtuhenticateApi.http",
@@ -513,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "20240221192145_order.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240221192145_order.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Migrations\\20240221192145_order.cs",
@@ -526,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "IAuth.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Services\\IServices\\IAuth.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Services\\IServices\\IAuth.cs",
@@ -539,7 +552,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Datas\\AppDbContext.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Datas\\AppDbContext.cs",
@@ -552,7 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "IJwtTokenGenerator.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Services\\IServices\\IJwtTokenGenerator.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Services\\IServices\\IJwtTokenGenerator.cs",
@@ -565,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "backend.csproj",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\backend.csproj",
               "RelativeDocumentMoniker": "AtuhenticateApi\\backend.csproj",
@@ -578,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "RegisterRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\Dtos\\RegisterRequestDto.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\Dtos\\RegisterRequestDto.cs",
@@ -591,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "RoleDto.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\Dtos\\RoleDto.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\Dtos\\RoleDto.cs",
@@ -604,7 +617,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "20240123114836_IdentityDb.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240123114836_IdentityDb.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Migrations\\20240123114836_IdentityDb.cs",
@@ -617,7 +630,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "LoginResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\Dtos\\LoginResponseDto.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\Dtos\\LoginResponseDto.cs",
@@ -630,7 +643,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "LoginRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Models\\Dtos\\LoginRequestDto.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Models\\Dtos\\LoginRequestDto.cs",
@@ -643,26 +656,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "20240123121419_MyProperties.cs",
               "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240123121419_MyProperties.cs",
               "RelativeDocumentMoniker": "AtuhenticateApi\\Migrations\\20240123121419_MyProperties.cs",
               "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240123121419_MyProperties.cs",
               "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240123121419_MyProperties.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T11:14:07.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "20240221190122_extension.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240221190122_extension.cs",
-              "RelativeDocumentMoniker": "AtuhenticateApi\\Migrations\\20240221190122_extension.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\backend\\AtuhenticateApi\\Migrations\\20240221190122_extension.cs",
-              "RelativeToolTip": "AtuhenticateApi\\Migrations\\20240221190122_extension.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAcAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-26T11:14:07.82Z",
               "EditorCaption": ""

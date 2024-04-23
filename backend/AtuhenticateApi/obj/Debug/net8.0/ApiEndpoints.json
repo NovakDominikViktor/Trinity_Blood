@@ -17,22 +17,6 @@
   },
   {
     "ContainingType": "backend.Controllers.AuthController",
-    "Method": "ChangePassword",
-    "RelativePath": "api/Auth/changepassword",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "backend.Models.Dtos.ChangePasswordDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "backend.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
@@ -58,6 +42,22 @@
       {
         "Name": "model",
         "Type": "backend.Models.Dtos.RegisterRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "backend.Controllers.AuthController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Auth/resetpassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "backend.Models.Dtos.ResetPasswordDto",
         "IsRequired": true
       }
     ],
@@ -201,14 +201,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "comment",
-        "Type": "backend.Models.Comment",
+        "Name": "commentDto",
+        "Type": "backend.Models.Dtos.CommentDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "backend.Models.Comment",
+        "Type": "backend.Models.Dtos.CommentDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -309,8 +309,24 @@
   },
   {
     "ContainingType": "backend.Controllers.EmailController",
+    "Method": "SendPasswordResetEmail",
+    "RelativePath": "api/Email/passwordreset",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "emailData",
+        "Type": "backend.Models.Email",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "backend.Controllers.EmailController",
     "Method": "SendEmail",
-    "RelativePath": "api/Email",
+    "RelativePath": "api/Email/sendemail",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -442,7 +458,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[backend.Models.Products, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[backend.Models.Product, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -462,13 +478,13 @@
     "Parameters": [
       {
         "Name": "product",
-        "Type": "backend.Models.Products",
+        "Type": "backend.Models.Product",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "backend.Models.Products",
+        "Type": "backend.Models.Product",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -494,7 +510,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "backend.Models.Products",
+        "Type": "backend.Models.Product",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -506,7 +522,7 @@
   },
   {
     "ContainingType": "backend.Controllers.ProductController",
-    "Method": "UpdateProduct",
+    "Method": "Put",
     "RelativePath": "api/Product/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -518,8 +534,8 @@
         "IsRequired": true
       },
       {
-        "Name": "product",
-        "Type": "backend.Models.Products",
+        "Name": "productUpdate",
+        "Type": "backend.Models.Dtos.ProductUpdateDto",
         "IsRequired": true
       }
     ],
