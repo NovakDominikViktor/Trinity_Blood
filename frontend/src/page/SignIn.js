@@ -48,8 +48,8 @@ const SignIn = ({ setToken }) => {
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="E-mail cím"
+            id="email-l"
+            label="E-mail"
             name="email"
             autoComplete="email"
             autoFocus
@@ -63,7 +63,7 @@ const SignIn = ({ setToken }) => {
             name="password"
             label="Password"
             type="password"
-            id="password"
+            id="password-l"
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

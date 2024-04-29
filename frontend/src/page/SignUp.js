@@ -77,13 +77,13 @@ const SignUp = () => {
                 <TextField required fullWidth id="lastName" label="Last name" name="lastName" autoComplete="family-name" />
               </Grid>
               <Grid item xs={12}>
-                <TextField required fullWidth id="email" label="E-mail" name="email" autoComplete="email" />
+                <TextField required fullWidth id="email-r" label="E-mail" name="email" autoComplete="email" />
               </Grid>
               <Grid item xs={12}>
-                <TextField required fullWidth name="password" label="Password" type="password" id="password" autoComplete="new-password" />
+                <TextField required fullWidth name="password" label="Password" type="password" id="password-r" autoComplete="new-password" />
               </Grid>
               <Grid item xs={12}>
-                <TextField required fullWidth name="confirmPassword" label="Confirm password" type="password" autoComplete="new-password" />
+                <TextField required fullWidth name="confirmPassword" label="Confirm password" id='confirmPassword' type="password" autoComplete="new-password" />
               </Grid>
             </Grid>
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: '#333', color: '#fff', '&:hover': { backgroundColor: '#555' } }}>
