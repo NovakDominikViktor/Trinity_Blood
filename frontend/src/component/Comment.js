@@ -10,15 +10,15 @@ const CommentForm = ({ productId }) => {
   const [userId, setUserId] = useState('');
   const [rating, setRating] = useState(0);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [token, setToken] = useState(''); // Token állapot létrehozása
+  const [token, setToken] = useState('');
 
   useEffect(() => {
     const tokenFromLocalStorage = localStorage.getItem('token');
     if (tokenFromLocalStorage) {
       const decodedToken = jwtDecode(tokenFromLocalStorage);
       if (decodedToken) {
-        setUserId(decodedToken.sub); // Felhasználó azonosítója (userId) a tokenből
-        setToken(tokenFromLocalStorage); // Token állapot beállítása
+        setUserId(decodedToken.sub); 
+        setToken(tokenFromLocalStorage); 
       }
     }
   }, []);

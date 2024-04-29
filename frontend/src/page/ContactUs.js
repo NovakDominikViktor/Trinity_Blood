@@ -3,7 +3,7 @@ import { Button, Container, TextField, Typography } from '@mui/material';
 import axios from 'axios'; // Import axios for making HTTP requests
 
 const ContactUs = () => {
-  const [name, setName] = useState('');
+  const [subject, setSubject] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
@@ -11,11 +11,11 @@ const ContactUs = () => {
     e.preventDefault();
     
     try {
-      // Send a POST request to the API endpoint with the form data
-      const response = await axios.post('http://localhost:5098/api/Email', {
-        recipientEmail: 'nagysohajok@kkszki.hu', // Replace with recipient email
-        subject: 'Contact Us Form Submission',
-        content: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+     
+      const response = await axios.post('http://localhost:5098/api/Email/sendemail', {
+        recipientEmail: 'nagysohajok@kkszki.hu', 
+        subject: `${subject}`,
+        content: `${message}`
       });
 
       // Log the response from the API
@@ -25,7 +25,7 @@ const ContactUs = () => {
       alert('Your message has been sent successfully!');
 
       // Reset the form fields after successful submission
-      setName('');
+      setSubject('');
       setEmail('');
       setMessage('');
     } catch (error) {
@@ -44,19 +44,19 @@ const ContactUs = () => {
       <form onSubmit={handleSubmit}>
         <TextField
           fullWidth
-          label="Your Name"
-          variant="outlined"
-          margin="normal"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <TextField
-          fullWidth
           label="Your Email"
           variant="outlined"
           margin="normal"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        />
+         <TextField
+          fullWidth
+          label="Subject"
+          variant="outlined"
+          margin="normal"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
         />
         <TextField
           fullWidth

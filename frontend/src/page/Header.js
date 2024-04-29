@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FaSearch, FaShoppingBasket, FaQuestionCircle, FaAngleDown } from 'react-icons/fa';
 import { RiTeamFill } from "react-icons/ri";
+import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, IconButton, Button, InputBase, Menu, MenuItem} from '@mui/material';
 import axios from 'axios';
+import logo from './logo.png';
 
 const Navbar = ({ setSearchTerm, cartItemCount }) => {
   const navigate = useNavigate();
@@ -56,14 +58,17 @@ const Navbar = ({ setSearchTerm, cartItemCount }) => {
   const handleAboutusClick = () => {
     navigate('/aboutus');
   };
+  const handleContactClick = () => {
+    navigate('/contactus');
+  };
 
   return (
     <AppBar position="static" style={{ backgroundColor: '#f2f2f2', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>
       <Toolbar>
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Typography variant="h6" style={{ marginLeft: '20px', fontWeight: 'bold', color: '#333' }}>
-            Logo
-          </Typography>
+         
+        <img src={logo} alt="Logo" style={{ width: '80px', height: 'auto', marginRight: '10px' }} />
+        
         </Link>
         <Button
   aria-controls="category-menu"
@@ -146,6 +151,9 @@ const Navbar = ({ setSearchTerm, cartItemCount }) => {
           </IconButton>
           <IconButton onClick={handleAboutusClick}>
             <RiTeamFill />
+          </IconButton>
+          <IconButton onClick={handleContactClick}>
+            <MdEmail />
           </IconButton>
           <IconButton onClick={handleSupportClick}>
             <FaQuestionCircle />

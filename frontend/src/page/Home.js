@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import banner from './banner.jpg';
 
 import ProductCard from '../component/ProductCard';
 
@@ -106,7 +107,7 @@ const introduction = (
 
   return (
     <div>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrTu1lFLN0gJ8Lf6KrCCJNr60W3ho4_YAeIEWqqWUq&s" alt="Banner" style={{ width: '100%', maxHeight: '200px' }} />
+      <img src={banner} alt="Banner" style={{ width: '100%', maxHeight: '200px' }} />
       
       {introduction}
 
