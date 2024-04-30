@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
 import { Box, Typography, TextareaAutosize, Button, Rating, Modal } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -17,8 +16,8 @@ const CommentForm = ({ productId }) => {
     if (tokenFromLocalStorage) {
       const decodedToken = jwtDecode(tokenFromLocalStorage);
       if (decodedToken) {
-        setUserId(decodedToken.sub); 
-        setToken(tokenFromLocalStorage); 
+        setUserId(decodedToken.sub);
+        setToken(tokenFromLocalStorage);
       }
     }
   }, []);
@@ -27,11 +26,11 @@ const CommentForm = ({ productId }) => {
     e.preventDefault();
     try {
       if (!userId) {
-        // Ha nincs bejelentkezve, megjelenítjük a bejelentkezési ablakot
+        // If not logged in, show login modal
         setShowLoginModal(true);
         return;
       }
-      // Elküldjük a kommentet a szerverre
+      // Send the comment to the server
       const currentDate = new Date();
       const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}T${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}:${currentDate.getSeconds().toString().padStart(2, '0')}.${currentDate.getMilliseconds().toString().padStart(3, '0')}Z`;
 
@@ -41,20 +40,22 @@ const CommentForm = ({ productId }) => {
         ratings: rating,
         comments: commentText,
         reviewDate: formattedDate,
-        
+      };
 
-      };
-      console.log('Comment data:', commentData); // Logoljuk az elküldött adatokat a konzolra
-  
-      // Hozzáadjuk a Bearer tokent a kérés fejlécéhez
+      console.log('Comment data:', commentData);
+
+      // Add Bearer token to request header
       const config = {
+        method: 'POST',
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(commentData)
       };
-  
-      await axios.post('http://localhost:5098/api/Comment', commentData, config);
-      // Állapotok alaphelyzetbe állítása a komment elküldése után
+
+      await fetch('http://localhost:5098/api/Comment', config);
+      // Reset form state after submitting comment
       setCommentText('');
       setRating(0);
       alert('Comment sent successfully!');
@@ -63,7 +64,6 @@ const CommentForm = ({ productId }) => {
       alert('Failed to send comment.');
     }
   };
-  
 
   const handleLoginModalClose = () => {
     setShowLoginModal(false);
@@ -75,22 +75,27 @@ const CommentForm = ({ productId }) => {
         Add a Comment
       </Typography>
       <Box display="flex" alignItems="center" mb={2}>
-        <Typography component="legend">Rating:</Typography>
+        <Typography component="legend" htmlFor="rating">
+          Rating:
+        </Typography>
         <Rating
           name="rating"
+          id="rating"
           value={rating}
           onChange={(event, newValue) => setRating(newValue)}
           max={5}
-          precision={0.5} // Ezzel lehetővé tesszük a fél csillagok használatát
+          precision={0.5}
           icon={<StarIcon fontSize="inherit" />}
           emptyIcon={<StarBorderIcon fontSize="inherit" />}
+          data-testid="rating" 
         />
+
       </Box>
       <TextareaAutosize
         value={commentText}
         onChange={(e) => setCommentText(e.target.value)}
         placeholder="Write your comment here..."
-        rowsmin={4} // Módosítottam itt
+        rowsmin={4}
         style={{ width: '100%', marginBottom: '1rem' }}
         required
       />
@@ -105,8 +110,6 @@ const CommentForm = ({ productId }) => {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             You need to log in to submit a comment.
           </Typography>
-          
-          
         </Box>
       </Modal>
     </Box>
