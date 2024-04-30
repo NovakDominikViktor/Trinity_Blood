@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, CardContent, Typography, Divider, Grid, List, ListItem, ListItemText, IconButton, Button, TextField, Box } from '@mui/material';
+import { Container, Card, CardContent, Typography, Divider, Grid, List, ListItem, ListItemText, IconButton, Button} from '@mui/material';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { NavLink } from 'react-router-dom';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 const Cart = ({ products, removeFromCart }) => {
   const [removedProducts, setRemovedProducts] = useState([]);
-  const [promoCode, setPromoCode] = useState('');
-  const [invalidPromoCode, setInvalidPromoCode] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -30,14 +27,6 @@ const Cart = ({ products, removeFromCart }) => {
     removeFromCart(productId);
     const updatedRemovedProducts = [...removedProducts, productId];
     setRemovedProducts(updatedRemovedProducts);
-  };
-
-  const applyPromoCode = () => {
-    if (promoCode === 'FRENCHPHARMA') {
-      setInvalidPromoCode(false);
-    } else {
-      setInvalidPromoCode(true);
-    }
   };
 
   const filteredProducts = cartItems.filter((product) => !removedProducts.includes(product.id));
@@ -84,33 +73,7 @@ const Cart = ({ products, removeFromCart }) => {
                     <Divider />
                     <Typography variant="h6">Total Price</Typography>
                     <Typography variant="h5">{(parseFloat(calculateTotal()) + parseFloat(shippingCost)).toFixed(2)} dollar</Typography>
-                    
-                    <Typography variant="h6">Promotion Code</Typography>
-                    <Box display="flex">
-                      <TextField
-                        variant="outlined"
-                        size="small"
-                        fullWidth
-                        value={promoCode}
-                        onChange={(e) => setPromoCode(e.target.value)}
-                      />
-                      <Button variant="contained" onClick={applyPromoCode}>Add</Button>
-                    </Box>
-                    {invalidPromoCode && (
-                      <Box display="flex" alignItems="center" color="error.main">
-                        <ErrorOutlineIcon />
-                        <Typography variant="body2" ml={1}>
-                          Code is invalid
-                        </Typography>
-                      </Box>
-                    )}
-
-                    <Divider />
-                    <Typography variant="subtitle1">
-                      <b>Take advantage of our exclusive offers:</b>
-                      <br />
-                      FRENCHPHARMA - free delivery above 49$.
-                    </Typography>
+              
                     <Divider />
                     <NavLink
                       to={{

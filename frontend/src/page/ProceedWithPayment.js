@@ -7,11 +7,12 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
   const [city, setCity] = useState('');
   const [zipCode, setZipCode] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [showLoginModal, setShowLoginModal] = useState(false); // Állapot a bejelentkezési modális ablak megjelenítéséhez
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const token = localStorage.getItem('token');
-  const decodedToken = jwtDecode(token);
-  const userEmail = decodedToken.email;
+  const decodedToken = token ? jwtDecode(token) : null;
+  const userEmail = decodedToken ? decodedToken.email : null;
 
   const calculateTotal = () => {
     return products.reduce((total, product) => {
@@ -21,29 +22,21 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
     }, 0);
   };
 
-  const emailDataObject = {
-    recipientEmail: userEmail,
-    subject: 'Payment Confirmation',
-    products: products.map(product => ({
-      name: product.name,
-      price: product.price,
-      quantity: product.quantity
-    })),
-    address: address,
-    city: city,
-    zipCode: zipCode,
-    phoneNumber: phoneNumber,
-    totalPrice: calculateTotal()
-  };
-
   const handlePayment = async () => {
     try {
       if (!userId) {
-        // Show login modal if the user is not logged in
         setShowLoginModal(true);
         return;
       }
-  
+
+      
+      if (!address || !city || !zipCode || !phoneNumber) {
+        setErrorMessage('Please fill in all required fields.');
+        return;
+      } else {
+        setErrorMessage('');
+      }
+
       for (const product of products) {
         const orderData = {
           UserId: userId,
@@ -57,10 +50,9 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
           orderStatus: 'pending',
           totalPrice: product.price * product.quantity
         };
-  
+
         console.log('Order data:', orderData);
-  
-        // Check available stock before processing the order
+
         const response = await fetch(`http://localhost:5098/api/Product/${product.id}`, {
           method: 'GET',
           headers: {
@@ -68,19 +60,16 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
             'Authorization': `Bearer ${token}`
           }
         });
-  
+
         const productData = await response.json();
-  
-        // Calculate the updated stock after the order
+
         let updatedStock = productData.storageStock - product.quantity;
-  
-        // If updated stock is less than 0, set it to 0 and isItInStock to false
+
         const isItInStock = updatedStock > 0;
         if (!isItInStock) {
           updatedStock = 0;
         }
-  
-        // Update the product with the new stock and isItInStock value
+
         const stockUpdateResponse = await fetch(`http://localhost:5098/api/Product/${product.id}`, {
           method: 'PUT',
           headers: {
@@ -89,10 +78,9 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
           },
           body: JSON.stringify({ storageStock: updatedStock, isItInStock: isItInStock })
         });
-  
+
         console.log('Stock update response:', stockUpdateResponse);
-  
-        // Proceed with the order if the stock update is successful
+
         if (stockUpdateResponse.ok) {
           const orderResponse = await fetch('http://localhost:5098/api/Order', {
             method: 'POST',
@@ -102,17 +90,16 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
             },
             body: JSON.stringify(orderData)
           });
-  
+
           const responseData = await orderResponse.json();
-  
+
           console.log('Payment response:', responseData);
         } else {
           console.error('Failed to update stock for product:', product.id);
         }
       }
 
-      // Email küldése
-      const emailContent = `Thank you, ${decodedToken.name}, for your purchase!\n\nYour total amount: $${emailDataObject.totalPrice.toFixed(2)}\n\nDate: ${new Date().toLocaleDateString()}\n\nProducts:\n${emailDataObject.products.map(product => `${product.name} - Quantity: ${product.quantity}, Price: $${product.price}`).join('\n')}\n\nAddress: ${emailDataObject.address}\nCity: ${emailDataObject.city}\nZIP Code: ${emailDataObject.zipCode}\nPhone Number: ${emailDataObject.phoneNumber}`;
+      const emailContent = `Thank you, ${decodedToken.name}, for your purchase!\n\nYour total amount: $${calculateTotal().toFixed(2)}\n\nDate: ${new Date().toLocaleDateString()}\n\nProducts:\n${products.map(product => `${product.name} - Quantity: ${product.quantity}, Price: $${product.price}`).join('\n')}\n\nAddress: ${address}\nCity: ${city}\nZIP Code: ${zipCode}\nPhone Number: ${phoneNumber}`;
 
       const emailData = {
         recipientEmail: userEmail,
@@ -139,7 +126,6 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
     }
   };
 
-  // Bejelentkezési ablak bezárása
   const handleCloseLoginModal = () => {
     setShowLoginModal(false);
   };
@@ -162,6 +148,7 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
                   margin="normal"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
+                  required
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -172,6 +159,7 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
                   margin="normal"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
+                  required
                 />
               </Grid>
 
@@ -183,6 +171,7 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
                   margin="normal"
                   value={zipCode}
                   onChange={(e) => setZipCode(e.target.value)}
+                  required
                 />
               </Grid>
               <Grid item xs={12}>
@@ -193,9 +182,13 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
                   margin="normal"
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
+                  required
                 />
               </Grid>
             </Grid>
+            <Typography variant="body2" color="error">
+              {errorMessage}
+            </Typography>
             <Divider style={{ margin: '12px 0' }} />
             <Button variant="contained" color="primary" onClick={handlePayment}>
               Pay Now
@@ -203,7 +196,6 @@ const ProceedWithPayment = ({ onPaymentSuccess, userId, products }) => {
           </Box>
         </CardContent>
       </Card>
-      {/* Bejelentkezési modális ablak */}
       <Modal open={showLoginModal} onClose={handleCloseLoginModal}>
         <Box sx={{ width: 300, bgcolor: 'background.paper', border: '2px solid #000', p: 2, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
