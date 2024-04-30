@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Már 18. 20:29
--- Kiszolgáló verziója: 10.4.28-MariaDB
--- PHP verzió: 8.2.4
+-- Létrehozás ideje: 2024. Ápr 30. 20:21
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,19 +27,6 @@ USE `auth`;
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `aspnetroleclaims`
---
-
-CREATE TABLE `aspnetroleclaims` (
-  `Id` int(11) NOT NULL,
-  `RoleId` varchar(255) NOT NULL,
-  `ClaimType` longtext DEFAULT NULL,
-  `ClaimValue` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `aspnetroles`
 --
 
@@ -57,32 +44,6 @@ CREATE TABLE `aspnetroles` (
 INSERT INTO `aspnetroles` (`Id`, `Name`, `NormalizedName`, `ConcurrencyStamp`) VALUES
 ('780067f7-8b03-4131-9b00-f9f05892fa43', 'ADMIN', 'ADMIN', NULL),
 ('929fd86e-d0ae-4f00-937e-3e77f710227f', 'USER', 'USER', NULL);
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `aspnetuserclaims`
---
-
-CREATE TABLE `aspnetuserclaims` (
-  `Id` int(11) NOT NULL,
-  `UserId` varchar(255) NOT NULL,
-  `ClaimType` longtext DEFAULT NULL,
-  `ClaimValue` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `aspnetuserlogins`
---
-
-CREATE TABLE `aspnetuserlogins` (
-  `LoginProvider` varchar(255) NOT NULL,
-  `ProviderKey` varchar(255) NOT NULL,
-  `ProviderDisplayName` longtext DEFAULT NULL,
-  `UserId` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -149,19 +110,6 @@ CREATE TRIGGER `DeleteOrderU` AFTER DELETE ON `aspnetusers` FOR EACH ROW BEGIN
 END
 $$
 DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `aspnetusertokens`
---
-
-CREATE TABLE `aspnetusertokens` (
-  `UserId` varchar(255) NOT NULL,
-  `LoginProvider` varchar(255) NOT NULL,
-  `Name` varchar(255) NOT NULL,
-  `Value` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -316,32 +264,11 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 --
 
 --
--- A tábla indexei `aspnetroleclaims`
---
-ALTER TABLE `aspnetroleclaims`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `IX_AspNetRoleClaims_RoleId` (`RoleId`);
-
---
 -- A tábla indexei `aspnetroles`
 --
 ALTER TABLE `aspnetroles`
   ADD PRIMARY KEY (`Id`),
   ADD UNIQUE KEY `RoleNameIndex` (`NormalizedName`);
-
---
--- A tábla indexei `aspnetuserclaims`
---
-ALTER TABLE `aspnetuserclaims`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `IX_AspNetUserClaims_UserId` (`UserId`);
-
---
--- A tábla indexei `aspnetuserlogins`
---
-ALTER TABLE `aspnetuserlogins`
-  ADD PRIMARY KEY (`LoginProvider`,`ProviderKey`),
-  ADD KEY `IX_AspNetUserLogins_UserId` (`UserId`);
 
 --
 -- A tábla indexei `aspnetuserroles`
@@ -357,12 +284,6 @@ ALTER TABLE `aspnetusers`
   ADD PRIMARY KEY (`Id`),
   ADD UNIQUE KEY `UserNameIndex` (`NormalizedUserName`),
   ADD KEY `EmailIndex` (`NormalizedEmail`);
-
---
--- A tábla indexei `aspnetusertokens`
---
-ALTER TABLE `aspnetusertokens`
-  ADD PRIMARY KEY (`UserId`,`LoginProvider`,`Name`);
 
 --
 -- A tábla indexei `categories`
@@ -404,18 +325,6 @@ ALTER TABLE `__efmigrationshistory`
 --
 
 --
--- AUTO_INCREMENT a táblához `aspnetroleclaims`
---
-ALTER TABLE `aspnetroleclaims`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT a táblához `aspnetuserclaims`
---
-ALTER TABLE `aspnetuserclaims`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT a táblához `categories`
 --
 ALTER TABLE `categories`
@@ -444,35 +353,11 @@ ALTER TABLE `products`
 --
 
 --
--- Megkötések a táblához `aspnetroleclaims`
---
-ALTER TABLE `aspnetroleclaims`
-  ADD CONSTRAINT `FK_AspNetRoleClaims_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `aspnetuserclaims`
---
-ALTER TABLE `aspnetuserclaims`
-  ADD CONSTRAINT `FK_AspNetUserClaims_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `aspnetuserlogins`
---
-ALTER TABLE `aspnetuserlogins`
-  ADD CONSTRAINT `FK_AspNetUserLogins_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
-
---
 -- Megkötések a táblához `aspnetuserroles`
 --
 ALTER TABLE `aspnetuserroles`
   ADD CONSTRAINT `FK_AspNetUserRoles_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_AspNetUserRoles_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `aspnetusertokens`
---
-ALTER TABLE `aspnetusertokens`
-  ADD CONSTRAINT `FK_AspNetUserTokens_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
 
 --
 -- Megkötések a táblához `comments`
