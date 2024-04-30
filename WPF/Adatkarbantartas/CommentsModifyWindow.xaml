@@ -1,0 +1,30 @@
+﻿<Window x:Class="Adatkarbantartas.CommentsModifyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Adatkarbantartas"
+        mc:Ignorable="d"
+        Title="CommentsModifyWindow" Height="450" Width="553" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
+    <Grid Margin="0,0,0,0">
+        <DockPanel LastChildFill="False" Margin="0,0,0,366" Background="#FF23B5E8"/>
+        <Label Content="CommentsModifyWindow" HorizontalAlignment="Left" Margin="33,21,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold"/>
+        <StackPanel Margin="10,73,10,10" Grid.Row="0">
+            <TextBlock Text="Comment ID:"/>
+            <TextBox x:Name="txtCommentId" IsReadOnly="True"/>
+            <TextBlock Text="User ID:"/>
+            <TextBox x:Name="txtUserId"/>
+            <TextBlock Text="Product ID:"/>
+            <TextBox x:Name="txtProductId"/>
+            <TextBlock Text="Ratings:"/>
+            <TextBox x:Name="txtRatings"/>
+            <TextBlock Text="Comments:"/>
+            <TextBox x:Name="txtComments"/>
+            <TextBlock Text="Review Date:"/>
+            <DatePicker x:Name="dpReviewDate"/>
+        </StackPanel>
+        <Button Content="Save" Background="#FF23B5E8" HorizontalAlignment="Left" Margin="332,364,0,0" VerticalAlignment="Top" Height="33" Width="70" Foreground="White" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Click="SaveButton_Click" />
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="439,364,0,0" VerticalAlignment="Top" Height="33" Width="68" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Foreground="White" Background="#FF23B5E8" Click="ClearButton_Click"/>
+        <Button Content="Delete" Background="#FF23B5E8" HorizontalAlignment="Left" Margin="226,364,0,0" VerticalAlignment="Top" Height="33" Width="70" Foreground="White" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Click="DeleteButton_Click" />
+    </Grid>
+</Window>

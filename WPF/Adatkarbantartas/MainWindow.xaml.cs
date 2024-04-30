@@ -74,5 +74,34 @@ namespace Adatkarbantartas
             Users.Source = new BitmapImage(new Uri("User.png", UriKind.Relative));
         }
 
+        private void Users_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            User user = new User();
+            user.Show();
+        }
+
+        private void Products_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Products products = new Products();
+            products.Show();
+        }
+
+        private void Categories_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Categories categories = new Categories();
+            categories.Show();
+        }
+
+        private void Comments_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Comments comments = new Comments();
+            comments.Show();
+        }
+
+        private void Orders_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Orders orders = new Orders();
+            orders.Show();
+        }
     }
 }

@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Adatkarbantartas"
         mc:Ignorable="d"
-        Title="User" Height="702" Width="1100" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Background="#FF23B5E8">
+        Title="User" Height="702" Width="1100" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" Background="#FF23B5E8">
     <Grid Width="1100" Margin="0,0,0,-16">
         <Grid.RowDefinitions>
             <RowDefinition Height="54*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DataGrid CanUserResizeColumns="False"  CanUserResizeRows="False" x:Name="dtg_User" Margin="0,0,0,106" Background="White" BorderBrush="#FF23B5E8">
+        <DataGrid CanUserResizeColumns="False"  CanUserResizeRows="False" x:Name="dtg_User" Margin="0,0,0,106" Background="White" MouseDoubleClick="dtg_User_MouseDoubleClick" BorderBrush="#FF23B5E8">
 
         </DataGrid>
         <Label Content="Manage Users" HorizontalAlignment="Left" Margin="39,583,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" FontFamily="Century Gothic" FontSize="36" FontWeight="Bold"/>
-        <Image HorizontalAlignment="Left" Height="74" Margin="975,576,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="-0.478,0.344" Source="/Add Role Administrator.png"  MouseLeftButtonDown="Manage_Users" Stretch="Fill" Grid.RowSpan="2"/>
-        <Image HorizontalAlignment="Left" Height="86" Margin="842,570,0,0" VerticalAlignment="Top" Width="100" Source="/Role Up.png"/>
+        <Image x:Name="AddUser" HorizontalAlignment="Left" Height="74" Margin="933,576,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="-0.478,0.344" Source="/Add Role Administrator.png"  MouseLeftButtonDown="Manage_Users" Stretch="Fill" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave"/>
+        <Image x:Name="RoleUpUser" HorizontalAlignment="Left" Height="86" Margin="800,570,0,0" VerticalAlignment="Top" Width="100" Source="/Role Up.png" MouseLeftButtonDown="User_Role_Up" MouseEnter="RoleUpUser_MouseEnter" MouseLeave="RoleUpUser_MouseLeave"/>
 
     </Grid>
 </Window>

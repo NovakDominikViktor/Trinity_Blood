@@ -1,50 +1,130 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\",
+  "WorkspaceRootPath": "F:\\github\\Trinity_Blood\\WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\adatkarbantartas\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\comments.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\comments.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\wpf\\adatkarbantartas\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\categorymodifywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\categorymodifywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\wpf\\adatkarbantartas\\user.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\user.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\categoryaddwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\categoryaddwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\wpf\\adatkarbantartas\\user.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\user.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\categoryaddwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\categoryaddwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\wpf\\adatkarbantartas\\usermodule.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\categories.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\categories.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\categories.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\categories.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\addorder.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\addorder.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\addorder.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\addorder.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\orders.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\orders.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\orders.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\orders.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\modifyproductwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\modifyproductwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\modifyproductwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\modifyproductwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\productaddwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\productaddwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\productaddwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\productaddwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\products.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\products.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\products.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\products.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\userroleup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\userroleup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\userroleup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\userroleup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\modifyuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\modifyuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\modifyuserwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\modifyuserwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\usermodule.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\usermodule.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\adatkarbantartas\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\adatkarbantartas\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|c:\\users\\kd\u00E1niel\\documents\\github\\trinity_blood\\wpf\\adatkarbantartas\\usermodule.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\usermodule.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\usermodule.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\adatkarbantartas\\loginscreen.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\loginscreen.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\user.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\user.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\adatkarbantartas\\loginscreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\loginscreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\user.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\user.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\adatkarbantartas\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|f:\\github\\trinity_blood\\wpf\\adatkarbantartas\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\commentsmodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\commentsmodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\comments.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\comments.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|F:\\github\\Trinity_Blood\\WPF\\adatkarbantartas\\categorymodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7B5D1B10-8F2D-45B2-B7BC-493ECEEA25AC}|Adatkarbantartas\\Adatkarbantartas.csproj|solutionrelative:adatkarbantartas\\categorymodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,66 +134,115 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserModule.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserModule.xaml.cs",
-              "RelativeDocumentMoniker": "Adatkarbantartas\\UserModule.xaml.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserModule.xaml.cs",
-              "RelativeToolTip": "Adatkarbantartas\\UserModule.xaml.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAmwCQAAAAvAAAA",
+              "DocumentIndex": 2,
+              "Title": "CategoryAddWindow.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CategoryAddWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\CategoryAddWindow.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CategoryAddWindow.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\CategoryAddWindow.xaml.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAUwEsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T12:20:16.696Z",
+              "WhenOpened": "2024-04-30T18:39:47.156Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.xaml.cs",
-              "RelativeDocumentMoniker": "Adatkarbantartas\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.xaml.cs",
-              "RelativeToolTip": "Adatkarbantartas\\App.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "CategoryModifyWindow.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CategoryModifyWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\CategoryModifyWindow.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CategoryModifyWindow.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\CategoryModifyWindow.xaml.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAGIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T09:09:21.098Z",
+              "WhenOpened": "2024-04-30T18:51:12.169Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Comments.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Comments.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\Comments.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Comments.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\Comments.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T18:55:37.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CategoryAddWindow.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CategoryAddWindow.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\CategoryAddWindow.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CategoryAddWindow.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\CategoryAddWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T18:36:58.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Orders.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Orders.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\Orders.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Orders.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\Orders.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T19:43:18.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ModifyProductWindow.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ModifyProductWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\ModifyProductWindow.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ModifyProductWindow.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\ModifyProductWindow.xaml.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAqwIgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T17:02:53.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ModifyProductWindow.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ModifyProductWindow.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\ModifyProductWindow.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ModifyProductWindow.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\ModifyProductWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T16:54:04.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "User.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\User.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\User.xaml.cs",
               "RelativeDocumentMoniker": "Adatkarbantartas\\User.xaml.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\User.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\User.xaml.cs",
               "RelativeToolTip": "Adatkarbantartas\\User.xaml.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAuwCkAAAAAAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAswGYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-26T11:36:18.702Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserModule.xaml",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserModule.xaml",
-              "RelativeDocumentMoniker": "Adatkarbantartas\\UserModule.xaml",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserModule.xaml",
-              "RelativeToolTip": "Adatkarbantartas\\UserModule.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-26T11:18:41.016Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 23,
               "Title": "User.xaml",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\User.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\User.xaml",
               "RelativeDocumentMoniker": "Adatkarbantartas\\User.xaml",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\User.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\User.xaml",
               "RelativeToolTip": "Adatkarbantartas\\User.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-03-26T04:34:13.02Z",
@@ -121,49 +250,161 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Categories.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Categories.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\Categories.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Categories.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\Categories.xaml.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAywEsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T17:57:54.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Categories.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Categories.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\Categories.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Categories.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\Categories.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T17:49:23.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddOrder.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\AddOrder.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\AddOrder.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\AddOrder.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\AddOrder.xaml.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAqwFYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T20:03:34.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AddOrder.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\AddOrder.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\AddOrder.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\AddOrder.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\AddOrder.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T19:59:09.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ModifyUserWindow.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ModifyUserWindow.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\ModifyUserWindow.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ModifyUserWindow.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\ModifyUserWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T15:26:53.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UserModule.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserModule.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\UserModule.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserModule.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\UserModule.xaml.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAiwD8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-26T12:20:16.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UserModule.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserModule.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\UserModule.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserModule.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\UserModule.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T13:53:57.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "App.config",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.config",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\App.config",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.config",
+              "RelativeToolTip": "Adatkarbantartas\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-04-30T20:10:11.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Orders.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Orders.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\Orders.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Orders.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\Orders.xaml.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAG4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T19:46:48.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProductAddWindow.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ProductAddWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\ProductAddWindow.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ProductAddWindow.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\ProductAddWindow.xaml.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAUwFUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T18:15:38.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "CommentsModifyWindow.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CommentsModifyWindow.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\CommentsModifyWindow.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CommentsModifyWindow.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\CommentsModifyWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T19:13:00.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\MainWindow.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Adatkarbantartas\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\MainWindow.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\MainWindow.xaml.cs",
               "RelativeToolTip": "Adatkarbantartas\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACIAAAAJAAAA",
+              "ViewState": "AQIAAFEAAAAAAAAAAADwv2EAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-26T03:33:52.749Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.xaml",
-              "RelativeDocumentMoniker": "Adatkarbantartas\\App.xaml",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.xaml",
-              "RelativeToolTip": "Adatkarbantartas\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-26T03:01:05.578Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.config",
-              "RelativeDocumentMoniker": "Adatkarbantartas\\App.config",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.config",
-              "RelativeToolTip": "Adatkarbantartas\\App.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-03-26T03:01:02.402Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 25,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\MainWindow.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Adatkarbantartas\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\MainWindow.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\MainWindow.xaml",
               "RelativeToolTip": "Adatkarbantartas\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-03-26T02:31:16.011Z",
@@ -171,28 +412,113 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LoginScreen.xaml",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\LoginScreen.xaml",
-              "RelativeDocumentMoniker": "Adatkarbantartas\\LoginScreen.xaml",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\LoginScreen.xaml",
-              "RelativeToolTip": "Adatkarbantartas\\LoginScreen.xaml",
+              "DocumentIndex": 26,
+              "Title": "App.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\App.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\App.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-26T02:11:26.473Z",
+              "WhenOpened": "2024-04-30T20:10:14.262Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LoginScreen.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\LoginScreen.xaml.cs",
-              "RelativeDocumentMoniker": "Adatkarbantartas\\LoginScreen.xaml.cs",
-              "ToolTip": "C:\\Users\\kd\u00E1niel\\Documents\\GitHub\\Trinity_Blood\\WPF\\Adatkarbantartas\\LoginScreen.xaml.cs",
-              "RelativeToolTip": "Adatkarbantartas\\LoginScreen.xaml.cs",
-              "ViewState": "AQIAAG4AAAAAAAAAAAAAAC4AAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T02:11:21.419Z",
+              "DocumentIndex": 13,
+              "Title": "ProductAddWindow.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ProductAddWindow.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\ProductAddWindow.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ProductAddWindow.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\ProductAddWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T18:03:13.69Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Products.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Products.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\Products.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Products.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\Products.xaml.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAUwFMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:36:41.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Products.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Products.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\Products.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Products.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\Products.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T16:32:11.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserRoleUp.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserRoleUp.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\UserRoleUp.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserRoleUp.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\UserRoleUp.xaml.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAqwFIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T14:15:31.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserRoleUp.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserRoleUp.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\UserRoleUp.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\UserRoleUp.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\UserRoleUp.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T14:11:15.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ModifyUserWindow.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ModifyUserWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\ModifyUserWindow.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\ModifyUserWindow.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\ModifyUserWindow.xaml.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAqwHUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T15:34:33.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CategoryModifyWindow.xaml",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CategoryModifyWindow.xaml",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\CategoryModifyWindow.xaml",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\CategoryModifyWindow.xaml",
+              "RelativeToolTip": "Adatkarbantartas\\CategoryModifyWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-30T18:47:54.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Comments.xaml.cs",
+              "DocumentMoniker": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Comments.xaml.cs",
+              "RelativeDocumentMoniker": "Adatkarbantartas\\Comments.xaml.cs",
+              "ToolTip": "F:\\github\\Trinity_Blood\\WPF\\Adatkarbantartas\\Comments.xaml.cs",
+              "RelativeToolTip": "Adatkarbantartas\\Comments.xaml.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAowBkAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T19:09:54.45Z"
             }
           ]
         }
